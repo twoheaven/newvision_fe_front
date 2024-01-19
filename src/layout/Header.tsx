@@ -89,7 +89,7 @@ const Header = ({}: HeaderProps) => {
           {/* 소셜 링크 모음 */}
           <Flex gap={"10px"} alignItems={"center"}>
             {/* YouTube 링크를 위한 WrapperLink */}
-            <ExternalLink href={"https://www.youtube.com/@kimonyou153"}>
+            <a href={"https://www.youtube.com/@kimonyou153"}>
               <img
                 src={youtubeLogo}
                 alt="유튜브"
@@ -97,9 +97,9 @@ const Header = ({}: HeaderProps) => {
                   width: "28px",
                 }}
               />
-            </ExternalLink>
+            </a>
             {/* Instagram 링크를 위한 WrapperLink */}
-            <ExternalLink href={"https://www.instagram.com/new_vision_story"}>
+            <a href={"https://www.instagram.com/new_vision_story"}>
               <img
                 src={instagramLogo}
                 alt="인스타그램"
@@ -107,10 +107,10 @@ const Header = ({}: HeaderProps) => {
                   width: "24px",
                 }}
               />
-            </ExternalLink>
+            </a>
 
             {/* Naver 블로그 링크를 위한 WrapperLink */}
-            <ExternalLink href={"https://blog.naver.com/new_vision_church"}>
+            <a href={"https://blog.naver.com/new_vision_church"}>
               <img
                 src={naverBlogLogo}
                 alt="네이버블로그"
@@ -118,7 +118,7 @@ const Header = ({}: HeaderProps) => {
                   width: "24px",
                 }}
               />
-            </ExternalLink>
+            </a>
           </Flex>
         </Flex>
       </Content>

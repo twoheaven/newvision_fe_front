@@ -1,4 +1,4 @@
-import { Link, LinkProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import colorSet from "src/styles/color-set";
 import styled from "styled-components";
 
