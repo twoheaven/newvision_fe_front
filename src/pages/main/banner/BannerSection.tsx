@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import Paths from "src/types/paths";
 
 import { deleteBanner, getBanners, postBanner } from "@/apis/banner-api";
-import WrapperLink from "@/components/wrapperLink/WrapperLink";
+import { WrapperLink } from "@/components/wrapperLink/WrapperLink";
 import useIsMobile from "@/hooks/useIsMobile";
 import colorSet from "@/styles/color-set";
 import Fonts from "@/styles/fonts";

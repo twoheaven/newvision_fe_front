@@ -2,7 +2,7 @@ import { Flex } from "@dohyun-ko/react-atoms";
 import { useQuery } from "@tanstack/react-query";
 
 import { getText } from "@/apis/text-api";
-import WrapperLink from "@/components/wrapperLink/WrapperLink";
+import { WrapperLink } from "@/components/wrapperLink/WrapperLink";
 import { defaultImage } from "@/dummy-data";
 import Paths from "@/types/paths";
 import QueryKeys from "@/types/queryKeys";

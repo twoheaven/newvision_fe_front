@@ -18,7 +18,7 @@ import {
   postRecommend,
   putRecommend,
 } from "@/apis/recommend-api";
-import WrapperLink from "@/components/wrapperLink/WrapperLink";
+import { WrapperLink } from "@/components/wrapperLink/WrapperLink";
 import useIsMobile from "@/hooks/useIsMobile";
 import colorSet from "@/styles/color-set";
 import Fonts from "@/styles/fonts";

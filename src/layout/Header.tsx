@@ -5,28 +5,27 @@ import {
   Content,
   Divider,
   Flex,
-  Input,
   Spacer,
   Text,
 } from "@dohyun-ko/react-atoms";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Icons from "src/assets/Icons";
-import WrapperLink from "src/components/wrapperLink/WrapperLink";
+import { ExternalLink } from "src/components/wrapperLink/WrapperLink";
 import colorSet from "src/styles/color-set";
 import Paths from "src/types/paths";
+import styled from "styled-components";
 
-import facebookLogo from "@/assets/facebook-logo.svg";
 import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
-import Logo from "@/assets/logo.png";
 import naverBlogLogo from "@/assets/naver-blog-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
 import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts";
 import { isLoggedIn } from "@/utils/utils";
 
-import kakaoLogo from "../assets/kakao-logo.svg";
+const StyledHeaderArea = styled(Area)`
+  background-color: #999999; /* 원하는 배경색으로 변경 */
+`;
 
 // Header 컴포넌트의 프로퍼티를 정의하는 인터페이스
 interface HeaderProps {}
@@ -57,7 +56,7 @@ const Header = ({}: HeaderProps) => {
 
   return (
     // Header 영역
-    <Area>
+    <StyledHeaderArea>
       <Content>
         <Spacer height={"7px"} />
         {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
@@ -70,13 +69,9 @@ const Header = ({}: HeaderProps) => {
         >
           {/* 왼쪽 섹션 - 로고, 설명, 메뉴 등 */}
           <Flex gap={"20px"} alignItems={"center"}>
-            {/* 메인 페이지로 이동하는 링크 */}
-            <WrapperLink to={Paths.Main}>
-              <img src={Logo} alt={"logo"} width={"70px"} />
-            </WrapperLink>
             {/* 로그인 상태에 따라 콘텐츠 생성 버튼 표시 */}
             {isLoggedIn() && (
-              <WrapperLink to={Paths.ContentCreate}>
+              <ExternalLink to={Paths.ContentCreate}>
                 <Button
                   backgroundColor={colorSet.primary}
                   style={{
@@ -88,51 +83,13 @@ const Header = ({}: HeaderProps) => {
                     콘텐츠 생성
                   </Text>
                 </Button>
-              </WrapperLink>
+              </ExternalLink>
             )}
-          </Flex>
-          <Flex gap={"30px"}>
-            <Text></Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-            <Text>　</Text>
-          </Flex>
-          {/* 오른쪽 섹션 - 검색 폼 및 문의 전화번호 */}
-          <Flex
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            gap={"10px"}
-          >
-            {/* 검색 폼 */}
-            <form onSubmit={handleFormSubmit}>
-              <Flex alignItems={"center"}>
-                <Input
-                  width={"140px"}
-                  name={"searchQuery"}
-                  placeholder={"검색어를 입력하세요"}
-                  style={{
-                    border: "none",
-                  }}
-                />
-                <Button>
-                  <Icons.Search size={"24px"} color={colorSet.textLight} />
-                </Button>
-              </Flex>
-            </form>
-
-            {/* 문의 전화번호 */}
-            <Text color={colorSet.textGray}>문의 : 0505-510-0202</Text>
           </Flex>
           {/* 소셜 링크 모음 */}
           <Flex gap={"10px"} alignItems={"center"}>
             {/* YouTube 링크를 위한 WrapperLink */}
-            <WrapperLink to={"https://www.youtube.com/@buskingworld"}>
+            <ExternalLink href={"https://www.youtube.com/@kimonyou153"}>
               <img
                 src={youtubeLogo}
                 alt="유튜브"
@@ -140,27 +97,9 @@ const Header = ({}: HeaderProps) => {
                   width: "28px",
                 }}
               />
-            </WrapperLink>
-
-            {/* Facebook 링크를 위한 WrapperLink */}
-            <WrapperLink
-              to={"https://www.facebook.com/profile.php?id=61551051985678"}
-            >
-              <img
-                src={facebookLogo}
-                alt="페이스북"
-                style={{
-                  width: "24px",
-                }}
-              />
-            </WrapperLink>
-
+            </ExternalLink>
             {/* Instagram 링크를 위한 WrapperLink */}
-            <WrapperLink
-              to={
-                "https://instagram.com/buskingworld2023?igshid=MmU2YjMzNjRlOQ=="
-              }
-            >
+            <ExternalLink href={"https://www.instagram.com/new_vision_story"}>
               <img
                 src={instagramLogo}
                 alt="인스타그램"
@@ -168,10 +107,10 @@ const Header = ({}: HeaderProps) => {
                   width: "24px",
                 }}
               />
-            </WrapperLink>
+            </ExternalLink>
 
             {/* Naver 블로그 링크를 위한 WrapperLink */}
-            <WrapperLink to={"https://blog.naver.com/buskingworld"}>
+            <ExternalLink href={"https://blog.naver.com/new_vision_church"}>
               <img
                 src={naverBlogLogo}
                 alt="네이버블로그"
@@ -179,14 +118,14 @@ const Header = ({}: HeaderProps) => {
                   width: "24px",
                 }}
               />
-            </WrapperLink>
+            </ExternalLink>
           </Flex>
         </Flex>
       </Content>
 
       {/* 가로선 구분자 */}
       <Divider />
-    </Area>
+    </StyledHeaderArea>
   );
 };
 

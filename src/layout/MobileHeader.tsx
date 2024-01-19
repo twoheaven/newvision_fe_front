@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Icons from "src/assets/Icons";
-import WrapperLink from "src/components/wrapperLink/WrapperLink";
+import { WrapperLink } from "src/components/wrapperLink/WrapperLink";
 import colorSet from "src/styles/color-set";
 import Paths from "src/types/paths";
 
