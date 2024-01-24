@@ -12,16 +12,12 @@ const EventPage = ({}: EventPageProps) => {
 
   return (
     <Area>
-      <Spacer height={"50px"} />
-
       <EventPageHeader />
 
       <Spacer height={"30px"} />
 
       <Content>
-        <Flex justifyContent="center">
-          <Intro.EventIntro1 />
-        </Flex>
+        <Flex justifyContent="center"></Flex>
       </Content>
 
       <Spacer height={"100px"} />
