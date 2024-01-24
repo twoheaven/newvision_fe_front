@@ -79,11 +79,11 @@ const StyledButton = styled.button<{
   `}
 
   height: 133px; /* 데스크탑 환경에서의 높이 */
-  width: 220px;
+  width: 226px;
   /* 모바일 환경일 때의 스타일 */
   @media (max-width: 600px) {
-    width: 80px;
-    height: 40px;
+    width: 78px;
+    height: 50px;
   }
 `;
 
