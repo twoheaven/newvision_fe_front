@@ -8,8 +8,6 @@ import {
   Spacer,
   Text,
 } from "@dohyun-ko/react-atoms";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { ExternalLink } from "src/components/wrapperLink/WrapperLink";
 import colorSet from "src/styles/color-set";
 import Paths from "src/types/paths";
@@ -19,7 +17,6 @@ import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
 import naverBlogLogo from "@/assets/naver-blog-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
-import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts";
 import { isLoggedIn } from "@/utils/utils";
 
@@ -32,28 +29,6 @@ interface HeaderProps {}
 
 // Header를 나타내는 함수형 컴포넌트
 const Header = ({}: HeaderProps) => {
-  // 모바일 환경 여부를 확인하는 커스텀 훅 사용
-  const isMobile = useIsMobile();
-  // React Router의 navigate 훅 사용
-  const navigate = useNavigate();
-
-  // 검색 폼 제출 처리 함수
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // 검색어 입력란 가져오기
-    const searchQuery = e.currentTarget.searchQuery as HTMLInputElement;
-
-    // 검색어가 없으면 경고 메시지 표시
-    if (!searchQuery.value) {
-      toast.warn("검색어를 입력해주세요");
-      return;
-    }
-
-    // 검색 결과 페이지로 이동
-    navigate(Paths.Search + "?keyword=" + searchQuery.value);
-  };
-
   return (
     // Header 영역
     <StyledHeaderArea>
