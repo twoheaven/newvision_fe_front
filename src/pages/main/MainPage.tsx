@@ -3,9 +3,7 @@ import { Spacer } from "@dohyun-ko/react-atoms";
 import Category from "./category/Category";
 import NewBannerSection from "./newbanner/NewBannerSection";
 
-interface MainPageProps {}
-
-const MainPage = ({}: MainPageProps) => {
+const MainPage = () => {
   return (
     <>
       <NewBannerSection />

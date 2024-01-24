@@ -12,15 +12,13 @@ const StyledFlexContainer = styled(Flex)`
   display: flex;
   width: 130%; /* 전체 너비 사용 */
 `;
-// Header 컴포넌트의 프로퍼티를 정의하는 인터페이스
-interface Header2Props {}
 
 // Header를 나타내는 함수형 컴포넌트
-const Header2 = ({}: Header2Props) => {
+const Header2 = () => {
   const isMobile = useIsMobile();
 
   // StyledText 스타일드 컴포넌트를 Header2 내부에서 정의
-  const StyledText = styled(({ isMobile, ...rest }) => <Text {...rest} />)`
+  const StyledText = styled(Text)`
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 900; /* 원하는 굵기로 조절 */
     color: white; /* 원하는 색상으로 조절 */
