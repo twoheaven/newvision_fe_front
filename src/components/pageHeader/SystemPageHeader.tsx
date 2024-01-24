@@ -1,27 +1,51 @@
-import { Divider, Spacer } from "@dohyun-ko/react-atoms";
+import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import useIsMobile from "@/hooks/useIsMobile";
+import Header2 from "@/layout/Header2";
 
-import PageHeader from "./PageHeader";
+import mainImg from "./assets/missionaryimg.png";
 
+// BannerSection 컴포넌트의 프로퍼티 정의
 interface SystemPageHeaderProps {}
 
+// BannerSection 컴포넌트 정의
 const SystemPageHeader = ({}: SystemPageHeaderProps) => {
-  // 화면 크기에 따라 모바일 여부를 판별합니다.
-  const isMobile = useIsMobile();
-
+  // JSX 반환
   return (
-    // 시스템 페이지에 해당하는 헤더 컴포넌트입니다.
-    <PageHeader>
-      {/* 페이지 헤더의 제목을 설정합니다. */}
-      <PageHeader.Title text={"시스템"} />
+    <>
+      {/* 배너 섹션 영역 */}
+      <Flex justifyContent={"center"} width={"100%"}>
+        <Flex
+          width={"100%"}
+          style={{
+            position: "relative",
+          }}
+        >
+          {/* 배너 이미지 표시 */}
+          <img
+            width={"100%"}
+            src={mainImg}
+            alt={"mainimg"}
+            style={{
+              pointerEvents: "none",
+              width: "100%",
+              minWidth: "100%",
+            }}
+          />
 
-      {/* Spacer 컴포넌트를 사용하여 간격을 조절합니다. */}
-      <Spacer height={isMobile ? "30px" : "50px"} />
-
-      {/* Divider 컴포넌트를 사용하여 구분선을 추가합니다. */}
-      <Divider />
-    </PageHeader>
+          {/* 헤더 */}
+          <Flex
+            justifyContent="center"
+            width={"80%"}
+            style={{
+              position: "absolute",
+            }}
+          >
+            <Spacer height={"5px"} />
+            <Header2 />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
   );
 };
 

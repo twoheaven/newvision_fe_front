@@ -1,13 +1,10 @@
 // 필요한 컴포넌트 및 라이브러리 가져오기
-import { Area, Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
-import { useNavigate } from "react-router-dom";
+import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { WrapperLink } from "src/components/wrapperLink/WrapperLink";
 import Paths from "src/types/paths";
 import styled from "styled-components";
 
 import Logo from "@/assets/logo.png";
-// 로고 이미지 가져오기
-import useIsMobile from "@/hooks/useIsMobile";
 
 // Flex 컨테이너 스타일을 직접 지정
 const StyledFlexContainer = styled(Flex)`
@@ -28,11 +25,6 @@ interface Header2Props {}
 
 // Header를 나타내는 함수형 컴포넌트
 const Header2 = ({}: Header2Props) => {
-  // 모바일 환경 여부를 확인하는 커스텀 훅 사용
-  const isMobile = useIsMobile();
-  // React Router의 navigate 훅 사용
-  const navigate = useNavigate();
-
   return (
     // Header 영역
     <Content>

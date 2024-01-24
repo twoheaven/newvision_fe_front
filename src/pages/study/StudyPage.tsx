@@ -7,20 +7,14 @@ import useIsMobile from "@/hooks/useIsMobile";
 interface StudyPageProps {}
 
 const StudyPage = ({}: StudyPageProps) => {
-  const isMobile = useIsMobile();
-
   return (
     <Area>
-      <Spacer height={"50px"} />
-
       <StudyPageHeader />
 
       <Spacer height={"30px"} />
 
       <Content>
-        <Flex justifyContent="center">
-          <Intro.StudyIntro1 />
-        </Flex>
+        <Flex justifyContent="center"></Flex>
       </Content>
 
       <Spacer height={"100px"} />
