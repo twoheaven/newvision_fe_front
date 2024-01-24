@@ -10,7 +10,7 @@ enum Paths {
   ContentCreate = "/content/create",
   Event = "/event",
   Party = "/party",
-  Study = "study",
+  Study = "/study",
 }
 
 export default Paths;
