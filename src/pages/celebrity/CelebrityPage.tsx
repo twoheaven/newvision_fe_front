@@ -27,21 +27,11 @@ const CelebrityPage = ({}: CelebrityPageProps) => {
 
   return (
     <Area>
-      <Spacer height={"50px"} />
-
       <CelebrityPageHeader />
 
       <Spacer height={"30px"} />
 
-      {data && (
-        <Content>
-          <Grid gridTemplateColumns={isMobile ? "1fr" : "1fr 1fr"} gap={"20px"}>
-            {dividedTeams.map((team) => (
-              <CelebrityCard key={team.id} team={team} />
-            ))}
-          </Grid>
-        </Content>
-      )}
+      <Content></Content>
 
       <Spacer height={"100px"} />
     </Area>

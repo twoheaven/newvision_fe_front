@@ -1,68 +1,51 @@
-import { Divider, Spacer } from "@dohyun-ko/react-atoms";
-import { useAtom } from "jotai";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import useIsMobile from "@/hooks/useIsMobile";
-import {
-  activeSubTabAtom,
-  activeTabAtom,
-  divisionAtom,
-  TeamTabs,
-} from "@/store";
-import Paths from "@/types/paths";
+import Header2 from "@/layout/Header2";
 
-import PageHeader from "./PageHeader";
+import mainImg from "./assets/introduceimg.png";
 
+// BannerSection 컴포넌트의 프로퍼티 정의
 interface TeamPageHeaderProps {}
 
+// BannerSection 컴포넌트 정의
 const TeamPageHeader = ({}: TeamPageHeaderProps) => {
-  const [activeTab, setActiveTab] = useAtom(activeTabAtom);
-  const [activeSubTab, setActiveSubTab] = useAtom(activeSubTabAtom);
-  const [, setDivision] = useAtom(divisionAtom);
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (activeTab.subTabs?.includes(activeSubTab)) return;
-    activeTab.subTabs && setActiveSubTab(activeTab.subTabs[0]);
-  }, [activeSubTab, activeTab, setActiveSubTab]);
-
-  useEffect(() => {
-    activeSubTab.division && setDivision(activeSubTab.division);
-
-    const isCelebTab = TeamTabs.some((tab) => tab.name === activeTab.name);
-    if (!isCelebTab) {
-      setActiveTab(TeamTabs[0]);
-    }
-  }, [activeSubTab, setDivision]);
-
-  const isMobile = useIsMobile();
-
+  // JSX 반환
   return (
-    <PageHeader>
-      <PageHeader.Title text={"공연팀"} />
-      <Spacer height={isMobile ? "20px" : "30px"} />
-      <PageHeader.Tabs
-        tabs={TeamTabs}
-        activeTab={activeTab}
-        onClickTab={(tab) => {
-          navigate(Paths.Teams);
-          setActiveTab(tab);
-        }}
-      />
-      <Spacer height={"40px"} />
-      <PageHeader.SubTabs
-        tabs={activeTab.subTabs || []}
-        activeTab={activeSubTab}
-        onClickTab={(tab) => {
-          navigate(Paths.Teams);
-          setActiveSubTab(tab);
-        }}
-      />
-      <Spacer height={isMobile ? "30px" : "50px"} />
-      <Divider />
-    </PageHeader>
+    <>
+      {/* 배너 섹션 영역 */}
+      <Flex justifyContent={"center"} width={"100%"}>
+        <Flex
+          width={"100%"}
+          style={{
+            position: "relative",
+          }}
+        >
+          {/* 배너 이미지 표시 */}
+          <img
+            width={"100%"}
+            src={mainImg}
+            alt={"mainimg"}
+            style={{
+              pointerEvents: "none",
+              width: "100%",
+              minWidth: "100%",
+            }}
+          />
+
+          {/* 헤더 */}
+          <Flex
+            justifyContent="center"
+            width={"80%"}
+            style={{
+              position: "absolute",
+            }}
+          >
+            <Spacer height={"5px"} />
+            <Header2 />
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
   );
 };
 
