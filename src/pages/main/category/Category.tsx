@@ -82,8 +82,8 @@ const StyledButton = styled.button<{
   width: 226px;
   /* 모바일 환경일 때의 스타일 */
   @media (max-width: 600px) {
-    width: 78px;
-    height: 50px;
+    width: 77px;
+    height: 53px;
   }
 `;
 

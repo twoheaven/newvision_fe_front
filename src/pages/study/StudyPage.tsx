@@ -1,12 +1,8 @@
-import { Area, Content, Flex, Grid, Spacer } from "@dohyun-ko/react-atoms";
+import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import Intro from "@/assets/intro";
 import StudyPageHeader from "@/components/pageHeader/StudyPageHeader";
-import useIsMobile from "@/hooks/useIsMobile";
 
-interface StudyPageProps {}
-
-const StudyPage = ({}: StudyPageProps) => {
+const StudyPage = () => {
   return (
     <Area>
       <StudyPageHeader />

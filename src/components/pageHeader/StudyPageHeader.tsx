@@ -4,11 +4,8 @@ import Header2 from "@/layout/Header2";
 
 import mainImg from "./assets/writingimg.png";
 
-// BannerSection 컴포넌트의 프로퍼티 정의
-interface StudyPageHeaderProps {}
-
 // BannerSection 컴포넌트 정의
-const StudyPageHeader = ({}: StudyPageHeaderProps) => {
+const StudyPageHeader = () => {
   // JSX 반환
   return (
     <>

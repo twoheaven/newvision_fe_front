@@ -4,11 +4,8 @@ import Header2 from "@/layout/Header2";
 
 import mainImg from "./assets/introduceimg.png";
 
-// BannerSection 컴포넌트의 프로퍼티 정의
-interface TeamPageHeaderProps {}
-
 // BannerSection 컴포넌트 정의
-const TeamPageHeader = ({}: TeamPageHeaderProps) => {
+const TeamPageHeader = () => {
   // JSX 반환
   return (
     <>

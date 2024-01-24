@@ -4,11 +4,8 @@ import Header2 from "@/layout/Header2";
 
 import mainImg from "./assets/missionaryimg.png";
 
-// BannerSection 컴포넌트의 프로퍼티 정의
-interface SystemPageHeaderProps {}
-
 // BannerSection 컴포넌트 정의
-const SystemPageHeader = ({}: SystemPageHeaderProps) => {
+const SystemPageHeader = () => {
   // JSX 반환
   return (
     <>

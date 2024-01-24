@@ -4,11 +4,8 @@ import Header2 from "@/layout/Header2";
 
 import mainImg from "./assets/sermonimg.png";
 
-// BannerSection 컴포넌트의 프로퍼티 정의
-interface CelebrityPageHeaderProps {}
-
 // BannerSection 컴포넌트 정의
-const CelebrityPageHeader = ({}: CelebrityPageHeaderProps) => {
+const CelebrityPageHeader = () => {
   // JSX 반환
   return (
     <>

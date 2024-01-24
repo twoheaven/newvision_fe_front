@@ -1,15 +1,9 @@
-import { CSSProperties } from "react";
-
 import useIsMobile from "@/hooks/useIsMobile";
 
 import eventImg1 from "./event_img1.jpg";
 import partyImg1 from "./party_img1.jpg";
 import studyImg1 from "./study_img1.jpg";
 import systemImg1 from "./system_img1.jpg";
-
-interface IntroProps {
-  width?: CSSProperties["width"];
-}
 
 const Intro = () => {
   return;

@@ -2,9 +2,7 @@ import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
 import SystemPageHeader from "@/components/pageHeader/SystemPageHeader";
 
-interface SystemPageProps {}
-
-const SystemPage = ({}: SystemPageProps) => {
+const SystemPage = () => {
   return (
     <Area>
       <SystemPageHeader />
