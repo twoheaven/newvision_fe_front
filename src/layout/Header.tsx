@@ -24,7 +24,7 @@ import Fonts from "@/styles/fonts";
 import { isLoggedIn } from "@/utils/utils";
 
 const StyledHeaderArea = styled(Area)`
-  background-color: #999999; /* 원하는 배경색으로 변경 */
+  background-color: "white"; /* 원하는 배경색으로 변경 */
 `;
 
 // Header 컴포넌트의 프로퍼티를 정의하는 인터페이스

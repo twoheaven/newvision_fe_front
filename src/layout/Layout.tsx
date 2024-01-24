@@ -83,7 +83,6 @@ const Layout = ({}: LayoutProps) => {
         >
           {/* 모바일 여부에 따라 헤더를 조건부 렌더링 */}
           <HeaderWrapper />
-          <Header2Wrapper />
 
           {/* 중첩된 라우트를 렌더링하기 위한 아웃렛 */}
           <Outlet />
@@ -117,13 +116,6 @@ const HeaderWrapper = () => {
   const isMobile = useIsMobile();
 
   return isMobile ? <MobileHeader /> : <Header />;
-};
-
-// 모바일과 데스크톱 헤더 중 어떤 것을 선택할지 결정하는 컴포넌트
-const Header2Wrapper = () => {
-  const isMobile = useIsMobile();
-
-  return isMobile ? "" : <Header2 />;
 };
 
 // 메인 레이아웃 컴포넌트를 기본 내보내기로 설정

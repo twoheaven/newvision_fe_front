@@ -10,6 +10,7 @@ import Paths from "src/types/paths";
 import { deleteBanner, getBanners, postBanner } from "@/apis/banner-api";
 import { WrapperLink } from "@/components/wrapperLink/WrapperLink";
 import useIsMobile from "@/hooks/useIsMobile";
+import Header2 from "@/layout/Header2";
 import colorSet from "@/styles/color-set";
 import Fonts from "@/styles/fonts";
 import QueryKeys from "@/types/queryKeys";
@@ -111,6 +112,50 @@ const BannerSection = ({}: BannerSectionProps) => {
   // JSX 반환
   return (
     <>
+      {/* 배너 섹션 영역 */}
+      <Area
+        backgroundColor={
+          (data && data.length > index && data[index].backcolor) || "white"
+        }
+      >
+        <Content>
+          {data && data.length > 0 && (
+            <Flex justifyContent={"center"} width={"100%"}>
+              {data.map((banner) => (
+                <Flex
+                  key={banner.id}
+                  width={"100%"}
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  {/* 배너 이미지 표시 */}
+                  <img
+                    width={"100%"}
+                    src={banner.storedFilePath}
+                    alt={banner.originalFileName}
+                    style={{
+                      pointerEvents: "none",
+                      width: "100%",
+                      minWidth: "100%",
+                    }}
+                  />
+
+                  {/* 배너 하단에 링크 버튼들 표시 */}
+                  <Flex
+                    width={"100%"}
+                    style={{
+                      position: "absolute",
+                    }}
+                  >
+                    <Header2 />
+                  </Flex>
+                </Flex>
+              ))}
+            </Flex>
+          )}
+        </Content>
+      </Area>
       {isLoggedIn() && (
         <Area>
           <Content>
@@ -146,130 +191,6 @@ const BannerSection = ({}: BannerSectionProps) => {
           </Content>
         </Area>
       )}
-      {/* 배너 섹션 영역 */}
-      <Area
-        backgroundColor={
-          (data && data.length > index && data[index].backcolor) || "white"
-        }
-      >
-        <Content>
-          {data && data.length > 0 && (
-            <Flex justifyContent={"center"} width={"100%"}>
-              {/* SwipeableViews를 사용한 배너 슬라이드 */}
-              <SwipeableViews
-                index={index}
-                onChangeIndex={(index) => {
-                  setIndex(index);
-                }}
-                enableMouseEvents
-                style={{
-                  width: "100%",
-                }}
-              >
-                {data.map((banner) => (
-                  <Flex
-                    key={banner.id}
-                    width={"100%"}
-                    style={{
-                      position: "relative",
-                    }}
-                  >
-                    {/* 배너 이미지 표시 */}
-                    <img
-                      width={"100%"}
-                      src={banner.storedFilePath}
-                      alt={banner.originalFileName}
-                      style={{
-                        pointerEvents: "none",
-                        width: "100%",
-                        minWidth: "100%",
-                      }}
-                    />
-                    {/* 로그인 상태에서만 삭제 버튼 표시 */}
-                    {isLoggedIn() && (
-                      <Button
-                        backgroundColor={colorSet.primary}
-                        style={{
-                          position: "absolute",
-                          top: "4%",
-                          right: "4%",
-                          padding: "4px 10px",
-                        }}
-                        onClick={() => {
-                          handleBannerDelete(banner.id);
-                        }}
-                      >
-                        <Text>삭제</Text>
-                      </Button>
-                    )}
-
-                    {/* 배너 하단에 링크 버튼들 표시 */}
-                    <Flex
-                      width={"96%"}
-                      gap={"10px"}
-                      justifyContent={"start"}
-                      alignItems={"stretch"}
-                      wrap={"nowrap"}
-                      style={{
-                        position: "absolute",
-                        bottom: isMobile ? "4%" : "9%",
-                        left: "0",
-                      }}
-                    >
-                      {/* 공연 문의하기 버튼 */}
-                      <Button
-                        backgroundColor={"white"}
-                        borderRadius={"4px"}
-                        style={{
-                          padding: isMobile ? "8px 8px" : "15px 3.8%",
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                        onClick={() => {
-                          navigate(Paths.Contact);
-                        }}
-                      >
-                        <Text
-                          font={Fonts.Bold}
-                          size={isMobile ? "10px" : "20px"}
-                          color="#00A0E9"
-                        >{`공연문의하기 >`}</Text>
-                      </Button>
-
-                      {/* 카카오톡 채팅 링크 버튼
-                      <WrapperLink to={"https://pf.kakao.com/_cVkMG/chat"}>
-                        <Flex
-                          gap={"5px"}
-                          alignItems={"center"}
-                          height={"100%"}
-                          style={{
-                            backgroundColor: "#FFE812",
-                            borderRadius: "40px",
-                            padding: isMobile ? "0 8px" : "0 20px",
-                          }}
-                        >
-                          <img
-                            src={kakaoLogo}
-                            width={isMobile ? "16px" : "40px"}
-                          />
-
-                          <Text
-                            size={isMobile ? "10px" : "20px"}
-                            color={"black"}
-                            font={Fonts.Medium}
-                          >
-                            상담톡 바로가기
-                          </Text>
-                        </Flex>
-                      </WrapperLink> */}
-                    </Flex>
-                  </Flex>
-                ))}
-              </SwipeableViews>
-            </Flex>
-          )}
-        </Content>
-      </Area>
     </>
   );
 };

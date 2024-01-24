@@ -1,12 +1,5 @@
 // 필요한 컴포넌트 및 라이브러리 가져오기
-import {
-  Area,
-  Content,
-  Divider,
-  Flex,
-  Spacer,
-  Text,
-} from "@dohyun-ko/react-atoms";
+import { Area, Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { useNavigate } from "react-router-dom";
 import { WrapperLink } from "src/components/wrapperLink/WrapperLink";
 import Paths from "src/types/paths";
@@ -15,23 +8,19 @@ import styled from "styled-components";
 import Logo from "@/assets/logo.png";
 // 로고 이미지 가져오기
 import useIsMobile from "@/hooks/useIsMobile";
-import Fonts from "@/styles/fonts";
 
-import kakaoLogo from "../assets/kakao-logo.svg";
-
-const Container = styled.div`
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px; /* Set maximum width to 1200px */
-  width: 100%; /* Ensure it takes the full width within the maximum */
-  margin: 0 auto; /* Center the container horizontally */
+// Flex 컨테이너 스타일을 직접 지정
+const StyledFlexContainer = styled(Flex)`
+  display: flex;
+  width: 130%; /* 전체 너비 사용 */
 `;
 
-// WrapperLink에 스타일 추가
-const StyledWrapperLink = styled(WrapperLink)`
-  flex: 1; /* 각 WrapperLink가 동일한 너비를 가질 수 있도록 설정 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+// 스타일드 컴포넌트를 만들어서 Text 컴포넌트 스타일 변경
+const StyledText = styled(Text)`
+  font-size: 24px; /* 원하는 크기로 조절 */
+  color: white; /* 원하는 색상으로 조절 */
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 900; /* 원하는 굵기로 조절 */
 `;
 
 // Header 컴포넌트의 프로퍼티를 정의하는 인터페이스
@@ -46,52 +35,41 @@ const Header2 = ({}: Header2Props) => {
 
   return (
     // Header 영역
-    <Area>
-      <Content>
-        {/* 두번째 층 시작 */}
-        <Spacer height={"5px"} />
-        {/* 메인 페이지로 이동하는 링크 */}
-        <Flex justifyContent="">
-          <Flex>
-            <WrapperLink to={Paths.Main}>
-              <img src={Logo} alt={"logo"} width={"70px"} />
-            </WrapperLink>
-          </Flex>
-          {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
-          {/* 각종 메뉴에 대한 링크 */}
-          <Flex>
-            <WrapperLink to={Paths.Teams}>
-              <Text>공연팀</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-            <WrapperLink to={Paths.Celebrities}>
-              <Text>연예인</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-            <WrapperLink to={Paths.Event}>
-              <Text>행사</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-            <WrapperLink to={Paths.Party}>
-              <Text>파티</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-            <WrapperLink to={Paths.Study}>
-              <Text>교육</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-            <WrapperLink to={Paths.Systems}>
-              <Text>시스템</Text>
-            </WrapperLink>
-            <Text style={{ color: "#999999" }}>|</Text>
-          </Flex>
+    <Content>
+      {/* 두번째 층 시작 */}
+      <Spacer height={"5px"} />
+      {/* 메인 페이지로 이동하는 링크 */}
+      <StyledFlexContainer justifyContent="space-between" alignItems="center">
+        <Flex>
+          <WrapperLink to={Paths.Main}>
+            <img src={Logo} alt={"logo"} width={"180px"} />
+          </WrapperLink>
         </Flex>
-        <Spacer height={"5px"} />
-      </Content>
-
-      {/* 가로선 구분자 */}
-      <Divider />
-    </Area>
+        {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
+        {/* 각종 메뉴에 대한 링크 */}
+        <Flex gap={"20px"}>
+          <WrapperLink to={Paths.Teams}>
+            <StyledText>소개</StyledText>
+          </WrapperLink>
+          <WrapperLink to={Paths.Celebrities}>
+            <StyledText>말씀</StyledText>
+          </WrapperLink>
+          <WrapperLink to={Paths.Event}>
+            <StyledText>성령학교</StyledText>
+          </WrapperLink>
+          <WrapperLink to={Paths.Party}>
+            <StyledText>소식</StyledText>
+          </WrapperLink>
+          <WrapperLink to={Paths.Study}>
+            <StyledText>저서</StyledText>
+          </WrapperLink>
+          <WrapperLink to={Paths.Systems}>
+            <StyledText>선교사역</StyledText>
+          </WrapperLink>
+        </Flex>
+      </StyledFlexContainer>
+      <Spacer height={"5px"} />
+    </Content>
   );
 };
 

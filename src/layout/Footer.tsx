@@ -27,7 +27,7 @@ const Footer = ({}: FooterProps) => {
       {/* 내용 섹션 - 회사 정보 및 소셜 미디어 링크 */}
       <Content>
         {/* 항목 간 간격을 두고 정렬하는 Flex 컨테이너 */}
-        <Flex justifyContent={"space-between"} gap={"10px"}>
+        <Flex justifyContent={"center"}>
           {/* 왼쪽 열 - 회사 정보 */}
           <Flex
             flexDirection={"column"}
@@ -35,11 +35,16 @@ const Footer = ({}: FooterProps) => {
               color: colorSet.textGray,
             }}
           >
-            <Text size={"14px"}>상호명 : 제이에이치원엔터테인먼트</Text>
-            <Text size={"14px"}>사업자등록번호 : 215-87-82736</Text>
-            <Text size={"14px"}>서울특별시 송파구 송이로 20길 4-11</Text>
-            <Text size={"14px"}>Tel : 0505-510-0202</Text>
-            <Text size={"14px"}>이메일 : scdata@naver.com</Text>
+            <Text size={"14px"}>
+              경기도 화성시 동탄문화센터로 7-3 (반송동), 거산프라자 10층 전관
+            </Text>
+            <Text size={"14px"}>
+              Tel. 031.613.0105 [Fax 겸용] / 010.4864.1433
+            </Text>
+            <Spacer height={"5px"} />
+            <Text size={"14px"}>
+              Copyright (c) 2023 뉴비전교회 All rights reserved.
+            </Text>
           </Flex>
         </Flex>
       </Content>
