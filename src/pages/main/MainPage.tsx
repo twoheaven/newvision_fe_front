@@ -9,13 +9,6 @@ const MainPage = ({}: MainPageProps) => {
   return (
     <>
       <NewBannerSection />
-
-      <Spacer
-        height={"20px"}
-        style={{
-          flexGrow: 0,
-        }}
-      />
       <Category />
       <Spacer height={"50px"} />
     </>
