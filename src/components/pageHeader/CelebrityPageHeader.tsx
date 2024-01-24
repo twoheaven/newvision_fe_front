@@ -15,6 +15,7 @@ const CelebrityPageHeader = () => {
           width={"100%"}
           style={{
             position: "relative",
+            textAlign: "center",
           }}
         >
           {/* 배너 이미지 표시 */}

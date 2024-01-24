@@ -6,11 +6,8 @@ const CelebrityPage = () => {
   return (
     <Area>
       <CelebrityPageHeader />
-
       <Spacer height={"30px"} />
-
       <Content></Content>
-
       <Spacer height={"100px"} />
     </Area>
   );
