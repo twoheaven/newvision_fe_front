@@ -2,7 +2,7 @@ import { Area, Content, Spacer } from "@dohyun-ko/react-atoms";
 
 import CelebrityPageHeader from "@/components/pageHeader/CelebrityPageHeader";
 
-const CelebrityPage = () => {
+const SermonPage = () => {
   return (
     <Area>
       <CelebrityPageHeader />
@@ -13,4 +13,4 @@ const CelebrityPage = () => {
   );
 };
 
-export default CelebrityPage;
+export default SermonPage;

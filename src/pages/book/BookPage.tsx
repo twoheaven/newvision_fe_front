@@ -2,7 +2,7 @@ import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
 import StudyPageHeader from "@/components/pageHeader/StudyPageHeader";
 
-const StudyPage = () => {
+const BookPage = () => {
   return (
     <Area>
       <StudyPageHeader />
@@ -18,4 +18,4 @@ const StudyPage = () => {
   );
 };
 
-export default StudyPage;
+export default BookPage;

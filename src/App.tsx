@@ -7,13 +7,13 @@ import {
 
 // 각 페이지 컴포넌트를 import
 import Layout from "./layout/Layout";
-import CelebrityPage from "./pages/celebrity/CelebrityPage";
-import EventPage from "./pages/event/EventPage";
+import BookPage from "./pages/book/BookPage";
+import HolySchoolPage from "./pages/holyschool/HolySchoolPage";
+import IntroducePage from "./pages/introduce/IntroducePage";
 import MainPage from "./pages/main/MainPage";
-import PartyPage from "./pages/party/PartyPage";
-import StudyPage from "./pages/study/StudyPage";
-import SystemPage from "./pages/system/SystemPage";
-import TeamPage from "./pages/team/TeamPage";
+import MissionaryPage from "./pages/missionary/MissionaryPage";
+import NewsPage from "./pages/news/NewsPage";
+import SermonPage from "./pages/sermon/SermonPage";
 import Paths from "./types/paths";
 
 // React Router의 BrowserRouter와 관련된 요소들을 사용하여 라우터 설정
@@ -24,12 +24,12 @@ const router = createBrowserRouter(
       {/* 각 경로에 대한 페이지 컴포넌트 설정 */}
       <Route path="*" element={<MainPage />} />
       <Route path={Paths.Main} element={<MainPage />} />
-      <Route path={Paths.Teams} element={<TeamPage />} />
-      <Route path={Paths.Celebrities} element={<CelebrityPage />} />
-      <Route path={Paths.Systems} element={<SystemPage />} />
-      <Route path={Paths.Event} element={<EventPage />} />
-      <Route path={Paths.Party} element={<PartyPage />} />
-      <Route path={Paths.Study} element={<StudyPage />} />
+      <Route path={Paths.Introduce} element={<IntroducePage />} />
+      <Route path={Paths.Sermon} element={<SermonPage />} />
+      <Route path={Paths.Missionary} element={<MissionaryPage />} />
+      <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
+      <Route path={Paths.News} element={<NewsPage />} />
+      <Route path={Paths.Book} element={<BookPage />} />
     </Route>,
   ),
 );

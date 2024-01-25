@@ -15,22 +15,22 @@ const categories = [
   {
     name: "예배안내",
     backgroundImage: worship,
-    path: Paths.Teams,
+    path: Paths.Introduce,
   },
   {
     name: "온라인 동역 헌금",
     backgroundImage: online,
-    path: Paths.Celebrities,
+    path: Paths.Sermon,
   },
   {
     name: "성령학교 안내",
     backgroundImage: school,
-    path: Paths.Systems,
+    path: Paths.Missionary,
   },
   {
     name: "오시는 길",
     backgroundImage: way,
-    path: Paths.Study,
+    path: Paths.Book,
   },
 ];
 

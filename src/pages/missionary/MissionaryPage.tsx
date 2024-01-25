@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import PartyPageHeader from "@/components/pageHeader/PartyPageHeader";
+import SystemPageHeader from "@/components/pageHeader/SystemPageHeader";
 
-const PartyPage = () => {
+const MissionaryPage = () => {
   return (
     <Area>
-      <PartyPageHeader />
+      <SystemPageHeader />
 
       <Spacer height={"30px"} />
 
@@ -18,4 +18,4 @@ const PartyPage = () => {
   );
 };
 
-export default PartyPage;
+export default MissionaryPage;

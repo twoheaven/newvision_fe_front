@@ -2,7 +2,7 @@ import { Area, Content, Spacer } from "@dohyun-ko/react-atoms";
 
 import TeamPageHeader from "@/components/pageHeader/TeamPageHeader";
 
-const TeamPage = () => {
+const IntroducePage = () => {
   return (
     <Area>
       <TeamPageHeader />
@@ -16,4 +16,4 @@ const TeamPage = () => {
   );
 };
 
-export default TeamPage;
+export default IntroducePage;

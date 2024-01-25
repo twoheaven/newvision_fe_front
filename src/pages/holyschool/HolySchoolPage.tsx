@@ -2,7 +2,7 @@ import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
 import EventPageHeader from "@/components/pageHeader/EventPageHeader";
 
-const EventPage = () => {
+const HolySchoolPage = () => {
   return (
     <Area>
       <EventPageHeader />
@@ -18,4 +18,4 @@ const EventPage = () => {
   );
 };
 
-export default EventPage;
+export default HolySchoolPage;

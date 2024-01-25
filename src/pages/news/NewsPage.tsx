@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import SystemPageHeader from "@/components/pageHeader/SystemPageHeader";
+import PartyPageHeader from "@/components/pageHeader/PartyPageHeader";
 
-const SystemPage = () => {
+const NewsPage = () => {
   return (
     <Area>
-      <SystemPageHeader />
+      <PartyPageHeader />
 
       <Spacer height={"30px"} />
 
@@ -18,4 +18,4 @@ const SystemPage = () => {
   );
 };
 
-export default SystemPage;
+export default NewsPage;

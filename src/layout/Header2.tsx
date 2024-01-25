@@ -40,12 +40,12 @@ const Header2 = () => {
         {/* 각종 메뉴에 대한 링크 */}
         <Flex gap={isMobile ? "6px" : "20px"}>
           {[
-            { path: Paths.Teams, label: "소개" },
-            { path: Paths.Celebrities, label: "말씀" },
-            { path: Paths.Event, label: "성령학교" },
-            { path: Paths.Party, label: "소식" },
-            { path: Paths.Study, label: "저서" },
-            { path: Paths.Systems, label: "선교사역" },
+            { path: Paths.Introduce, label: "소개" },
+            { path: Paths.Sermon, label: "말씀" },
+            { path: Paths.HolySchool, label: "성령학교" },
+            { path: Paths.News, label: "소식" },
+            { path: Paths.Book, label: "저서" },
+            { path: Paths.Missionary, label: "선교사역" },
           ].map(({ path, label }) => (
             <WrapperLink to={path} key={path}>
               <StyledText size={isMobile ? "12px" : "24px"}>{label}</StyledText>
