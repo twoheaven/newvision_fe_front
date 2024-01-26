@@ -9,6 +9,7 @@ import {
 import Layout from "./layout/Layout";
 import BookPage from "./pages/book/BookPage";
 import HolySchoolPage from "./pages/holyschool/HolySchoolPage";
+import IntroPage from "./pages/intro/IntroPage";
 import IntroducePage from "./pages/introduce/IntroducePage";
 import MainPage from "./pages/main/MainPage";
 import MissionaryPage from "./pages/missionary/MissionaryPage";
@@ -20,17 +21,20 @@ import Paths from "./types/paths";
 const router = createBrowserRouter(
   createRoutesFromElements(
     // Layout 컴포넌트가 감싸는 최상위 라우트
-    <Route element={<Layout />}>
-      {/* 각 경로에 대한 페이지 컴포넌트 설정 */}
-      <Route path="*" element={<MainPage />} />
-      <Route path={Paths.Main} element={<MainPage />} />
-      <Route path={Paths.Introduce} element={<IntroducePage />} />
-      <Route path={Paths.Sermon} element={<SermonPage />} />
-      <Route path={Paths.Missionary} element={<MissionaryPage />} />
-      <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
-      <Route path={Paths.News} element={<NewsPage />} />
-      <Route path={Paths.Book} element={<BookPage />} />
-    </Route>,
+    <>
+      <Route path={Paths.Intro} element={<IntroPage />} />
+      <Route element={<Layout />}>
+        {/* 각 경로에 대한 페이지 컴포넌트 설정 */}
+        <Route path="*" element={<MainPage />} />
+        <Route path={Paths.Main} element={<MainPage />} />
+        <Route path={Paths.Introduce} element={<IntroducePage />} />
+        <Route path={Paths.Sermon} element={<SermonPage />} />
+        <Route path={Paths.Missionary} element={<MissionaryPage />} />
+        <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
+        <Route path={Paths.News} element={<NewsPage />} />
+        <Route path={Paths.Book} element={<BookPage />} />
+      </Route>
+    </>,
   ),
 );
 
