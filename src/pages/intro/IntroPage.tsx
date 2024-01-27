@@ -42,7 +42,15 @@ const IntroPage = () => {
                 height={"300px"}
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               >
-                <Flex justifyContent="flex-end">
+                <Flex justifyContent="center" alignItems="center">
+                  <img
+                    src="src/pages/intro/asset/leftarrow.png"
+                    width={"280px"}
+                    style={{
+                      position: "relative",
+                      top: "",
+                    }}
+                  />
                   <Text
                     color="white"
                     style={{
@@ -62,7 +70,19 @@ const IntroPage = () => {
                   height={"145px"}
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
-                  <Flex justifyContent="flex-end">
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    flexDirection="column"
+                  >
+                    <img
+                      src="src/pages/intro/asset/rightarrow.png"
+                      width={"280px"}
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    />
                     <Text
                       color="white"
                       style={{
@@ -70,7 +90,25 @@ const IntroPage = () => {
                         top: "",
                       }}
                     >
-                      김온유 목사 유튜브 live 바로보기
+                      김온유 목사
+                    </Text>
+                    <Text
+                      color="white"
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    >
+                      YOU<Button backgroundColor="red">TUBE</Button> live
+                    </Text>
+                    <Text
+                      color="white"
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    >
+                      바로보기
                     </Text>
                   </Flex>
                 </Button>
@@ -82,7 +120,19 @@ const IntroPage = () => {
                   height={"145px"}
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
-                  <Flex justifyContent="flex-end">
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    flexDirection="column"
+                  >
+                    <img
+                      src="src/pages/intro/asset/rightarrow.png"
+                      width={"280px"}
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    />
                     <Text
                       color="white"
                       style={{
@@ -90,7 +140,25 @@ const IntroPage = () => {
                         top: "",
                       }}
                     >
-                      2023년 4기 요한계시록학교 신청하기
+                      2023년 4기
+                    </Text>
+                    <Text
+                      color="white"
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    >
+                      요한계시록학교
+                    </Text>
+                    <Text
+                      color="white"
+                      style={{
+                        position: "relative",
+                        top: "",
+                      }}
+                    >
+                      신청하기
                     </Text>
                   </Flex>
                 </Button>
