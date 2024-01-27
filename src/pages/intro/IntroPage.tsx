@@ -1,8 +1,10 @@
 import "./IntroPage.css";
 
-import { Area, Content, Flex, Text } from "@dohyun-ko/react-atoms";
+import { Area, Button, Content, Flex, Text } from "@dohyun-ko/react-atoms";
+import { Link } from "react-router-dom";
 
 import Line from "@/components/line/Line";
+import Paths from "@/types/paths";
 
 const IntroPage = () => {
   return (
@@ -25,6 +27,23 @@ const IntroPage = () => {
             NEWVISION
           </Text>
           <Line />
+          <Link to={Paths.Main}>
+            <Button
+              width={"300px"}
+              height={"300px"}
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            >
+              <Flex
+                justifyContent="flex-end"
+                alignItems="flex-end"
+                flexDirection="column"
+              >
+                <Text color="white">뉴비전교회</Text>
+                <Text color="white">홈페이지</Text>
+                <Text color="white">바로가기</Text>
+              </Flex>
+            </Button>
+          </Link>
         </Flex>
       </Content>
     </Area>
