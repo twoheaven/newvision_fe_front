@@ -30,11 +30,16 @@ const IntroPage = () => {
               height={"138px"}
             />
           </Flex>
-          <Text size={"100px"} color={"white"}>
-            NEWVISION
+          <Text size={"80px"} color={"white"}>
+            N E W V I S I O N
           </Text>
-          <Line />
           <Spacer height={"10px"} />
+          <Line
+            style={{
+              width: "800px",
+            }}
+          />
+          <Spacer height={"50px"} />
           <Flex gap={"10px"}>
             <Link to={Paths.Main}>
               <Button
@@ -42,23 +47,51 @@ const IntroPage = () => {
                 height={"300px"}
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               >
-                <Flex justifyContent="center" alignItems="center">
+                <Flex
+                  justifyContent="center"
+                  alignItems="center"
+                  flexDirection="column"
+                >
                   <img
                     src="src/pages/intro/asset/leftarrow.png"
                     width={"280px"}
                     style={{
                       position: "relative",
-                      top: "",
+                      top: "-47.5px",
                     }}
                   />
                   <Text
                     color="white"
+                    size={"24px"}
                     style={{
                       position: "relative",
-                      top: "",
+                      top: "-55px",
+                      left: "90px",
                     }}
                   >
-                    뉴비전교회 홈페이지 바로가기
+                    뉴비전교회
+                  </Text>
+                  <Text
+                    color="white"
+                    size={"40px"}
+                    style={{
+                      position: "relative",
+                      top: "-70px",
+                      left: "75px",
+                    }}
+                  >
+                    홈페이지
+                  </Text>
+                  <Text
+                    color="white"
+                    size={"40px"}
+                    style={{
+                      position: "relative",
+                      top: "-90px",
+                      left: "75px",
+                    }}
+                  >
+                    바로가기
                   </Text>
                 </Flex>
               </Button>
@@ -80,7 +113,7 @@ const IntroPage = () => {
                       width={"280px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "-12.5px",
                       }}
                     />
                     <Text
@@ -114,7 +147,7 @@ const IntroPage = () => {
                 </Button>
               </a>
               <Spacer height={"10px"} />
-              <a href="https://www.youtube.com/watch?v=NlpUEUl1Zq8">
+              <a href="https://litt.ly/new_vision_church">
                 <Button
                   width={"300px"}
                   height={"145px"}
@@ -130,7 +163,7 @@ const IntroPage = () => {
                       width={"280px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "-12.5px",
                       }}
                     />
                     <Text
