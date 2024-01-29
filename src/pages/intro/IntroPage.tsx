@@ -47,7 +47,7 @@ const IntroPage = () => {
             <Link to={Paths.Main}>
               <Button
                 width={"300px"}
-                height={"300px"}
+                height={"340px"}
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               >
                 <Flex
@@ -60,7 +60,7 @@ const IntroPage = () => {
                     width={"280px"}
                     style={{
                       position: "relative",
-                      top: "-47.5px",
+                      top: "-67.5px",
                     }}
                   />
                   <Text
@@ -68,7 +68,7 @@ const IntroPage = () => {
                     size={"24px"}
                     style={{
                       position: "relative",
-                      top: "-55px",
+                      top: "-75px",
                       left: "90px",
                     }}
                   >
@@ -79,7 +79,7 @@ const IntroPage = () => {
                     size={"40px"}
                     style={{
                       position: "relative",
-                      top: "-70px",
+                      top: "-90px",
                       left: "75px",
                     }}
                   >
@@ -90,7 +90,7 @@ const IntroPage = () => {
                     size={"40px"}
                     style={{
                       position: "relative",
-                      top: "-90px",
+                      top: "-110px",
                       left: "75px",
                     }}
                   >
@@ -103,7 +103,7 @@ const IntroPage = () => {
               <a href="https://www.youtube.com/@kimonyou153">
                 <Button
                   width={"300px"}
-                  height={"145px"}
+                  height={"165px"}
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
                   <Flex
@@ -116,32 +116,71 @@ const IntroPage = () => {
                       width={"280px"}
                       style={{
                         position: "relative",
-                        top: "-12.5px",
+                        top: "16px",
                       }}
                     />
                     <Text
                       color="white"
+                      size={"26px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "8px",
+                        left: "-85px",
                       }}
                     >
                       김온유 목사
                     </Text>
+                    <Flex>
+                      <Text
+                        color="white"
+                        size={"40px"}
+                        style={{
+                          position: "relative",
+                          top: "-7px",
+                          left: "-25px",
+                        }}
+                      >
+                        YOU{" "}
+                        <Button
+                          backgroundColor={"red"}
+                          borderRadius={"5px"}
+                          height={"36px"}
+                          style={{
+                            position: "relative",
+                            top: "12px",
+                            left: "-5px",
+                          }}
+                        >
+                          <Text
+                            color="white"
+                            size={"40px"}
+                            style={{
+                              position: "relative",
+                              top: "-11.5px",
+                            }}
+                          >
+                            TUBE
+                          </Text>
+                        </Button>
+                      </Text>
+                      <Text
+                        color="white"
+                        size={"24px"}
+                        style={{
+                          position: "relative",
+                          left: "-26px",
+                        }}
+                      >
+                        LIVE
+                      </Text>
+                    </Flex>
                     <Text
                       color="white"
+                      size={"40px"}
                       style={{
                         position: "relative",
-                        top: "",
-                      }}
-                    >
-                      YOU<Button backgroundColor="red">TUBE</Button> live
-                    </Text>
-                    <Text
-                      color="white"
-                      style={{
-                        position: "relative",
-                        top: "",
+                        top: "-28px",
+                        left: "-75px",
                       }}
                     >
                       바로보기
@@ -153,7 +192,7 @@ const IntroPage = () => {
               <a href="https://litt.ly/new_vision_church">
                 <Button
                   width={"300px"}
-                  height={"145px"}
+                  height={"165px"}
                   style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
                 >
                   <Flex
@@ -171,6 +210,7 @@ const IntroPage = () => {
                     />
                     <Text
                       color="white"
+                      size={""}
                       style={{
                         position: "relative",
                         top: "",
@@ -180,6 +220,7 @@ const IntroPage = () => {
                     </Text>
                     <Text
                       color="white"
+                      size={""}
                       style={{
                         position: "relative",
                         top: "",
@@ -189,6 +230,7 @@ const IntroPage = () => {
                     </Text>
                     <Text
                       color="white"
+                      size={""}
                       style={{
                         position: "relative",
                         top: "",
