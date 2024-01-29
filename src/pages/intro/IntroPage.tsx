@@ -46,7 +46,7 @@ const IntroPage = () => {
           <Flex gap={"10px"}>
             <Link to={Paths.Main}>
               <Button
-                width={"300px"}
+                width={"340px"}
                 height={"340px"}
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
               >
@@ -57,7 +57,7 @@ const IntroPage = () => {
                 >
                   <img
                     src={LeftArrow}
-                    width={"280px"}
+                    width={"320px"}
                     style={{
                       position: "relative",
                       top: "-67.5px",
@@ -69,7 +69,7 @@ const IntroPage = () => {
                     style={{
                       position: "relative",
                       top: "-75px",
-                      left: "90px",
+                      left: "105px",
                     }}
                   >
                     뉴비전교회
@@ -79,8 +79,8 @@ const IntroPage = () => {
                     size={"40px"}
                     style={{
                       position: "relative",
-                      top: "-90px",
-                      left: "75px",
+                      top: "-85px",
+                      left: "90px",
                     }}
                   >
                     홈페이지
@@ -90,8 +90,8 @@ const IntroPage = () => {
                     size={"40px"}
                     style={{
                       position: "relative",
-                      top: "-110px",
-                      left: "75px",
+                      top: "-100px",
+                      left: "90px",
                     }}
                   >
                     바로가기
@@ -130,7 +130,12 @@ const IntroPage = () => {
                     >
                       김온유 목사
                     </Text>
-                    <Flex>
+                    <Flex
+                      style={{
+                        position: "relative",
+                        top: "5px",
+                      }}
+                    >
                       <Text
                         color="white"
                         size={"40px"}
@@ -179,7 +184,7 @@ const IntroPage = () => {
                       size={"40px"}
                       style={{
                         position: "relative",
-                        top: "-28px",
+                        top: "-18px",
                         left: "-75px",
                       }}
                     >
@@ -205,35 +210,38 @@ const IntroPage = () => {
                       width={"280px"}
                       style={{
                         position: "relative",
-                        top: "-12.5px",
+                        top: "12.5px",
                       }}
                     />
                     <Text
                       color="white"
-                      size={""}
+                      size={"26px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "0px",
+                        left: "-78px",
                       }}
                     >
                       2023년 4기
                     </Text>
                     <Text
                       color="white"
-                      size={""}
+                      size={"40px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "-12px",
+                        left: "-25px",
                       }}
                     >
                       요한계시록학교
                     </Text>
                     <Text
                       color="white"
-                      size={""}
+                      size={"40px"}
                       style={{
                         position: "relative",
-                        top: "",
+                        top: "-30px",
+                        left: "-78px",
                       }}
                     >
                       신청하기
