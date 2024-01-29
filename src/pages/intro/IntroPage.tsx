@@ -48,7 +48,7 @@ const IntroPage = () => {
               <Button
                 width={"340px"}
                 height={"340px"}
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                style={{ backgroundColor: "rgba(10, 17, 53, 0.5)" }}
               >
                 <Flex
                   justifyContent="center"
@@ -104,7 +104,7 @@ const IntroPage = () => {
                 <Button
                   width={"300px"}
                   height={"165px"}
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  style={{ backgroundColor: "rgba(10, 17, 53, 0.5)" }}
                 >
                   <Flex
                     justifyContent="center"
@@ -198,7 +198,7 @@ const IntroPage = () => {
                 <Button
                   width={"300px"}
                   height={"165px"}
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                  style={{ backgroundColor: "rgba(10, 17, 53, 0.5)" }}
                 >
                   <Flex
                     justifyContent="center"
