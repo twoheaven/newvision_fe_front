@@ -1,4 +1,4 @@
-import "./IntroPage.css";
+import "@/IntroPage.css";
 
 import {
   Area,
@@ -10,6 +10,9 @@ import {
 } from "@dohyun-ko/react-atoms";
 import { Link } from "react-router-dom";
 
+import LeftArrow from "@/assets/leftarrow.png";
+import RightArrow from "@/assets/rightarrow.png";
+import WhiteLogo from "@/assets/whitelogo.png";
 import Line from "@/components/line/Line";
 import Paths from "@/types/paths";
 
@@ -24,7 +27,7 @@ const IntroPage = () => {
         >
           <Flex>
             <img
-              src={"/src/assets/whitelogo.png"}
+              src={WhiteLogo}
               alt={"newvisionlogo"}
               width={"150px"}
               height={"138px"}
@@ -53,7 +56,7 @@ const IntroPage = () => {
                   flexDirection="column"
                 >
                   <img
-                    src={"/src/assets/leftarrow.png"}
+                    src={LeftArrow}
                     width={"280px"}
                     style={{
                       position: "relative",
@@ -109,7 +112,7 @@ const IntroPage = () => {
                     flexDirection="column"
                   >
                     <img
-                      src={"/src/assets/rightarrow.png"}
+                      src={RightArrow}
                       width={"280px"}
                       style={{
                         position: "relative",
@@ -159,7 +162,7 @@ const IntroPage = () => {
                     flexDirection="column"
                   >
                     <img
-                      src={"/src/assets/rightarrow.png"}
+                      src={RightArrow}
                       width={"280px"}
                       style={{
                         position: "relative",
