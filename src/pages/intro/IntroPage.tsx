@@ -53,7 +53,7 @@ const IntroPage = () => {
                   flexDirection="column"
                 >
                   <img
-                    src="src/pages/intro/asset/leftarrow.png"
+                    src={"/src/assets/leftarrow.png"}
                     width={"280px"}
                     style={{
                       position: "relative",
@@ -83,7 +83,7 @@ const IntroPage = () => {
                     홈페이지
                   </Text>
                   <Text
-                    color="white"
+                    color={"white"}
                     size={"40px"}
                     style={{
                       position: "relative",
@@ -109,7 +109,7 @@ const IntroPage = () => {
                     flexDirection="column"
                   >
                     <img
-                      src="src/pages/intro/asset/rightarrow.png"
+                      src={"/src/assets/rightarrow.png"}
                       width={"280px"}
                       style={{
                         position: "relative",
@@ -159,7 +159,7 @@ const IntroPage = () => {
                     flexDirection="column"
                   >
                     <img
-                      src="src/pages/intro/asset/rightarrow.png"
+                      src={"/src/assets/rightarrow.png"}
                       width={"280px"}
                       style={{
                         position: "relative",
