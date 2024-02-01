@@ -42,9 +42,9 @@ const SermonCard: React.FC<SermonCardProps> = ({
         setVideoData({
           videoId,
           thumbnailUrl: defaultimg, // 기본 이미지 주소
-          publishedAt: "N/A",
-          playlistTitle: "N/A",
-          videoTitle: "N/A",
+          publishedAt: "날짜",
+          playlistTitle: "플리제목",
+          videoTitle: "영상제목",
         });
       }
     };
@@ -72,14 +72,16 @@ const SermonCard: React.FC<SermonCardProps> = ({
   return (
     <Flex flexDirection="column" className="sermon-card">
       <img
-        src={videoData ? videoData.thumbnailUrl : defaultimg}
+        src={videoData.thumbnailUrl}
         alt="Video Thumbnail"
         style={{ width: width || "100%", height: height || "auto" }}
       />
-      <Text size={size || "14px"}>
-        {videoData && `${videoData.publishedAt} ${videoData.playlistTitle}`}
-      </Text>
-      <Text size={size || "14px"}>{videoData && videoData.videoTitle}</Text>
+      <>
+        <Text size={size || "14px"}>
+          {`${videoData.publishedAt} ${videoData.playlistTitle}`}
+        </Text>
+        <Text size={size || "14px"}>{videoData.videoTitle}</Text>
+      </>
     </Flex>
   );
 };
