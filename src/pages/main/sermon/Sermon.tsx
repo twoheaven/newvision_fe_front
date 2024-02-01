@@ -72,7 +72,7 @@ const Sermon: React.FC = () => {
                 height={`${cardWidth * 0.6 * 1.3}px`}
                 width={`${cardWidth * 1.3}px`}
                 size={"18px"}
-                videoId=""
+                videoId={""}
               />
             )}
           </Flex>
@@ -83,7 +83,7 @@ const Sermon: React.FC = () => {
                   key={index}
                   height={`${cardWidth * 0.6}px`}
                   width={`${cardWidth}px`}
-                  videoId=""
+                  videoId={""}
                 />
               ))}
               {Array.isArray(latestVideoData) &&
@@ -105,7 +105,7 @@ const Sermon: React.FC = () => {
                   key={index}
                   height={`${cardWidth * 0.6}px`}
                   width={`${cardWidth}px`}
-                  videoId=""
+                  videoId={""}
                 />
               ))}
               {Array.isArray(latestVideoData) &&
