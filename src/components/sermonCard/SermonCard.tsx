@@ -33,7 +33,7 @@ const SermonCard: React.FC<SermonCardProps> = ({
     const fetchVideoData = async () => {
       try {
         const response = await axios.get<VideoData>(
-          `/api/youtubeData/${videoId}`,
+          `https://cat-project.xyz/api/youtubeData/${videoId}`,
         );
         setVideoData(response.data);
       } catch (error) {
