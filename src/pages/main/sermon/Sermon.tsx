@@ -45,14 +45,14 @@ const Sermon: React.FC = () => {
   return (
     <>
       <Flex gap={"25px"} flexDirection="column">
-        <Flex gap={"25px"}>
+        <Flex gap={"25px"} alignItems={"center"}>
           <div style={{ width: `${cardWidth * 1.3}px` }}>
             <Text size={"34px"}>예배와 말씀</Text>
           </div>
           <Text
             style={{
               position: "relative",
-              top: "42px",
+              top: "32px",
             }}
           >
             최근설교
