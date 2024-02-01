@@ -28,7 +28,6 @@ const SermonCard: React.FC<SermonCardProps> = ({
   width,
 }) => {
   const [videoData, setVideoData] = useState<VideoData | null>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const fetchVideoData = async () => {
@@ -76,10 +75,7 @@ const SermonCard: React.FC<SermonCardProps> = ({
         src={videoData ? videoData.thumbnailUrl : defaultimg}
         alt="Video Thumbnail"
         style={{ width: width || "100%", height: height || "auto" }}
-        onLoad={() => setImageLoaded(true)} // 이미지 로딩 완료 시 상태 업데이트
       />
-      {!imageLoaded || <Text>Loading...</Text>}{" "}
-      {/* 이미지 로딩 중이면 로딩 스피너 표시 */}
       <Text size={size || "14px"}>
         {videoData ? `${videoData.publishedAt} ${videoData.playlistTitle}` : ""}
       </Text>
