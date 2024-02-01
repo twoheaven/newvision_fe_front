@@ -54,7 +54,7 @@ const SermonCard: React.FC<SermonCardProps> = ({
       <Flex flexDirection="column" className="sermon-card">
         <img
           src={defaultimg}
-          alt="Default Video Thumbnail"
+          alt={"Default Video Thumbnail"}
           style={{ width: width || "100%", height: height || "auto" }}
         />
         <Text size={size || "14px"}>Date Playlist Title</Text>
