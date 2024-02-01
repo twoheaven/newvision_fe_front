@@ -84,7 +84,7 @@ const Category = () => {
   return (
     <Content>
       {/* 카테고리 버튼들을 포함한 Flex 컴포넌트 */}
-      <Spacer height={isMobile ? "10px" : "30px"} />
+      <Spacer height={isMobile ? "10px" : "50px"} />
       <Flex justifyContent="center" gap={isMobile ? "3px" : "20px"}>
         {categories.map((category, index) => (
           <Link to={category.path} key={index}>
