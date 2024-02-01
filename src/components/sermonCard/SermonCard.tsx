@@ -77,9 +77,9 @@ const SermonCard: React.FC<SermonCardProps> = ({
         style={{ width: width || "100%", height: height || "auto" }}
       />
       <Text size={size || "14px"}>
-        {videoData ? `${videoData.publishedAt} ${videoData.playlistTitle}` : ""}
+        {videoData && `${videoData.publishedAt} ${videoData.playlistTitle}`}
       </Text>
-      <Text size={size || "14px"}>{videoData ? videoData.videoTitle : ""}</Text>
+      <Text size={size || "14px"}>{videoData && videoData.videoTitle}</Text>
     </Flex>
   );
 };
