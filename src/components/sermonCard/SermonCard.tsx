@@ -3,6 +3,7 @@ import { Flex, Text } from "@dohyun-ko/react-atoms";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+// Importing a default image for cases where the video thumbnail is not available
 import defaultimg from "@/assets/default-image.svg";
 
 interface VideoData {
@@ -26,13 +27,7 @@ const SermonCard: React.FC<SermonCardProps> = ({
   height,
   width,
 }) => {
-  const [videoData, setVideoData] = useState<VideoData | null>({
-    videoId,
-    thumbnailUrl: defaultimg,
-    publishedAt: "N/A",
-    playlistTitle: "N/A",
-    videoTitle: "N/A",
-  });
+  const [videoData, setVideoData] = useState<VideoData | null>(null);
 
   useEffect(() => {
     const fetchVideoData = async () => {
@@ -40,21 +35,32 @@ const SermonCard: React.FC<SermonCardProps> = ({
         const response = await axios.get<VideoData>(
           `/api/youtubeData/${videoId}`,
         );
-        setVideoData(response.data || videoData);
+        setVideoData(response.data);
       } catch (error) {
         console.error("Error fetching video data", error);
+        // 데이터를 가져오지 못할 경우, 기본 데이터로 설정
+        setVideoData({
+          videoId,
+          thumbnailUrl: defaultimg, // 기본 이미지 주소
+          publishedAt: "N/A",
+          playlistTitle: "N/A",
+          videoTitle: "N/A",
+        });
       }
     };
 
     fetchVideoData();
-  }, [videoId, videoData]);
+  }, [videoId]);
+
+  console.log("VideoData:", videoData); // 콘솔에 데이터 출력
 
   if (!videoData) {
+    // 데이터를 가져오지 못한 경우에도 기본 이미지를 보여줄 수 있도록 처리
     return (
       <Flex flexDirection="column" className="sermon-card">
         <img
           src={defaultimg}
-          alt={"Default Video Thumbnail"}
+          alt="Default Video Thumbnail"
           style={{ width: width || "100%", height: height || "auto" }}
         />
         <Text size={size || "14px"}>Date Playlist Title</Text>
