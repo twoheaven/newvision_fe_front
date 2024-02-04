@@ -89,11 +89,11 @@ const Category = () => {
         {categories.map((category, index) => (
           <Link to={category.path} key={index}>
             <StyledButton
-              borderRadius={isMobile ? "10px" : "20px"}
+              borderRadius={isMobile ? "10px" : "30px"}
               backgroundImage={category.backgroundImage}
               style={{
                 width: `${buttonWidth}px`,
-                height: `${0.6 * buttonWidth}px`,
+                height: `${0.58 * buttonWidth}px`,
               }}
             ></StyledButton>
           </Link>
