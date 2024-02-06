@@ -8,18 +8,12 @@ import book1 from "@/pages/book/assets/book1.png";
 import book2 from "@/pages/book/assets/book2.png";
 import book3 from "@/pages/book/assets/book3.png";
 
-interface EnlargedImageProps {
-  isHovered: boolean;
-}
-
-const EnlargedImageWrapper = styled.div<EnlargedImageProps>`
+const EnlargedImageWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
 
-  ${({ isHovered }) =>
-    isHovered &&
-    `
+  &:hover {
     transform: scale(1.2);
-  `}
+  }
 `;
 
 const Book = () => {
@@ -27,13 +21,10 @@ const Book = () => {
   const [boxWidth, setBoxWidth] = useState(
     isMobile ? window.innerWidth : window.innerWidth * 0.8,
   );
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setBoxWidth(window.innerWidth * 0.8);
+      setBoxWidth(isMobile ? window.innerWidth : window.innerWidth * 0.8);
     };
 
     window.addEventListener("resize", handleResize);
@@ -41,7 +32,13 @@ const Book = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
+
+  const books = [
+    { image: book2, title: "01. 선한 동역자 프로젝트" },
+    { image: book3, title: "02. 선한 청지기 프로젝트" },
+    { image: book1, title: "03. 선한말 습관 프로젝트" },
+  ];
 
   return (
     <Flex
@@ -52,81 +49,36 @@ const Book = () => {
       <Text size={"34px"}>김온유 목사 저서 안내</Text>
       <Flex alignItems="center" justifyContent="center">
         <Box
-          style={{ width: `${boxWidth}px` }}
-          height={"350px"}
+          style={{
+            width: `${boxWidth / 1.1}px`,
+          }}
+          height={""}
           justifyContent="center"
           alignItems="center"
         >
           <Flex alignItems="center" justifyContent="center" gap={"20px"}>
-            <EnlargedImageWrapper
-              isHovered={isHovered1}
-              onMouseOver={() => setIsHovered1(true)}
-              onMouseOut={() => setIsHovered1(false)}
-            >
-              <Flex
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <img
+            {books.map((book, index) => (
+              <EnlargedImageWrapper key={index}>
+                <Flex
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
                   style={{
-                    width: `${boxWidth / 6}px`,
-                    transition: "transform 0.3s ease-in-out",
+                    margin: "20px 0", // 위아래로 20px의 margin 추가
                   }}
-                  src={book2}
-                  alt="Book Cover"
-                />
-                <Text style={{ fontWeight: "bold" }}>
-                  01. 선한 동역자 프로젝트
-                </Text>
-              </Flex>
-            </EnlargedImageWrapper>
-            <EnlargedImageWrapper
-              isHovered={isHovered2}
-              onMouseOver={() => setIsHovered2(true)}
-              onMouseOut={() => setIsHovered2(false)}
-            >
-              <Flex
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <img
-                  style={{
-                    width: `${boxWidth / 6}px`,
-                    transition: "transform 0.3s ease-in-out",
-                  }}
-                  src={book3}
-                  alt="Book Cover"
-                />
-                <Text style={{ fontWeight: "bold" }}>
-                  02. 선한 청지기 프로젝트
-                </Text>
-              </Flex>
-            </EnlargedImageWrapper>
-            <EnlargedImageWrapper
-              isHovered={isHovered3}
-              onMouseOver={() => setIsHovered3(true)}
-              onMouseOut={() => setIsHovered3(false)}
-            >
-              <Flex
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <img
-                  style={{
-                    width: `${boxWidth / 6}px`,
-                    transition: "transform 0.3s ease-in-out",
-                  }}
-                  src={book1}
-                  alt="Book Cover"
-                />
-                <Text style={{ fontWeight: "bold" }}>
-                  03. 선한말 습관 프로젝트
-                </Text>
-              </Flex>
-            </EnlargedImageWrapper>
+                >
+                  <img
+                    style={{
+                      width: `${boxWidth / 6}px`,
+                      transition: "transform 0.3s ease-in-out",
+                    }}
+                    src={book.image}
+                    alt="Book Cover"
+                  />
+                  <Text style={{ fontWeight: "bold" }}>{book.title}</Text>
+                </Flex>
+              </EnlargedImageWrapper>
+            ))}
           </Flex>
         </Box>
       </Flex>
