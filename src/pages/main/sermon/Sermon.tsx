@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import SermonCard from "@/components/sermonCard/SermonCard";
+import useIsMobile from "@/hooks/useIsMobile";
 
 interface VideoData {
   videoId: string;
@@ -14,8 +15,11 @@ interface VideoData {
 }
 
 const Sermon: React.FC = () => {
+  const isMobile = useIsMobile();
   const [latestVideoData, setLatestVideoData] = useState<VideoData[]>([]);
-  const [cardWidth, setCardWidth] = useState(window.innerWidth / 6.5);
+  const [cardWidth, setCardWidth] = useState(
+    isMobile ? window.innerWidth / 4 : window.innerWidth / 6.5,
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,7 +31,7 @@ const Sermon: React.FC = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const fetchLatestVideoData = async () => {
@@ -44,16 +48,36 @@ const Sermon: React.FC = () => {
 
   return (
     <>
-      <Flex gap={"25px"} flexDirection="column">
-        <Flex gap={"25px"} alignItems={"center"}>
-          <div style={{ width: `${cardWidth * 1.3}px` }}>
-            <Text size={"34px"}>예배와 말씀</Text>
+      <Flex gap={isMobile ? "10px" : "25px"} flexDirection="column">
+        <Flex gap={isMobile ? "5px" : "25px"} alignItems={"center"}>
+          <div
+            style={
+              isMobile
+                ? { width: `${cardWidth * 1.4}px` }
+                : { width: `${cardWidth * 1.3}px` }
+            }
+          >
+            <Text
+              size={isMobile ? "24px" : "34px"}
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              예배와 말씀
+            </Text>
           </div>
           <Text
-            style={{
-              position: "relative",
-              top: "32px",
-            }}
+            style={
+              isMobile
+                ? {
+                    position: "relative",
+                    top: "",
+                  }
+                : {
+                    position: "relative",
+                    top: "32px",
+                  }
+            }
           >
             최근설교
           </Text>
@@ -78,14 +102,16 @@ const Sermon: React.FC = () => {
           </Flex>
           <Flex flexDirection="column">
             <Flex gap={"10px"}>
-              {Array.from({ length: 3 }).map((_, index) => (
-                <SermonCard
-                  key={index}
-                  height={`${cardWidth * 0.6}px`}
-                  width={`${cardWidth}px`}
-                  videoId={""}
-                />
-              ))}
+              {Array.from(isMobile ? { length: 2 } : { length: 3 }).map(
+                (_, index) => (
+                  <SermonCard
+                    key={index}
+                    height={`${cardWidth * 0.6}px`}
+                    width={`${cardWidth}px`}
+                    videoId={""}
+                  />
+                ),
+              )}
               {Array.isArray(latestVideoData) &&
                 latestVideoData.map((videoData) => (
                   <SermonCard
@@ -100,14 +126,16 @@ const Sermon: React.FC = () => {
             <Text>성령학교 영상</Text>
             <Spacer height={"10px"} />
             <Flex gap={"10px"}>
-              {Array.from({ length: 3 }).map((_, index) => (
-                <SermonCard
-                  key={index}
-                  height={`${cardWidth * 0.6}px`}
-                  width={`${cardWidth}px`}
-                  videoId={""}
-                />
-              ))}
+              {Array.from(isMobile ? { length: 2 } : { length: 3 }).map(
+                (_, index) => (
+                  <SermonCard
+                    key={index}
+                    height={`${cardWidth * 0.6}px`}
+                    width={`${cardWidth}px`}
+                    videoId={""}
+                  />
+                ),
+              )}
               {Array.isArray(latestVideoData) &&
                 latestVideoData.map((videoData) => (
                   <SermonCard

@@ -10,7 +10,6 @@ const MainPage = () => {
     <Area>
       <NewBannerSection />
       <Category />
-      <Spacer height={"50px"} />
       <Sermon />
       <Spacer height={"10px"} />
       <Book />

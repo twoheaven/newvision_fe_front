@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Box from "@/components/box/Box";
+import useIsMobile from "@/hooks/useIsMobile";
 import book1 from "@/pages/book/assets/book1.png";
 import book2 from "@/pages/book/assets/book2.png";
 import book3 from "@/pages/book/assets/book3.png";
@@ -22,7 +23,10 @@ const EnlargedImageWrapper = styled.div<EnlargedImageProps>`
 `;
 
 const Book = () => {
-  const [boxWidth, setBoxWidth] = useState(window.innerWidth * 0.8);
+  const isMobile = useIsMobile();
+  const [boxWidth, setBoxWidth] = useState(
+    isMobile ? window.innerWidth : window.innerWidth * 0.8,
+  );
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);

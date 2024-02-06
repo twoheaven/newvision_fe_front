@@ -1,4 +1,4 @@
-import { Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
+import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Paths from "src/types/paths";
@@ -78,11 +78,11 @@ const Category = () => {
   }, []); // 최초 한 번만 실행
 
   const buttonWidth = isMobile
-    ? (windowWidth * 1) / 5
+    ? (windowWidth * 1.4) / 4.2
     : (windowWidth * 0.8) / 5;
 
   return (
-    <Content>
+    <>
       {/* 카테고리 버튼들을 포함한 Flex 컴포넌트 */}
       <Spacer height={isMobile ? "10px" : "50px"} />
       <Flex justifyContent="center" gap={isMobile ? "3px" : "20px"}>
@@ -99,7 +99,8 @@ const Category = () => {
           </Link>
         ))}
       </Flex>
-    </Content>
+      <Spacer height={isMobile ? "10px" : "50px"} />
+    </>
   );
 };
 
