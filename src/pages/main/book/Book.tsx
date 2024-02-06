@@ -56,16 +56,26 @@ const Book = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Flex alignItems="center" justifyContent="center" gap={"20px"}>
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            gap={isMobile ? "20px" : "50px"}
+          >
             {books.map((book, index) => (
               <EnlargedImageWrapper key={index}>
                 <Flex
                   flexDirection="column"
                   justifyContent="center"
                   alignItems="center"
-                  style={{
-                    margin: "20px 0", // 위아래로 20px의 margin 추가
-                  }}
+                  style={
+                    isMobile
+                      ? {
+                          margin: "20px 0", // 위아래로 20px의 margin 추가
+                        }
+                      : {
+                          margin: "30px 0", // 위아래로 20px의 margin 추가
+                        }
+                  }
                 >
                   <img
                     style={{
@@ -75,7 +85,12 @@ const Book = () => {
                     src={book.image}
                     alt="Book Cover"
                   />
-                  <Text style={{ fontWeight: "bold" }}>{book.title}</Text>
+                  <Text
+                    size={isMobile ? "14px" : "20px"}
+                    style={{ fontWeight: "bold" }}
+                  >
+                    {book.title}
+                  </Text>
                 </Flex>
               </EnlargedImageWrapper>
             ))}
