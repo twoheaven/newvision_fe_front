@@ -71,7 +71,8 @@ const Sermon: React.FC = () => {
               isMobile
                 ? {
                     position: "relative",
-                    top: "",
+                    top: "2px",
+                    left: "5px",
                   }
                 : {
                     position: "relative",
@@ -149,7 +150,7 @@ const Sermon: React.FC = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Spacer height={"50px"} />
+      <Spacer height={isMobile ? "10px" : "50px"} />
     </>
   );
 };

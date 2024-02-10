@@ -46,7 +46,7 @@ const Book = () => {
       flexDirection="column"
       justifyContent="center"
     >
-      <Text size={"34px"}>김온유 목사 저서 안내</Text>
+      <Text size={isMobile ? "24px" : "34px"}>김온유 목사 저서 안내</Text>
       <Flex alignItems="center" justifyContent="center">
         <Box
           style={{
@@ -97,7 +97,7 @@ const Book = () => {
           </Flex>
         </Box>
       </Flex>
-      <Spacer height={"50px"} />
+      <Spacer height={isMobile ? "20px" : "50px"} />
     </Flex>
   );
 };
