@@ -53,7 +53,7 @@ const Sermon: React.FC = () => {
           <div
             style={
               isMobile
-                ? { width: `${cardWidth * 1.4}px` }
+                ? { width: `${cardWidth * 1.4}px`, minWidth: "110px" }
                 : { width: `${cardWidth * 1.3}px` }
             }
           >
@@ -72,7 +72,7 @@ const Sermon: React.FC = () => {
                 ? {
                     position: "relative",
                     top: "2px",
-                    left: "5px",
+                    left: "",
                   }
                 : {
                     position: "relative",
