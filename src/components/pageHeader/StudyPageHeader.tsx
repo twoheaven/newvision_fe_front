@@ -2,7 +2,7 @@ import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 
 import Header2 from "@/layout/Header2";
 
-import mainImg from "./assets/writingimg.png";
+import mainImg from "./assets/writingimg.webp";
 
 // BannerSection 컴포넌트 정의
 const StudyPageHeader = () => {
