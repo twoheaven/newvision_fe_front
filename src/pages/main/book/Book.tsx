@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 import Box from "@/components/box/Box";
 import useIsMobile from "@/hooks/useIsMobile";
-import book1 from "@/pages/book/assets/book1.png";
-import book2 from "@/pages/book/assets/book2.png";
-import book3 from "@/pages/book/assets/book3.png";
+import book1 from "@/pages/book/assets/book1.webp";
+import book2 from "@/pages/book/assets/book2.webp";
+import book3 from "@/pages/book/assets/book3.webp";
 
 const EnlargedImageWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
