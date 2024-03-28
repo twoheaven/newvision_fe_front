@@ -6,10 +6,10 @@ import styled from "styled-components";
 
 import useIsMobile from "@/hooks/useIsMobile";
 
-import online from "./assets/online.png";
-import school from "./assets/school.png";
-import way from "./assets/way.png";
-import worship from "./assets/worship.png";
+import online from "./assets/online.webp";
+import school from "./assets/school.webp";
+import way from "./assets/way.webp";
+import worship from "./assets/worship.webp";
 
 const categories = [
   {
