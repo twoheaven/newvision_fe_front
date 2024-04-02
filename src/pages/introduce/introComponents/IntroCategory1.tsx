@@ -8,10 +8,13 @@ const IntroCategory1 = () => {
   return (
     <Content>
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <Text size={"24px"} style={{ fontWeight: "bold" }}>
+        <Text size={"24px"} font={Fonts.Bold}>
           환영합니다
         </Text>
-        <Text>뉴비전교회에 오신 여러분을 진심으로 환영합니다.</Text>
+        <Spacer height={"5px"} />
+        <Text size={"13px"}>
+          뉴비전교회에 오신 여러분을 진심으로 환영합니다.
+        </Text>
         <Spacer height={"50px"} />
         <Text size={"34px"} color="#3872C6">
           <Flex justifyContent="column" gap={"5px"}>
@@ -33,10 +36,11 @@ const IntroCategory1 = () => {
             </Flex>
           </Flex>
         </Text>
-        <Text size={"34px"} color="#3872C6">
-          <strong style={{ fontWeight: 900 }}>동탄 뉴비전교회</strong>
+        <Text font={Fonts.Bold} size={"34px"} color="#3872C6">
+          <strong>동탄 뉴비전교회</strong>
         </Text>
       </Flex>
+      <Spacer height={"50px"} />
       <Flex justifyContent="center" alignItems="center">
         <img src={kimonyouimg} width={"30%"}></img>
         <Flex flexDirection="column" justifyContent="center">
@@ -89,9 +93,9 @@ const IntroCategory1 = () => {
               <br />
             </Text>
             <Text font={Fonts.Bold}>
-              쉐카이나 성령학교 강사
+              <strong>쉐카이나 성령학교 강사</strong>
               <br />
-              동탄 뉴비전교회 담임목사
+              <strong>동탄 뉴비전교회 담임목사</strong>
             </Text>
           </Flex>
         </Flex>
