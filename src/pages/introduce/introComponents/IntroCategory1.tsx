@@ -1,5 +1,7 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 
+import Fonts from "@/styles/fonts";
+
 import kimonyouimg from "./asset/목사님사진.jpg";
 
 const IntroCategory1 = () => {
@@ -12,8 +14,24 @@ const IntroCategory1 = () => {
         <Text>뉴비전교회에 오신 여러분을 진심으로 환영합니다.</Text>
         <Spacer height={"50px"} />
         <Text size={"34px"} color="#3872C6">
-          <strong style={{ fontWeight: 900 }}>"개혁의 부르심</strong>을 가지고{" "}
-          <strong style={{ fontWeight: 900 }}>새부대로 준비</strong>되는 교회!"
+          <Flex justifyContent="column" gap={"5px"}>
+            <Flex>
+              <strong>
+                <Text size={"34px"} font={Fonts.Bold}>
+                  "개혁의 부르심
+                </Text>
+              </strong>
+              을 가지고
+            </Flex>
+            <Flex>
+              <strong>
+                <Text size={"34px"} font={Fonts.Bold}>
+                  새부대로 준비
+                </Text>
+              </strong>
+              되는 교회!"
+            </Flex>
+          </Flex>
         </Text>
         <Text size={"34px"} color="#3872C6">
           <strong style={{ fontWeight: 900 }}>동탄 뉴비전교회</strong>
@@ -21,7 +39,7 @@ const IntroCategory1 = () => {
       </Flex>
       <Flex justifyContent="center" alignItems="center">
         <img src={kimonyouimg} width={"30%"}></img>
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" justifyContent="center">
           <Flex>
             <Text>
               환영인사환영인사환영인사환영인사환영인사환영
@@ -31,7 +49,9 @@ const IntroCategory1 = () => {
               환영인사환영인사환영인사환영인사환영인사환영인사환영
               <br />
               인사환영인사환영인사환영인사환영인사환영인사환
-              <br />
+              <Text size={"10px"}>
+                <br />
+              </Text>
               환영인사환영인사환영인사환영인사환영인사환영인사
               <br />
               환영인사환영인사환영인사환영인
@@ -39,7 +59,9 @@ const IntroCategory1 = () => {
               환영인사환영인사환영인사환영인사환영인사환영인사환영인사
               <br />
               환영인사환영인사환영인사환영인사환영인사환영인사환
-              <br />
+              <Text size={"10px"}>
+                <br />
+              </Text>
               환영인사환영인사환영인사환영인사환영인사환영인사환
               <br />
               환영인사환영인사환영인사환영인사환영인사환영인사환
@@ -49,10 +71,15 @@ const IntroCategory1 = () => {
             </Text>
           </Flex>
           <Flex flexDirection="column">
-            <Text>
-              <br />
-              담임목사 김온유
-            </Text>
+            <br />
+            <Flex alignItems="center" gap={"5px"}>
+              <Text font={Fonts.Bold} color="gray" size={"20px"}>
+                담임목사
+              </Text>
+              <Text font={Fonts.Bold} size={"24px"}>
+                김온유
+              </Text>
+            </Flex>
             <Text>
               장로회 신학대학원 M.Div 졸업
               <br />
@@ -61,7 +88,7 @@ const IntroCategory1 = () => {
               쉐카이나 영광 미니스트리 대표
               <br />
             </Text>
-            <Text style={{ fontWeight: "bold" }}>
+            <Text font={Fonts.Bold}>
               쉐카이나 성령학교 강사
               <br />
               동탄 뉴비전교회 담임목사
