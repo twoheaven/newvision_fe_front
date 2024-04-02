@@ -45,20 +45,23 @@ const IntroCategory1 = () => {
               환영인사환영인사환영인사환영인사환영인사환영인사환
               <br />
               사환영인사환영인사환영인사
+              <br />
             </Text>
           </Flex>
-          <Flex>
+          <Flex flexDirection="column">
             <Text>
-              담임목사  김온유
-              </Text>
-<Text>
               <br />
+              담임목사 김온유
+            </Text>
+            <Text>
               장로회 신학대학원 M.Div 졸업
               <br />
               예장통합 여수노회 목사안수
               <br />
               쉐카이나 영광 미니스트리 대표
               <br />
+            </Text>
+            <Text style={{ fontWeight: "bold" }}>
               쉐카이나 성령학교 강사
               <br />
               동탄 뉴비전교회 담임목사
