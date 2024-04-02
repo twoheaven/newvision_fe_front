@@ -1,12 +1,25 @@
-import { Text } from "@dohyun-ko/react-atoms";
+import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
+
+import useIsMobile from "@/hooks/useIsMobile";
+import Fonts from "@/styles/fonts";
+
+import visionimg from "./asset/교회비전.jpg";
 
 const IntroCategory3 = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <>
-      <Text>IntroCategory3</Text>
-      <Text>IntroCategory3</Text>
-      <Text>IntroCategory3</Text>
-    </>
+    <Content>
+      <Flex justifyContent="center" alignItems="center" flexDirection="column">
+        <Text size={"24px"} font={Fonts.Bold}>
+          교회 비전
+        </Text>
+        <Spacer height={"5px"} />
+        <Text size={"13px"}>뉴비전교회의 비전을 안내드립니다.</Text>
+        <Spacer height={"50px"} />
+        <img src={visionimg} width={isMobile ? "100%" : "80%"}></img>
+      </Flex>
+    </Content>
   );
 };
 
