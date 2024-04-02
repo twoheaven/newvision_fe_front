@@ -54,7 +54,7 @@ const Newsnewfam = () => {
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   공지
                 </Text>
-                <Spacer height={"20px"} />
+                <Spacer height={isMobile ? "14px" : "20px"} />
               </Flex>
             </Flex>
             <Flex
@@ -73,7 +73,7 @@ const Newsnewfam = () => {
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   훈련 & 행사
                 </Text>
-                <Spacer height={"20px"} />
+                <Spacer height={isMobile ? "14px" : "20px"} />
               </Flex>
             </Flex>
           </Flex>
