@@ -2,6 +2,10 @@ import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
 
 import useIsMobile from "@/hooks/useIsMobile";
+import news from "@/pages/main/newsnewfam/asset/공지배경.png";
+import visit1 from "@/pages/main/newsnewfam/asset/교회직접방문.png";
+import visit2 from "@/pages/main/newsnewfam/asset/온라인등록.png";
+import train from "@/pages/main/newsnewfam/asset/훈련&행사배경.png";
 
 const Newsnewfam = () => {
   const isMobile = useIsMobile();
@@ -33,21 +37,56 @@ const Newsnewfam = () => {
           gap={"10px"}
         >
           <Text size={isMobile ? "20px" : "34px"}>교회 소식</Text>
-          <Flex gap={"10px"} justifyContent="center" alignItems="center">
-            <Flex justifyContent="center" style={{ flex: "1" }}>
-              <Text size={isMobile ? "" : "24px"}>공지</Text>
+          <Flex gap={"10px"} justifyContent="center">
+            <Flex
+              justifyContent="center"
+              style={{
+                flex: "1",
+                backgroundImage: `url(${news})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                aspectRatio: "1 / 1",
+                alignItems: "flex-start",
+              }}
+            >
+              <Flex>
+                <Spacer height={"20px"} />
+                <Text size={isMobile ? "" : "24px"} color={"white"}>
+                  공지
+                </Text>
+                <Spacer height={"20px"} />
+              </Flex>
+              <Flex>
+                <img></img>
+              </Flex>
             </Flex>
-            <Flex justifyContent="center" style={{ flex: "1" }}>
-              <Text size={isMobile ? "" : "24px"}>훈련 & 행사</Text>
+            <Flex
+              justifyContent="center"
+              style={{
+                flex: "1",
+                backgroundImage: `url(${train})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                aspectRatio: "1 / 1",
+                alignItems: "flex-start",
+              }}
+            >
+              <Flex>
+                <Spacer height={"20px"} />
+                <Text size={isMobile ? "" : "24px"} color={"white"}>
+                  훈련 & 행사
+                </Text>
+                <Spacer height={"20px"} />
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
         <Flex
-          flexDirection="column"
           gap={"10px"}
+          alignItems={"flex-start"}
           style={{
             flex: "1",
-            width: `${windowWidth / 2.8}px`,
+            width: `${windowWidth / 2.7}px`,
             height: `${windowWidth / 3.6}px`,
             minHeight: "170px",
             minWidth: "130px",
@@ -55,10 +94,12 @@ const Newsnewfam = () => {
         >
           <Text size={isMobile ? "20px" : "34px"}>새가족 등록</Text>
           <Flex justifyContent="center">
-            <Text size={isMobile ? "" : "24px"}>교회 직접 방문</Text>
-          </Flex>
-          <Flex justifyContent="center">
-            <Text size={isMobile ? "" : "24px"}>온라인 등록 바로가기</Text>
+            <img
+              src={visit1}
+              width={"100%"}
+              style={{ marginBottom: "10px" }}
+            ></img>
+            <img src={visit2} width={"100%"}></img>
           </Flex>
         </Flex>
       </Flex>
