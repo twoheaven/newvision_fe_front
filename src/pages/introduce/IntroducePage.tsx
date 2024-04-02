@@ -34,13 +34,13 @@ const IntroducePage = () => {
     <Area>
       <TeamPageHeader />
       <Spacer height={"15px"} />
-      <Flex justifyContent="center" gap={"5px"}>
+      <Flex justifyContent="center" gap={"8px"}>
         {categories.map((category, index) => (
           <Button key={index} onClick={() => handleCategorySelect(index)}>
             {category.name}
           </Button>
         ))}
-        <Spacer height={"5px"} />
+        <Spacer height={"0px"} />
         <Divider />
         <Spacer height={"30px"} />
         <SelectedComponent />
