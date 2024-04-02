@@ -49,8 +49,9 @@ const IntroCategory1 = () => {
           </Flex>
           <Flex>
             <Text>
-              <br />
               담임목사  김온유
+              </Text>
+<Text>
               <br />
               장로회 신학대학원 M.Div 졸업
               <br />
