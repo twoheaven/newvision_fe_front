@@ -24,8 +24,9 @@ const Album = () => {
           >
             + 더보기
           </Text>
+          <Spacer height={"5px"} />
         </Flex>
-        <Flex gap={"10px"} justifyContent="center">
+        <Flex gap={isMobile ? "5px" : "10px"} justifyContent="center">
           <img src={al1} width={"24%"}></img>
           <img src={al2} width={"24%"}></img>
           <img src={al3} width={"24%"}></img>

@@ -1,4 +1,4 @@
-import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
+import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
 
 import useIsMobile from "@/hooks/useIsMobile";
@@ -23,7 +23,7 @@ const Newsnewfam = () => {
     };
   }, []);
   return (
-    <>
+    <Content>
       <Flex gap={isMobile ? "5px" : "10px"} justifyContent="center">
         <Flex
           flexDirection="column"
@@ -36,7 +36,7 @@ const Newsnewfam = () => {
           }}
           gap={"10px"}
         >
-          <Text size={isMobile ? "20px" : "34px"}>교회 소식</Text>
+          <Text size={isMobile ? "24px" : "34px"}>교회 소식</Text>
           <Flex gap={"10px"} justifyContent="center">
             <Flex
               justifyContent="center"
@@ -50,14 +50,11 @@ const Newsnewfam = () => {
               }}
             >
               <Flex>
-                <Spacer height={"20px"} />
+                <Spacer height={isMobile ? "14px" : "20px"} />
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   공지
                 </Text>
                 <Spacer height={"20px"} />
-              </Flex>
-              <Flex>
-                <img></img>
               </Flex>
             </Flex>
             <Flex
@@ -72,7 +69,7 @@ const Newsnewfam = () => {
               }}
             >
               <Flex>
-                <Spacer height={"20px"} />
+                <Spacer height={isMobile ? "14px" : "20px"} />
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   훈련 & 행사
                 </Text>
@@ -92,7 +89,7 @@ const Newsnewfam = () => {
             minWidth: "130px",
           }}
         >
-          <Text size={isMobile ? "20px" : "34px"}>새가족 등록</Text>
+          <Text size={isMobile ? "24px" : "34px"}>새가족 등록</Text>
           <Flex justifyContent="center">
             <img
               src={visit1}
@@ -103,8 +100,8 @@ const Newsnewfam = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Spacer height={isMobile ? "20px" : "50px"} />
-    </>
+      <Spacer height={isMobile ? "70px" : "50px"} />
+    </Content>
   );
 };
 
