@@ -50,7 +50,7 @@ const Newsnewfam = () => {
               }}
             >
               <Flex>
-                <Spacer height={isMobile ? "14px" : "20px"} />
+                <Spacer height={isMobile ? "8px" : "20px"} />
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   공지
                 </Text>
@@ -69,7 +69,7 @@ const Newsnewfam = () => {
               }}
             >
               <Flex>
-                <Spacer height={isMobile ? "14px" : "20px"} />
+                <Spacer height={isMobile ? "8px" : "20px"} />
                 <Text size={isMobile ? "" : "24px"} color={"white"}>
                   훈련 & 행사
                 </Text>
@@ -89,6 +89,7 @@ const Newsnewfam = () => {
             minWidth: "130px",
           }}
         >
+          {isMobile ? <Spacer height={"25px"} /> : ""}
           <Text size={isMobile ? "24px" : "34px"}>새가족 등록</Text>
           <Flex justifyContent="center">
             <img

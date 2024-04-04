@@ -11,6 +11,7 @@ const Album = () => {
 
   return (
     <Content>
+      {isMobile ? <Spacer height={"180px"} /> : ""}
       <Flex
         alignItems="flex-start"
         flexDirection="column"
@@ -27,10 +28,10 @@ const Album = () => {
           <Spacer height={"5px"} />
         </Flex>
         <Flex gap={isMobile ? "5px" : "10px"} justifyContent="center">
-          <img src={al1} width={"24%"}></img>
-          <img src={al2} width={"24%"}></img>
-          <img src={al3} width={"24%"}></img>
-          <img src={al4} width={"24%"}></img>
+          <img src={al1} width={isMobile ? "49%" : "24%"}></img>
+          <img src={al2} width={isMobile ? "49%" : "24%"}></img>
+          <img src={al3} width={isMobile ? "49%" : "24%"}></img>
+          <img src={al4} width={isMobile ? "49%" : "24%"}></img>
         </Flex>
         <Spacer height={isMobile ? "20px" : "50px"} />
       </Flex>
