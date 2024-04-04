@@ -1,6 +1,6 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import PartyPageHeader from "@/components/pageHeader/PartyPageHeader";
+import PartyPageHeader from "@/components/pageHeader/NewsPageHeader";
 
 const NewsPage = () => {
   return (

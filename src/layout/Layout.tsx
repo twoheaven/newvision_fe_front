@@ -13,8 +13,8 @@ import useIsMobile from "@/hooks/useIsMobile";
 
 // 레이아웃 구조를 위한 컴포넌트를 불러오고 사용합니다.
 import Footer from "./Footer";
-import Header from "./Header";
-import MobileHeader from "./MobileHeader";
+import Header from "./Header1";
+import MobileHeader1 from "./MobileHeader1";
 import MobileProvider from "./MobileProvider";
 
 // 페이드 인 애니메이션을 위한 키프레임 정의
@@ -73,7 +73,7 @@ const Layout = () => {
           }}
         >
           {/* 모바일 여부에 따라 헤더를 조건부 렌더링 */}
-          <HeaderWrapper />
+          <Header1Wrapper />
 
           {/* 중첩된 라우트를 렌더링하기 위한 아웃렛 */}
           <Outlet />
@@ -90,10 +90,10 @@ const Layout = () => {
 };
 
 // 모바일과 데스크톱 헤더 중 어떤 것을 선택할지 결정하는 컴포넌트
-const HeaderWrapper = () => {
+const Header1Wrapper = () => {
   const isMobile = useIsMobile();
 
-  return isMobile ? <MobileHeader /> : <Header />;
+  return isMobile ? <MobileHeader1 /> : <Header />;
 };
 
 // 메인 레이아웃 컴포넌트를 기본 내보내기로 설정

@@ -6,13 +6,14 @@ import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
 import naverBlogLogo from "@/assets/naver-blog-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const StyledHeaderArea = styled(Area)`
   background-color: "white"; /* 원하는 배경색으로 변경 */
 `;
 
 // Header를 나타내는 함수형 컴포넌트
-const MobileHeader = () => {
+const Header = () => {
   return (
     // Header 영역
     <StyledHeaderArea>
@@ -38,17 +39,17 @@ const MobileHeader = () => {
                 src={youtubeLogo}
                 alt="유튜브"
                 style={{
-                  width: "20px",
+                  width: "28px",
                 }}
               />
             </a>
             {/* Instagram 링크를 위한 WrapperLink */}
-            <a href={"https://www.instagram.com/new_vision_story"}>
+            <a href={"https://www.instagram.com/now_manna/"}>
               <img
                 src={instagramLogo}
                 alt="인스타그램"
                 style={{
-                  width: "16px",
+                  width: "24px",
                 }}
               />
             </a>
@@ -59,7 +60,7 @@ const MobileHeader = () => {
                 src={naverBlogLogo}
                 alt="네이버블로그"
                 style={{
-                  width: "16px",
+                  width: "24px",
                 }}
               />
             </a>
@@ -74,4 +75,4 @@ const MobileHeader = () => {
 };
 
 // Header 컴포넌트 내보내기
-export default MobileHeader;
+export default Header;

@@ -12,9 +12,9 @@ const NewBannerSection = () => {
     <Flex justifyContent="center" width="100%">
       <Flex width="100%" style={{ position: "relative", textAlign: "center" }}>
         {/* 배너 이미지 표시 */}
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", overflow: "hidden" }}>
           <img
-            width={isMobile ? "150%" : "100%"}
+            width={isMobile ? "140%" : "100%"}
             src={mainImg}
             alt="mainimg"
             style={
@@ -22,7 +22,7 @@ const NewBannerSection = () => {
                 ? {
                     pointerEvents: "none",
                     display: "block",
-                    transform: "translateX(-10%)",
+                    transform: "translateX(-15%)",
                   }
                 : {
                     pointerEvents: "none",

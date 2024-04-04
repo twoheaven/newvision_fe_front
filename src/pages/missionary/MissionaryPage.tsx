@@ -1,6 +1,6 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import SystemPageHeader from "@/components/pageHeader/SystemPageHeader";
+import SystemPageHeader from "@/components/pageHeader/MissionPageHeader";
 
 const MissionaryPage = () => {
   return (

@@ -1,6 +1,6 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import EventPageHeader from "@/components/pageHeader/EventPageHeader";
+import EventPageHeader from "@/components/pageHeader/HolyschoolPageHeader";
 
 const HolySchoolPage = () => {
   return (

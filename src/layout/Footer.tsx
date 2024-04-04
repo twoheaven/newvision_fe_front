@@ -8,10 +8,13 @@ import {
   Text,
 } from "@dohyun-ko/react-atoms";
 
+import useIsMobile from "@/hooks/useIsMobile";
+
 import logo from "../assets/logo.png";
 
 // 푸터를 나타내는 함수형 컴포넌트
 const Footer = () => {
+  const isMobile = useIsMobile();
   return (
     // 푸터 영역
     <Area backgroundColor="#494949">
@@ -19,12 +22,16 @@ const Footer = () => {
       <Divider />
 
       {/* 세로 간격 */}
-      <Spacer height={"55px"} />
+      <Spacer height={isMobile ? "30px" : "55px"} />
 
       {/* 내용 섹션 - 회사 정보 및 소셜 미디어 링크 */}
       <Content>
         {/* 항목 간 간격을 두고 정렬하는 Flex 컨테이너 */}
-        <Flex justifyContent={"center"} gap={"50px"} alignItems="center">
+        <Flex
+          justifyContent={"center"}
+          gap={isMobile ? "30px" : "50px"}
+          alignItems="center"
+        >
           {/* 왼쪽 열 - 회사 정보 */}
           <Flex>
             <img
@@ -51,7 +58,7 @@ const Footer = () => {
       </Content>
 
       {/* 세로 간격 */}
-      <Spacer height={"50px"} />
+      <Spacer height={isMobile ? "20px" : "50px"} />
     </Area>
   );
 };

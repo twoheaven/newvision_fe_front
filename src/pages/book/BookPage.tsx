@@ -1,6 +1,6 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import StudyPageHeader from "@/components/pageHeader/StudyPageHeader";
+import StudyPageHeader from "@/components/pageHeader/WritingPageHeader";
 
 const BookPage = () => {
   return (
