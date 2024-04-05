@@ -1,8 +1,7 @@
 import { Flex, Spacer } from "@dohyun-ko/react-atoms";
-import React from "react";
 
 import useIsMobile from "@/hooks/useIsMobile";
-import Header2 from "@/layout/Header2";
+import Header2Provider from "@/layout/Header2Provider";
 
 import mainImg from "./assets/mainpageimg.png";
 
@@ -34,11 +33,11 @@ const NewBannerSection = () => {
         {/* 헤더 */}
         <Flex
           justifyContent="center"
-          width="80%"
+          width={isMobile ? "100%" : "80%"}
           style={{ position: "absolute" }}
         >
           <Spacer height="5px" />
-          <Header2 />
+          <Header2Provider />
         </Flex>
       </Flex>
     </Flex>

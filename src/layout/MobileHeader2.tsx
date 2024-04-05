@@ -1,72 +1,56 @@
 // 필요한 컴포넌트 및 라이브러리 가져오기
-import { Area, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
+import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
+import { WrapperLink } from "src/components/wrapperLink/WrapperLink";
+import Paths from "src/types/paths";
 import styled from "styled-components";
 
-import instagramLogo from "@/assets/instagram-logo.svg";
-// 로고 이미지 가져오기
-import naverBlogLogo from "@/assets/naver-blog-logo.png";
-import youtubeLogo from "@/assets/youtube-logo.svg";
+import Logo from "@/assets/logo.png";
 
-const StyledHeaderArea = styled(Area)`
-  background-color: "white"; /* 원하는 배경색으로 변경 */
+// Flex 컨테이너 스타일을 직접 지정
+const StyledFlexContainer = styled(Flex)`
+  display: flex;
+  width: 95%;
+`;
+
+// StyledText 스타일드 컴포넌트를 Header2 내부에서 정의
+const StyledText = styled(Text)`
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold; /* 원하는 굵기로 조절 */
+  color: white; /* 원하는 색상으로 조절 */
 `;
 
 // Header를 나타내는 함수형 컴포넌트
 const MobileHeader2 = () => {
   return (
     // Header 영역
-    <StyledHeaderArea>
-      <Spacer height={"7px"} />
-      {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
-      <Flex
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        style={{
-          padding: "0px 0",
-        }}
-      >
-        {/* 왼쪽 섹션 - 로고, 설명, 메뉴 등 */}
-        <Flex gap={"20px"} alignItems={"center"}>
-          {/* 로그인 상태에 따라 콘텐츠 생성 버튼 표시 */}
+    <>
+      <Spacer height={"3px"} />
+      {/* 메인 페이지로 이동하는 링크 */}
+      <StyledFlexContainer justifyContent="space-between" alignItems="center">
+        <Flex>
+          <WrapperLink to={Paths.Main}>
+            <img src={Logo} alt={"logo"} width={"75px"} />
+          </WrapperLink>
         </Flex>
-        {/* 소셜 링크 모음 */}
-        <Flex gap={"10px"} alignItems={"center"}>
-          {/* YouTube 링크를 위한 WrapperLink */}
-          <a href={"https://www.youtube.com/@kimonyou153"}>
-            <img
-              src={youtubeLogo}
-              alt="유튜브"
-              style={{
-                width: "28px",
-              }}
-            />
-          </a>
-          {/* Instagram 링크를 위한 WrapperLink */}
-          <a href={"https://www.instagram.com/now_manna/"}>
-            <img
-              src={instagramLogo}
-              alt="인스타그램"
-              style={{
-                width: "24px",
-              }}
-            />
-          </a>
-
-          {/* Naver 블로그 링크를 위한 WrapperLink */}
-          <a href={"https://blog.naver.com/new_vision_church"}>
-            <img
-              src={naverBlogLogo}
-              alt="네이버블로그"
-              style={{
-                width: "24px",
-              }}
-            />
-          </a>
+        {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
+        {/* 각종 메뉴에 대한 링크 */}
+        <Flex gap={"6px"}>
+          {[
+            { path: Paths.Introduce, label: "소개" },
+            { path: Paths.Sermon, label: "말씀" },
+            { path: Paths.HolySchool, label: "성령학교" },
+            { path: Paths.News, label: "소식" },
+            { path: Paths.Book, label: "저서" },
+            { path: Paths.Missionary, label: "선교사역" },
+          ].map(({ path, label }) => (
+            <WrapperLink to={path} key={path}>
+              <StyledText size={"12px"}>{label}</StyledText>
+            </WrapperLink>
+          ))}
         </Flex>
-      </Flex>
-      {/* 가로선 구분자 */}
-      <Divider />
-    </StyledHeaderArea>
+      </StyledFlexContainer>
+      <Spacer height={"5px"} />
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 
 // 레이아웃 구조를 위한 컴포넌트를 불러오고 사용합니다.
 import Footer from "./Footer";
-import Header from "./Header1";
+import Header1 from "./Header1";
 import MobileHeader1 from "./MobileHeader1";
 import MobileProvider from "./MobileProvider";
 
@@ -93,7 +93,7 @@ const Layout = () => {
 const Header1Wrapper = () => {
   const isMobile = useIsMobile();
 
-  return isMobile ? <MobileHeader1 /> : <Header />;
+  return isMobile ? <MobileHeader1 /> : <Header1 />;
 };
 
 // 메인 레이아웃 컴포넌트를 기본 내보내기로 설정
