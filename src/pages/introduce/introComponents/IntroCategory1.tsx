@@ -18,11 +18,11 @@ const IntroCategory1 = () => {
           뉴비전교회에 오신 여러분을 진심으로 환영합니다.
         </Text>
         <Spacer height={"50px"} />
-        <Text size={"34px"} color="#3872C6">
+        <Text size={isMobile ? "30px" : "34px"} color="#3872C6">
           <Flex justifyContent="center" gap={"5px"}>
             <Flex>
               <strong>
-                <Text size={"34px"} font={Fonts.Bold}>
+                <Text size={isMobile ? "30px" : "34px"} font={Fonts.Bold}>
                   "개혁의 부르심
                 </Text>
               </strong>
@@ -30,7 +30,7 @@ const IntroCategory1 = () => {
             </Flex>
             <Flex>
               <strong>
-                <Text size={"34px"} font={Fonts.Bold}>
+                <Text size={isMobile ? "30px" : "34px"} font={Fonts.Bold}>
                   새부대로 준비
                 </Text>
               </strong>
@@ -38,7 +38,11 @@ const IntroCategory1 = () => {
             </Flex>
           </Flex>
         </Text>
-        <Text font={Fonts.Bold} size={"34px"} color="#3872C6">
+        <Text
+          font={Fonts.Bold}
+          size={isMobile ? "30px" : "34px"}
+          color="#3872C6"
+        >
           <strong>동탄 뉴비전교회</strong>
         </Text>
       </Flex>
