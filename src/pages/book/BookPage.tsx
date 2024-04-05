@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import StudyPageHeader from "@/components/pageHeader/WritingPageHeader";
+import BookPageHeader from "@/components/pageHeader/BookPageHeader";
 
 const BookPage = () => {
   return (
     <Area>
-      <StudyPageHeader />
+      <BookPageHeader />
 
       <Spacer height={"30px"} />
 

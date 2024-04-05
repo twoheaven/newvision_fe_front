@@ -1,7 +1,7 @@
 import { Area, Button, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
-import React, { useState } from "react";
+import { useState } from "react";
 
-import TeamPageHeader from "@/components/pageHeader/IntroducePageHeader";
+import IntroducePageHeader from "@/components/pageHeader/IntroducePageHeader";
 
 import Category1Component from "./introComponents/IntroCategory1";
 import Category2Component from "./introComponents/IntroCategory2";
@@ -32,7 +32,7 @@ const IntroducePage = () => {
 
   return (
     <Area>
-      <TeamPageHeader />
+      <IntroducePageHeader />
       <Spacer height={"15px"} />
       <Flex justifyContent="center" gap={"8px"}>
         {categories.map((category, index) => (

@@ -1,11 +1,13 @@
 import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 
+import useIsMobile from "@/hooks/useIsMobile";
 import Header2 from "@/layout/Header2";
 
 import mainImg from "./assets/introduceimg.webp";
 
 // BannerSection 컴포넌트 정의
-const TeamPageHeader = () => {
+const IntroducePageHeader = () => {
+  const isMobile = useIsMobile();
   // JSX 반환
   return (
     <>
@@ -18,16 +20,23 @@ const TeamPageHeader = () => {
           }}
         >
           {/* 배너 이미지 표시 */}
-          <img
-            width={"100%"}
-            src={mainImg}
-            alt={"mainimg"}
-            style={{
-              pointerEvents: "none",
-              width: "100%",
-              minWidth: "100%",
-            }}
-          />
+          <div style={{ overflow: "hidden" }}>
+            <img
+              width={isMobile ? "200%" : "100%"}
+              src={mainImg}
+              alt={"mainimg"}
+              style={
+                isMobile
+                  ? {
+                      pointerEvents: "none",
+                      transform: "translateX(-30%)",
+                    }
+                  : {
+                      pointerEvents: "none",
+                    }
+              }
+            />
+          </div>
 
           {/* 헤더 */}
           <Flex
@@ -46,4 +55,4 @@ const TeamPageHeader = () => {
   );
 };
 
-export default TeamPageHeader;
+export default IntroducePageHeader;

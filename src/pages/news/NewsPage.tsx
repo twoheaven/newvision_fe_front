@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import PartyPageHeader from "@/components/pageHeader/NewsPageHeader";
+import NewsPageHeader from "@/components/pageHeader/NewsPageHeader";
 
 const NewsPage = () => {
   return (
     <Area>
-      <PartyPageHeader />
+      <NewsPageHeader />
 
       <Spacer height={"30px"} />
 

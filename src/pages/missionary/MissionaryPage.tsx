@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import SystemPageHeader from "@/components/pageHeader/MissionPageHeader";
+import MissionaryPageHeader from "@/components/pageHeader/MissionPageHeader";
 
 const MissionaryPage = () => {
   return (
     <Area>
-      <SystemPageHeader />
+      <MissionaryPageHeader />
 
       <Spacer height={"30px"} />
 

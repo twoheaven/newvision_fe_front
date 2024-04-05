@@ -1,11 +1,11 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import EventPageHeader from "@/components/pageHeader/HolyschoolPageHeader";
+import HolySchoolPageHeader from "@/components/pageHeader/HolyschoolPageHeader";
 
 const HolySchoolPage = () => {
   return (
     <Area>
-      <EventPageHeader />
+      <HolySchoolPageHeader />
 
       <Spacer height={"30px"} />
 
