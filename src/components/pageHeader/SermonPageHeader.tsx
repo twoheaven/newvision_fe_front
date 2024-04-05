@@ -30,7 +30,7 @@ const SermonPageHeader = () => {
                 isMobile
                   ? {
                       pointerEvents: "none",
-                      transform: "translateX(-30%)",
+                      transform: "translateX(-25%)",
                     }
                   : {
                       pointerEvents: "none",
