@@ -21,7 +21,11 @@ const IntroCategory6 = () => {
         </Text>
         <Spacer height={"50px"} />
       </Flex>
-      <Flex gap={"5px"} style={{ marginLeft: "50px" }} alignItems="center">
+      <Flex
+        gap={"5px"}
+        style={isMobile ? {} : { marginLeft: "200px" }}
+        alignItems="center"
+      >
         <div
           style={{
             display: "flex",
@@ -53,10 +57,13 @@ const IntroCategory6 = () => {
       </Flex>
       <Spacer height={"10px"} />
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
-        <img src={visitimg} width={isMobile ? "90%" : "70%"}></img>
+        <img src={visitimg} width={isMobile ? "100%" : "70%"}></img>
         <Spacer height={"20px"} />
       </Flex>
-      <Flex style={{ marginLeft: "50px" }}>
+      <Flex
+        flexDirection="column"
+        style={isMobile ? {} : { marginLeft: "200px" }}
+      >
         <Flex gap={"5px"}>
           <Text font={Fonts.Bold}>1. 교회등록</Text>
           <Text>
