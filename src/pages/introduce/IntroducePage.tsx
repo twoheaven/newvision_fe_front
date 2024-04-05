@@ -40,12 +40,12 @@ const IntroducePage = () => {
             {category.name}
           </Button>
         ))}
-        <Spacer height={"0px"} />
+        <Spacer height={"0.1px"} />
         <Divider />
         <Spacer height={"30px"} />
         <SelectedComponent />
       </Flex>
-      <Spacer height={"100px"} />
+      <Spacer height={"60px"} />
     </Area>
   );
 };
