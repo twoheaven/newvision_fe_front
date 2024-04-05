@@ -13,7 +13,7 @@ const IntroCategory4 = () => {
           예배 시간 안내
         </Text>
         <Spacer height={"5px"} />
-        <Text size={"13px"}>
+        <Text size={"13px"} style={{ textAlign: "center" }}>
           예배 시작 시간 전에 오셔서 기도로 준비된 마음으로 예배에 참석해
           주시기를 바랍니다.
         </Text>

@@ -16,7 +16,7 @@ const IntroCategory5 = () => {
         <Spacer height={"5px"} />
         <Text size={"13px"}>뉴비전교회 오시는 길을 안내합니다.</Text>
         <Spacer height={"50px"} />
-        <img src={roadimg} width={isMobile ? "85%" : "50%"}></img>
+        <img src={roadimg} width={isMobile ? "85%" : "60%"}></img>
       </Flex>
     </Content>
   );

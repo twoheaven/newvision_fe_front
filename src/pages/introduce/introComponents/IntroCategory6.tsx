@@ -15,7 +15,7 @@ const IntroCategory6 = () => {
           새가족 안내
         </Text>
         <Spacer height={"5px"} />
-        <Text size={"13px"}>
+        <Text size={"13px"} style={{ textAlign: "center" }}>
           교회에 처음 오신 새가족 분들께 교회안내와 함께 등록 절차를
           안내드립니다.
         </Text>

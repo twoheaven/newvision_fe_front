@@ -17,7 +17,11 @@ const IntroCategory3 = () => {
         <Spacer height={"5px"} />
         <Text size={"13px"}>뉴비전교회의 비전을 안내드립니다.</Text>
         <Spacer height={"50px"} />
-        <img src={visionimg} width={isMobile ? "100%" : "80%"}></img>
+        <img
+          src={visionimg}
+          width={isMobile ? "100%" : "80%"}
+          style={isMobile ? { transform: "translateX(0%)" } : {}}
+        />
       </Flex>
     </Content>
   );
