@@ -19,7 +19,7 @@ const IntroCategory1 = () => {
         </Text>
         <Spacer height={"50px"} />
         <Text size={"34px"} color="#3872C6">
-          <Flex justifyContent="column" gap={"5px"}>
+          <Flex justifyContent="center" gap={"5px"}>
             <Flex>
               <strong>
                 <Text size={"34px"} font={Fonts.Bold}>
