@@ -4,8 +4,10 @@ import Fonts from "@/styles/fonts";
 
 import timeimg from "./asset/예배시간안내.jpg";
 import offerimg from "./asset/온라인 동역 헌금안내.jpg";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const IntroCategory4 = () => {
+  const isMobile = useIsMobile();
   return (
     <Content>
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
@@ -18,7 +20,7 @@ const IntroCategory4 = () => {
           주시기를 바랍니다.
         </Text>
         <Spacer height={"50px"} />
-        <img src={timeimg} width={"80%"}></img>
+        <img src={timeimg} width={isMobile ? "100%" : "80%"}></img>
       </Flex>
       <Spacer height={"50px"} />
       <Flex justifyContent="center" alignItems="center" flexDirection="column">
@@ -33,9 +35,9 @@ const IntroCategory4 = () => {
           아래와 같이 헌금을 할 수 있는 방법을 안내드립니다.
         </Text>
         <Spacer height={"50px"} />
-        <img src={offerimg} width={"80%"}></img>
+        <img src={offerimg} width={isMobile ? "100%" : "80%"}></img>
         <Spacer height={"15px"} />
-        <Flex gap={"5px"}>
+        <Flex gap={"5px"} justifyContent="center">
           <Text>계좌 입금시 입금자명을</Text>
           <Text font={Fonts.Bold}>"이름+헌금명"</Text>
           <Text>순으로 기입해주시기 바랍니다.</Text>

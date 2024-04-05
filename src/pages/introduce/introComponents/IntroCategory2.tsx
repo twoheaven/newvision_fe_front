@@ -20,7 +20,7 @@ const IntroCategory2 = () => {
           교회입니다!
         </Text>
         <Spacer height={"50px"} />
-        <img src={missionimg} width={isMobile ? "80%" : "50%"}></img>
+        <img src={missionimg} width={isMobile ? "100%" : "50%"}></img>
       </Flex>
     </Content>
   );

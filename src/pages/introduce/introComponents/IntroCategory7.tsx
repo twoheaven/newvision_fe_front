@@ -13,10 +13,9 @@ const IntroCategory7 = () => {
         flexDirection="column"
         style={
           isMobile
-            ? { backgroundColor: "#F4F4F4", transform: "translateX(-5%)" }
+            ? { backgroundColor: "#F4F4F4", transform: "translateX(0%)" }
             : { backgroundColor: "#F4F4F4" }
         }
-        width={isMobile ? "110%" : ""}
       >
         <Spacer height={"30px"} />
         <Text size={"24px"} font={Fonts.Bold}>
