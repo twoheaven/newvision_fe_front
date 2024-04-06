@@ -52,8 +52,6 @@ const SermonCard: React.FC<SermonCardProps> = ({
     fetchVideoData();
   }, [videoId]);
 
-  console.log("VideoData:", videoData); // 콘솔에 데이터 출력
-
   if (!videoData) {
     // 데이터를 가져오지 못한 경우에도 기본 이미지를 보여줄 수 있도록 처리
     return (

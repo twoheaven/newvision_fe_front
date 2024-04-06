@@ -1,5 +1,6 @@
 import { Area, Button, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import IntroducePageHeader from "@/components/pageHeader/IntroducePageHeader";
 
@@ -22,12 +23,14 @@ const categories = [
 ];
 
 const IntroducePage = () => {
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+  const location = useLocation();
+  const lego = location.state || 0;
+  console.log(location.state);
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(lego);
 
   const handleCategorySelect = (index: number) => {
     setSelectedCategoryIndex(index);
   };
-
   const SelectedComponent = categories[selectedCategoryIndex].component;
 
   return (

@@ -11,28 +11,12 @@ import school from "./assets/school.webp";
 import way from "./assets/way.webp";
 import worship from "./assets/worship.webp";
 
-const categories = [
-  {
-    name: "예배안내",
-    backgroundImage: worship,
-    path: Paths.Introduce,
-  },
-  {
-    name: "온라인 동역 헌금",
-    backgroundImage: online,
-    path: Paths.Sermon,
-  },
-  {
-    name: "성령학교 안내",
-    backgroundImage: school,
-    path: Paths.Missionary,
-  },
-  {
-    name: "오시는 길",
-    backgroundImage: way,
-    path: Paths.Book,
-  },
-];
+interface CategoryProps {
+  name: string;
+  backgroundImage: string;
+  path: string;
+  lego: number;
+}
 
 const StyledButton = styled.button<{
   backgroundImage?: string;
@@ -81,13 +65,40 @@ const Category = () => {
     ? (windowWidth * 1.4) / 4.2
     : (windowWidth * 0.8) / 5;
 
+  const categories: CategoryProps[] = [
+    {
+      name: "예배안내",
+      backgroundImage: worship,
+      path: Paths.Introduce,
+      lego: 3,
+    },
+    {
+      name: "온라인 동역 헌금",
+      backgroundImage: online,
+      path: Paths.Introduce,
+      lego: 3,
+    },
+    {
+      name: "성령학교 안내",
+      backgroundImage: school,
+      path: Paths.HolySchool,
+      lego: 0,
+    },
+    {
+      name: "오시는 길",
+      backgroundImage: way,
+      path: Paths.Introduce,
+      lego: 4,
+    },
+  ];
+
   return (
     <>
       {/* 카테고리 버튼들을 포함한 Flex 컴포넌트 */}
       <Spacer height={isMobile ? "20px" : "50px"} />
       <Flex justifyContent="center" gap={isMobile ? "3px" : "20px"}>
         {categories.map((category, index) => (
-          <Link to={category.path} key={index}>
+          <Link to={category.path} state={category.lego} key={index}>
             <StyledButton
               borderRadius={"30px"}
               backgroundImage={category.backgroundImage}
@@ -95,7 +106,7 @@ const Category = () => {
                 width: `${buttonWidth}px`,
                 height: `${0.58 * buttonWidth}px`,
               }}
-            ></StyledButton>
+            />
           </Link>
         ))}
       </Flex>
