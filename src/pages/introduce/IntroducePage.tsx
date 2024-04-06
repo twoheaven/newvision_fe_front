@@ -40,8 +40,10 @@ const IntroducePage = () => {
             {category.name}
           </Button>
         ))}
-        <Spacer height={"0.1px"} />
-        <Divider />
+        <Spacer height={"8px"} />
+      </Flex>
+      <Divider />
+      <Flex justifyContent="center" gap={"8px"}>
         <Spacer height={"30px"} />
         <SelectedComponent />
       </Flex>
