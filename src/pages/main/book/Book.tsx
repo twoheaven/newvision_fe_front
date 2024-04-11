@@ -50,9 +50,15 @@ const Book = () => {
         <Text size={isMobile ? "24px" : "34px"}>김온유 목사 저서 안내</Text>
         <Flex alignItems="center" justifyContent="center">
           <Box
-            style={{
-              width: `${boxWidth / 1.1}px`,
-            }}
+            style={
+              isMobile
+                ? {
+                    width: `${boxWidth / 1.12}px`,
+                  }
+                : {
+                    width: `${boxWidth / 1.1}px`,
+                  }
+            }
             height={""}
             justifyContent="center"
             alignItems="center"
