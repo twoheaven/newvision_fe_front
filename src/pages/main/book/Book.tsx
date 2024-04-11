@@ -2,8 +2,8 @@ import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import LeftArrow from "@/assets/leftarrow.png";
-import RightArrow from "@/assets/rightarrow.png";
+import Right from "@/assets/메인이미지_화살표(오른쪽).png";
+import Left from "@/assets/메인이미지_화살표(왼쪽).png";
 import Box from "@/components/box/Box";
 import useIsMobile from "@/hooks/useIsMobile";
 import book1 from "@/pages/book/assets/book1.webp";
@@ -65,31 +65,25 @@ const Book = () => {
         <Text size={isMobile ? "24px" : "34px"}>김온유 목사 저서 안내</Text>
         <Flex alignItems="center" justifyContent="center" width={"100%"}>
           <Box
-            style={
-              isMobile
-                ? {
-                    width: "100%",
-                  }
-                : {
-                    width: "100%",
-                  }
-            }
-            height={""}
-            justifyContent="center"
+            style={{
+              width: "100%",
+            }}
+            justifyContent={isMobile ? "space-between" : "center"}
             alignItems="center"
           >
             {isMobile && (
               <>
                 {/* 모바일 환경에서만 보이는 이전 버튼 */}
-                <button onClick={handlePrevClick}>
-                  <img
-                    src={LeftArrow}
-                    style={{
-                      width: "50px",
-                      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                    }}
-                  />
-                </button>
+                <img
+                  onClick={handlePrevClick}
+                  src={Left}
+                  style={{
+                    height: "60%",
+                    pointerEvents: "auto",
+                    cursor: "pointer",
+                    background: "#e2e2e2",
+                  }}
+                />
               </>
             )}
             <Flex
@@ -126,7 +120,7 @@ const Book = () => {
                   >
                     <img
                       style={{
-                        width: `${isMobile ? boxWidth / 5 : boxWidth / 6}px`,
+                        width: `${isMobile ? boxWidth / 3.5 : boxWidth / 6}px`,
                         transition: "transform 0.3s ease-in-out",
                       }}
                       src={book.image}
@@ -145,15 +139,16 @@ const Book = () => {
             {isMobile && (
               <>
                 {/* 모바일 환경에서만 보이는 다음 버튼 */}
-                <button onClick={handleNextClick}>
-                  <img
-                    src={RightArrow}
-                    style={{
-                      width: "50px",
-                      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                    }}
-                  />
-                </button>
+                <img
+                  onClick={handleNextClick}
+                  src={Right}
+                  style={{
+                    height: "60%",
+                    pointerEvents: "auto",
+                    cursor: "pointer",
+                    background: "#e2e2e2",
+                  }}
+                />
               </>
             )}
           </Box>
