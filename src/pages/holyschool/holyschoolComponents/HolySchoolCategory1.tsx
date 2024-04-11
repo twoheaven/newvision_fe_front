@@ -21,17 +21,21 @@ const HolySchoolCategory1 = () => {
   const SelectedComponent = categories[selectedCategoryIndex].component;
 
   return (
-    <Flex justifyContent="center" alignItems="center">
-      <Flex justifyContent="center" alignItems="center" gap={"8px"}>
-        {categories.map((category, index) => (
-          <Button key={index} onClick={() => handleCategorySelect(index)}>
-            {category.name}
-          </Button>
-        ))}
-      </Flex>
-      <Spacer height={"8px"} />
-      <Flex justifyContent="center">
-        <SelectedComponent />
+    <Flex width={"80%"} style={{ maxWidth: "700px" }}>
+      <Flex flexDirection="column">
+        <Flex justifyContent="flex-start" alignItems="center">
+          <Flex gap={"20px"}>
+            {categories.map((category, index) => (
+              <Button key={index} onClick={() => handleCategorySelect(index)}>
+                {category.name}
+              </Button>
+            ))}
+          </Flex>
+        </Flex>
+        <Spacer height={"50px"} />
+        <Flex justifyContent="center" alignItems="center">
+          <SelectedComponent />
+        </Flex>
       </Flex>
     </Flex>
   );
