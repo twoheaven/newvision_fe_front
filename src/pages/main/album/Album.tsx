@@ -11,7 +11,6 @@ const Album = () => {
 
   return (
     <Content>
-      {isMobile ? <Spacer height={"180px"} /> : ""}
       <Flex
         alignItems="flex-start"
         flexDirection="column"

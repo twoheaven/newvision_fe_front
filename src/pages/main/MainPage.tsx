@@ -4,7 +4,7 @@ import Album from "./album/Album";
 import Book from "./book/Book";
 import Category from "./category/Category";
 import NewBannerSection from "./newbanner/NewBannerSection";
-import Newsnewfam from "./newsnewfam/Newsnewfam";
+import NewsnewfamProvider from "./newsnewfam/NewsnewfamProvider";
 import Sermon from "./sermon/Sermon";
 
 const MainPage = () => {
@@ -15,7 +15,7 @@ const MainPage = () => {
       <Sermon />
       <Spacer height={"10px"} />
       <Book />
-      <Newsnewfam />
+      <NewsnewfamProvider />
       <Album />
     </Area>
   );

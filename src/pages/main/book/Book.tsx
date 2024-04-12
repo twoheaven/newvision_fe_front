@@ -82,6 +82,7 @@ const Book = () => {
                     pointerEvents: "auto",
                     cursor: "pointer",
                     background: "#e2e2e2",
+                    maxHeight: "100px",
                   }}
                 />
               </>
@@ -147,6 +148,7 @@ const Book = () => {
                     pointerEvents: "auto",
                     cursor: "pointer",
                     background: "#e2e2e2",
+                    maxHeight: "100px",
                   }}
                 />
               </>
