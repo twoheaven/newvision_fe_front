@@ -51,78 +51,19 @@ const Cate2 = () => {
           {/* 그림자 효과가 있는 텍스트 */}
         </div>
       </div>
-      <Spacer height={"80px"} /> {/* 80px 간격 */}
-      <Flex justifyContent="center">
-        {" "}
-        {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-        <div
-          style={{
-            position: "relative",
-            width: "80%",
-            height: "auto",
-            margin: "10px",
-          }}
-        >
-          {" "}
-          {/* 상대 위치, 가로 전체, 높이 자동 조절되는 div */}
-          <img
-            src={imgplus}
-            style={{
-              width: "100%",
-              height: "auto",
-              objectFit: "cover",
-              transform: "translateY(50%)",
-            }}
-          />{" "}
-          {/* 이미지 표시 */}
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              color: "white",
-              textAlign: "center",
-              backgroundColor: "white",
-            }}
-          >
-            {" "}
-            {/* 텍스트가 중앙 정렬된 div */}
-            <Text color={color1} font={Fonts.Bold} size={"28px"}>
-              모세오경
-            </Text>{" "}
-            {/* 텍스트 */}
-          </div>
-        </div>
-      </Flex>
-      <Flex justifyContent="space-between" width={"90%"}>
-        {" "}
-        {/* 간격이 20px인 Flex 컨테이너 */}
-        <Text color={color2} font={Fonts.Bold} size={"26px"}>
-          창세기
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text color={color2} font={Fonts.Bold} size={"26px"}>
-          출애굽기
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text color={color2} font={Fonts.Bold} size={"26px"}>
-          레위기
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text color={color2} font={Fonts.Bold} size={"26px"}>
-          민수기
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text color={color2} font={Fonts.Bold} size={"26px"}>
-          신명기
-        </Text>{" "}
-        {/* 텍스트 */}
-      </Flex>
-      <Spacer height={"80px"} /> {/* 80px 간격 */}
-      <Text>예수님은 모세오경의 가치에 대해서 이렇게 말씀하셨습니다.</Text>{" "}
-      {/* 텍스트 */}
-      <Spacer height={"30px"} /> {/* 30px 간격 */}
+      <Spacer height={"40px"} /> {/* 80px 간격 */}
+      <Text font={Fonts.Bold}>초대교회와 같은</Text>
+      <Text font={Fonts.Bold}>사도행전의 역사가 나타나는 교회!</Text>
+      <Spacer height={"40px"} />
+      <Text>
+        마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로 폭포수같이
+        부어지는
+      </Text>{" "}
+      <Text>
+        성령의 기름부음 안에서 환상과 꿈과 예언을 통한 예언적인 체질의 교회가 될
+        것입니다.
+      </Text>{" "}
+      <Spacer height={"60px"} /> {/* 30px 간격 */}
       <div
         style={{
           width: "100%",
@@ -155,24 +96,20 @@ const Cate2 = () => {
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
                 <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  모세를 믿었더라면 또 나를 믿었으리니
+                  오직 성령이 너희에게 임하시면 너희가 권능을 받고
                 </Text>{" "}
                 {/* 텍스트 */}
                 <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  이는 그가 내게 대하여 기록하였음이라
+                  예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러
                 </Text>{" "}
                 {/* 텍스트 */}
                 <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  그러나 그의 글(모세오경)도 믿지 아니하거든
-                </Text>{" "}
-                {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  어찌 내 말(계시된 진리)을 믿겠느냐 하시니라
+                  내 증인이 되리라 하시니라
                 </Text>{" "}
                 {/* 텍스트 */}
               </Flex>
               <Text color={color3} font={Fonts.Regular} size={"16px"}>
-                요 5:46-47
+                행 1:8
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>
@@ -189,12 +126,17 @@ const Cate2 = () => {
           <Spacer height={"30px"} /> {/* 30px 간격 */}
         </Flex>
       </div>
-      <Spacer height={"80px"} /> {/* 80px 간격 */}
+      <Spacer height={"60px"} /> {/* 80px 간격 */}
+      <img
+        src={img2}
+        style={{ width: "100%", height: "auto", objectFit: "cover" }}
+      />{" "}
+      <Spacer height={"60px"} /> {/* 80px 간격 */}
       <Flex gap={"15px"} justifyContent="center" alignItems="center">
         {" "}
         {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
         <img
-          src={img2}
+          src={img3}
           style={{ width: "50%", height: "auto", objectFit: "cover" }}
         />{" "}
         {/* 이미지 표시 */}
@@ -204,192 +146,63 @@ const Cate2 = () => {
           <Flex flexDirection="column">
             {" "}
             {/* 세로로 정렬된 Flex 컨테이너 */}
-            <Text size={"14px"}>구약의 핵심이자 뼈대인 모세오경은</Text>{" "}
-            {/* 텍스트 */}
             <Text size={"14px"}>
-              하나님이 누구인지, 인류를 경작하시는 농부의 경영
+              예수님은 가르치시고 전파하시고 고치시는 사역이
+            </Text>{" "}
+            {/* 텍스트 */}
+            <Text size={"14px"}>주사역이었습니다.</Text> {/* 텍스트 */}
+          </Flex>
+          <Flex flexDirection="column">
+            {" "}
+            {/* 세로로 정렬된 Flex 컨테이너 */}
+            <Text size={"14px"}>
+              예언적인 능력과 기름부은 안에서 축사와 치유사역
             </Text>{" "}
             {/* 텍스트 */}
             <Text size={"14px"}>
-              방식을 잘 알 수 있는 거울과 모범 교재입니다.
+              을 하신 예수님의 사역을 그대로 계승하여 주님의 뜻
             </Text>{" "}
+            {/* 텍스트 */}
+            <Text size={"14px"}>을 드러내시는 게 하나님의 일입니다.</Text>{" "}
             {/* 텍스트 */}
           </Flex>
           <Flex flexDirection="column">
             {" "}
             {/* 세로로 정렬된 Flex 컨테이너 */}
-            <Text size={"14px"}>구약의 핵심이자 뼈대인 모세오경은</Text>{" "}
-            {/* 텍스트 */}
             <Text size={"14px"}>
-              하나님이 누구인지, 인류를 경작하시는 농부의 경영
+              잘못된 신학으로 인해 은사중지론과 같은 오류들로
             </Text>{" "}
             {/* 텍스트 */}
             <Text size={"14px"}>
-              방식을 잘 알 수 있는 거울과 모범 교재입니다.
+              인한 영적 무지가 예수님의 사역과 성령의 인도하심
             </Text>{" "}
             {/* 텍스트 */}
-          </Flex>
-          <Flex flexDirection="column">
-            {" "}
-            {/* 세로로 정렬된 Flex 컨테이너 */}
-            <Text size={"14px"}>구약의 핵심이자 뼈대인 모세오경은</Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              하나님이 누구인지, 인류를 경작하시는 농부의 경영
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              방식을 잘 알 수 있는 거울과 모범 교재입니다.
-            </Text>{" "}
+            <Text size={"14px"}>에서 방향을 잃게 만들었습니다.</Text>{" "}
             {/* 텍스트 */}
           </Flex>
         </Flex>
       </Flex>
-      <Spacer height={"80px"} /> {/* 80px 간격 */}
+      <Spacer height={"60px"} /> {/* 80px 간격 */}
+      {/* 이미지 표시 */}
+      <Text size={"14px"}>
+        이 수업은 은사 자체보다 은사를 주신 하나님께 인도하는 주된 목적을 가지고
+        있습니다.
+      </Text>{" "}
+      <Spacer height={"30px"} />
+      <Text size={"14px"}>
+        교회에게 주신 도구[은사]를 어떻게 활용할 것인가에 대해 배워서 은사가
+        영혼을 죽이는 무기가 아니라
+      </Text>{" "}
+      <Text size={"14px"}>
+        교회에 덕을 끼치며 하나님 나라 확장의 살리는 도구가 되도록 준비시키고
+        훈련시키는 장이 될 것입니다.
+      </Text>{" "}
+      <Spacer height={"60px"} />
       <img
-        src={img3}
-        style={{ width: "70%", height: "auto", objectFit: "cover" }}
+        src={img4}
+        style={{ width: "60%", height: "auto", objectFit: "cover" }}
       />{" "}
       {/* 이미지 표시 */}
-      <Spacer height={"50px"} /> {/* 50px 간격 */}
-      <Text>위 세 가지의 이해는 모세오경 수업의 핵심주제입니다.</Text>{" "}
-      {/* 텍스트 */}
-      <Spacer height={"50px"} /> {/* 50px 간격 */}
-      <Flex gap={"15px"} justifyContent="center" alignItems="center">
-        {" "}
-        {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
-        <Flex flexDirection="column" gap={"20px"}>
-          {" "}
-          {/* 세로 간격이 20px인 Flex 컨테이너 */}
-          <Flex flexDirection="column">
-            {" "}
-            {/* 세로로 정렬된 Flex 컨테이너 */}
-            <Text size={"14px"}>
-              모세오경에 숨겨져있는 출애굽 속 구원의 모형론을
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              통해 왜곡되고 변질된 구원론과 예빼론, 물질론,성
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              령론, 마귀론 등 감추어진 성경 속 신학들이 참된 진
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>리의 기준으로 회복하게 될 것입니다.</Text>{" "}
-            {/* 텍스트 */}
-          </Flex>
-          <Flex flexDirection="column">
-            {" "}
-            {/* 세로로 정렬된 Flex 컨테이너 */}
-            <Text size={"14px"}>
-              또한 언약의 하나님을 이해하며 언약을 중심으로 신
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              구약 전체에 흐르는 일관된 흐름과 맥을 잡아 신앙의
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Text size={"14px"}>
-              실제적인 뼈대와 기둥을 세우는 수업이 될 것입니다.
-            </Text>{" "}
-            {/* 텍스트 */}
-          </Flex>
-        </Flex>
-        <img
-          src={img4}
-          style={{ width: "50%", height: "auto", objectFit: "cover" }}
-        />{" "}
-        {/* 이미지 표시 */}
-      </Flex>
-      <Spacer height={"50px"} /> {/* 50px 간격 */}
-      <Flex justifyContent="center">
-        {" "}
-        {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-        <Text size={"14px"}>
-          남유다 3대 성군 중 한 명인 요시야 왕의 종교개혁은 신명기를 통한
-          개혁이었습니다.
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text size={"14px"}>참된 부흥은 개혁을 앞서지 않습니다.</Text>{" "}
-        {/* 텍스트 */}
-      </Flex>
-      <Spacer height={"30px"} /> {/* 10px 간격 */}
-      <Flex justifyContent="center">
-        {" "}
-        {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-        <Text size={"14px"}>
-          부흥의 열쇠는 개혁이며 참된 개혁의 열쇠는 신명기[모세오경]의 회복을
-          통해 일어납니다.
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text size={"14px"}>
-          이 수업을 통해 주님의 시각과 마음을 받아 개혁의 정신으로 많은 사람을
-          옳은 데로 돌이키는
-        </Text>{" "}
-        {/* 텍스트 */}
-        <Text size={"14px"}>추수할 일꾼으로 준비될 것입니다.</Text>{" "}
-        {/* 텍스트 */}
-      </Flex>
-      <Spacer height={"55px"} />
-      <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        {" "}
-        {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-        <Flex justifyContent="center">
-          {" "}
-          {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-          <Spacer height={"30px"} /> {/* 30px 간격 */}
-          <Flex gap={""}>
-            {" "}
-            {/* 간격이 18px인 Flex 컨테이너 */}
-            <Text
-              color={color3}
-              font={Fonts.Bold}
-              size={"40px"}
-              style={{ transform: "translateY(-14px)" }}
-            >
-              "
-            </Text>{" "}
-            {/* 텍스트 */}
-            <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Flex flexDirection="column" alignItems="center">
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후
-                </Text>{" "}
-                {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을
-                  사느니라
-                </Text>{" "}
-              </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
-                마 13:44
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Text
-              color={color3}
-              font={Fonts.Bold}
-              size={"40px"}
-              style={{ transform: "translateY(-14px)" }}
-            >
-              "
-            </Text>{" "}
-            {/* 텍스트 */}
-          </Flex>
-          <Spacer height={"30px"} /> {/* 30px 간격 */}
-        </Flex>
-      </div>
     </Flex>
   );
 };
