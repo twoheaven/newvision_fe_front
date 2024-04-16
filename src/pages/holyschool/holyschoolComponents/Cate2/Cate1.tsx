@@ -3,11 +3,8 @@ import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
-import img2 from "../asset/1.성경맥잡기학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (2).jpg" 이미지를 가져옴
-import img3 from "../asset/1.성경맥잡기학교 (3).jpg"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
-import img4 from "../asset/1.성경맥잡기학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
 import img1 from "../asset/4.킹덤리더스쿨.png"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
-import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
+import img3 from "../asset/5.청년리더훈련(nltc).png"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 
 const Cate1 = () => {
   const color1 = "#996633"; // color1 변수에 "#996633" 할당
@@ -124,12 +121,335 @@ const Cate1 = () => {
             </Flex>
           </div>
         </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                02
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                종말론
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"}>주님 언제 오시는가</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                03
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                마귀론
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"}>마귀 전략 분석하기</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                04
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                이성교제와 결혼
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+              alignContent: "center",
+            }}
+          >
+            <Flex
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              <Spacer height={"5px"} />
+              <Text size={"18px"}>거룩한 신부</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+              alignContent: "center",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                05
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                영혼육의 이해
+              </Text>
+              <Text size={"24px"} color="white">
+                음성듣기와 예언
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+              alignContent: "center",
+            }}
+          >
+            <Flex
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              <Spacer height={"5px"} />
+              <Text size={"18px"}>음성듣고 따르는 양 / 실습과 훈련 포함</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                06
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                구원론
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+              alignContent: "center",
+            }}
+          >
+            <Flex
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              <Spacer height={"5px"} />
+              <Text size={"18px"}>한번 구원, 영원 구원 절대 아닌 이유</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex>
+          <div
+            style={{
+              width: "10%",
+              backgroundColor: `blue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                07
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "30%",
+              backgroundColor: `skyblue`,
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"5px"} />
+              <Text size={"24px"} color="white">
+                성령론
+              </Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "60%",
+              backgroundColor: `gray`,
+              alignContent: "center",
+            }}
+          >
+            <Flex
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              <Spacer height={"5px"} />
+              <Text size={"18px"}>말세 성령의 역할 이해하기</Text>
+              <Spacer height={"5px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
       </div>
-      <img
-        src={img3}
-        style={{ width: "70%", height: "auto", objectFit: "cover" }}
-      />{" "}
-      {/* 이미지 표시 */}
+      <Spacer height={"80px"} />
+      <div style={{ position: "relative", width: "100%", height: "auto" }}>
+        {" "}
+        {/* 상대 위치, 가로 전체, 높이 자동 조절되는 div */}
+        <img
+          src={img3}
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+          }}
+        />{" "}
+        {/* 이미지 표시 */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          {" "}
+          {/* 텍스트가 중앙 정렬된 div */}
+          <ShadowText size={"28px"} font={Fonts.Bold}>
+            청년리더훈련(NLTC)
+          </ShadowText>{" "}
+          {/* 그림자 효과가 있는 텍스트 */}
+          <Spacer height={"10px"} /> {/* 10px 간격 */}
+          <ShadowText size={"12px"}>
+            New-vision Leader Training Course
+          </ShadowText>{" "}
+          {/* 그림자 효과가 있는 텍스트 */}
+        </div>
+      </div>
+      <Spacer height={"50px"} />
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
+      <Text>NLTC 설명 New-vision Leader Trainning Course</Text>
     </Flex>
   );
 };

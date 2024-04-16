@@ -47,7 +47,7 @@ const Footer = () => {
               경기도 화성시 동탄문화센터로 7-3 (반송동), 거산프라자 10층 전관
             </Text>
             <Text color={"white"} size={"14px"}>
-              Tel. 031.613.0105 [Fax 겸용] / 010.4864.1433
+              Tel. 031-613-0105 [Fax 겸용] / 010-4864-1433
             </Text>
             <Spacer height={"5px"} />
             <Text color={"white"} size={"14px"}>
