@@ -15,7 +15,14 @@ const Cate3 = () => {
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
 
   return (
-    <Flex justifyContent="center" alignItems="center" flexDirection="column">
+    <Flex
+      style={{
+        transform: "translateX(-10%)",
+      }}
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+    >
       {" "}
       {/* 세로 중앙 정렬된 Flex 컨테이너 */}
       <div style={{ position: "relative", width: "100%", height: "auto" }}>
@@ -160,12 +167,14 @@ const Cate3 = () => {
         </Flex>
       </Flex>
       <Spacer height={"80px"} /> {/* 80px 간격 */}
-      <img
-        src={img3}
-        style={{ width: "70%", height: "auto", objectFit: "cover" }}
-      />{" "}
-      {/* 이미지 표시 */}
-      <Spacer height={"55px"} />
+      <Text>지금은 요한계시록이 열리는 시대입니다.</Text>
+      <Text>노아에게 물심판의 경고의 계시를 주셨던 것처럼 말세지말 주님은</Text>
+      <Text>당신의 사랑하는 자에게 자신의 뜻을 드러내고 계시할 것입니다.</Text>
+      <Text>
+        무엇보다 end-time 비밀을 성경을 통해 성령 안에서 증거하며 이해하는
+        수업이 될 것입니다.
+      </Text>
+      <Spacer height={"50px"} />
       <div
         style={{
           width: "100%",
@@ -179,7 +188,7 @@ const Cate3 = () => {
           {" "}
           {/* 가로 중앙 정렬된 Flex 컨테이너 */}
           <Spacer height={"30px"} /> {/* 30px 간격 */}
-          <Flex gap={""}>
+          <Flex gap={"30px"}>
             {" "}
             {/* 간격이 18px인 Flex 컨테이너 */}
             <Text
@@ -198,16 +207,15 @@ const Cate3 = () => {
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
                 <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후
+                  주 여호와께서는 자기의 비밀을 그 종 선자자들에게
                 </Text>{" "}
                 {/* 텍스트 */}
                 <Text color={color3} font={Fonts.Medium} size={"18px"}>
-                  숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을
-                  사느니라
+                  보이지 아니하시고는 결코 행하심이 없으시리라
                 </Text>{" "}
               </Flex>
               <Text color={color3} font={Fonts.Regular} size={"16px"}>
-                마 13:44
+                암 3:7
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>
@@ -221,8 +229,198 @@ const Cate3 = () => {
             </Text>{" "}
             {/* 텍스트 */}
           </Flex>
-          <Spacer height={"30px"} /> {/* 30px 간격 */}
+          <Spacer height={"25px"} /> {/* 30px 간격 */}
         </Flex>
+      </div>
+      <Spacer height={"50px"} />
+      <Text>주를 세번 부인한 베드로와 같은 실패는 더이상 없다!</Text>
+      <Text>다니엘과 같은 환난을 이기는 믿음으로 무장하라!</Text>
+      <Text>골리앗을 이긴 다윗의 영적 갑주를 입으라!</Text>
+      <Text>재림 때 예수님과 연합을 위하여 신부들이여 기름을 준비하라!</Text>
+      <Text>주님의 본질과 우선순위를 아는 것이 생존의 방향성이다!</Text>
+      <Spacer height={"50px"} />
+      <Text size={"18px"} font={Fonts.Bold}>
+        수업의 핵심 방향성 (본질과 우선순위)
+      </Text>
+      <Spacer height={"15px"} />
+      <div
+        style={{
+          width: "120%",
+        }}
+      >
+        <Flex
+          width={"100%"}
+          justifyContent="space-between"
+          style={{
+            transform: "",
+          }}
+        >
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>01</Text>
+                <Text size={"14px"}>장차 되어질 일을 아는 것보다</Text>
+                <Text size={"14px"}>깨어있는 삶으로 준비하라</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>02</Text>
+                <Text size={"14px"}>마지막때 정보를 수집하는 능력보다</Text>
+                <Text size={"14px"}>사랑하는 능력이 우선이다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>03</Text>
+                <Text size={"14px"}>적그리스도를 아는 것보다</Text>
+                <Text size={"14px"}>예수님을 아는 것이 우선이다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex width={"100%"} justifyContent="space-between">
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>04</Text>
+                <Text size={"14px"}>어떤 일을 하느냐(doing)보다</Text>
+                <Text size={"14px"}>어떤 사람이 되는 것(being)에 있다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>05</Text>
+                <Text size={"14px"}>어둠도 강해지지만 어둠을 이길 강력한</Text>
+                <Text size={"14px"}>늦은 비의 성령의 기름부음이 준비된다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>06</Text>
+                <Text size={"14px"}>많은 어둠일지라도</Text>
+                <Text size={"14px"}>결코 빛을 이기지 못한다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex width={"100%"} justifyContent="space-between">
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>07</Text>
+                <Text size={"14px"}>어둠의 시나리오와 계획도</Text>
+                <Text size={"14px"}>주님의 크신 계획 아래 있는 것이다.</Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>08</Text>
+                <Text size={"14px"}>종말을 준비하는 가장 적극적인 방식은</Text>
+                <Text size={"14px"}>
+                  하나님의 나라를 이 어두운 땅에 심고 건
+                </Text>
+                <Text size={"14px"}>설하고 확장시키는 것이다.</Text>
+              </Flex>
+              <Spacer height={"16px"} />
+            </Flex>
+          </div>
+          <div
+            style={{
+              width: "33%",
+              backgroundColor: `${color3}`,
+              boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Flex justifyContent="center">
+              <Spacer height={"20px"} />
+              <Flex alignItems="center" flexDirection="column">
+                <Text size={"24px"}>09</Text>
+                <Text size={"14px"}>극단이 아닌 균형감각으로</Text>
+                <Text size={"14px"}>
+                  예수님을 알고 이 시대를 분별해야 한다.
+                </Text>
+              </Flex>
+              <Spacer height={"30px"} />
+            </Flex>
+          </div>
+        </Flex>
+        <Spacer height={"10px"} />
       </div>
     </Flex>
   );
