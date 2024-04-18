@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import Logo from "@/assets/logo.png";
 import useIsMobile from "@/hooks/useIsMobile";
+import Fonts from "@/styles/fonts";
 
 // Flex 컨테이너 스타일을 직접 지정
 const StyledFlexContainer = styled(Flex)`
@@ -38,7 +39,7 @@ const Header2 = () => {
         </Flex>
         {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
         {/* 각종 메뉴에 대한 링크 */}
-        <Flex gap={isMobile ? "6px" : "20px"}>
+        <Flex gap={isMobile ? "6px" : "12px"}>
           {[
             { path: Paths.Introduce, label: "소개" },
             { path: Paths.Sermon, label: "말씀" },
@@ -48,7 +49,7 @@ const Header2 = () => {
             { path: Paths.Missionary, label: "선교사역" },
           ].map(({ path, label }) => (
             <WrapperLink to={path} key={path}>
-              <StyledText size={isMobile ? "12px" : "24px"}>{label}</StyledText>
+              <StyledText font={Fonts.Bold} size={isMobile ? "12px" : "24px"}>{label}</StyledText>
             </WrapperLink>
           ))}
         </Flex>
