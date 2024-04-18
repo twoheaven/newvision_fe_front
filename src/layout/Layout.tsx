@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // 외부 라이브러리 및 모듈에서 필요한 컴포넌트 및 유틸리티를 불러옵니다.
 import { Flex, MyThemeProvider } from "@dohyun-ko/react-atoms";
+import { Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import colorSet from "src/styles/color-set";
@@ -57,35 +58,43 @@ export const ModalBackdrop = styled.div`
 // 메인 레이아웃 컴포넌트
 const Layout = () => {
   return (
-    // 색상 세트를 사용한 테마 프로바이더
-    <MyThemeProvider
-      theme={{
-        ...colorSet,
-      }}
-    >
-      {/* 모바일 특정 기능을 처리하기 위한 모바일 프로바이더 */}
-      <MobileProvider>
-        {/* 전체 레이아웃을 위한 주요 플렉스 컨테이너 */}
-        <Flex
-          flexDirection={"column"}
-          style={{
-            minHeight: "100vh",
-          }}
-        >
-          {/* 모바일 여부에 따라 헤더를 조건부 렌더링 */}
-          <Header1Wrapper />
+    <>
+      <div>
+        <Helmet>
+          <title>동탄 뉴비전 교회 김온유 목사</title>
+          <meta name="descripttion" content="동탄 뉴비전 교회 김온유 목사" />
+        </Helmet>
+      </div>
+      {/*색상 세트를 사용한 테마 프로바이더*/}
+      <MyThemeProvider
+        theme={{
+          ...colorSet,
+        }}
+      >
+        {/* 모바일 특정 기능을 처리하기 위한 모바일 프로바이더 */}
+        <MobileProvider>
+          {/* 전체 레이아웃을 위한 주요 플렉스 컨테이너 */}
+          <Flex
+            flexDirection={"column"}
+            style={{
+              minHeight: "100vh",
+            }}
+          >
+            {/* 모바일 여부에 따라 헤더를 조건부 렌더링 */}
+            <Header1Wrapper />
 
-          {/* 중첩된 라우트를 렌더링하기 위한 아웃렛 */}
-          <Outlet />
+            {/* 중첩된 라우트를 렌더링하기 위한 아웃렛 */}
+            <Outlet />
 
-          {/* 푸터 컴포넌트 */}
-          <Footer />
+            {/* 푸터 컴포넌트 */}
+            <Footer />
 
-          {/* 토스트 알림을 표시하기 위한 토스트 컨테이너 */}
-          <ToastContainer />
-        </Flex>
-      </MobileProvider>
-    </MyThemeProvider>
+            {/* 토스트 알림을 표시하기 위한 토스트 컨테이너 */}
+            <ToastContainer />
+          </Flex>
+        </MobileProvider>
+      </MyThemeProvider>
+    </>
   );
 };
 
