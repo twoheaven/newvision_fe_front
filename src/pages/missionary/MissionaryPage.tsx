@@ -1,20 +1,29 @@
 import { Area, Content, Flex, Spacer } from "@dohyun-ko/react-atoms";
+import { Helmet } from "react-helmet-async";
 
 import MissionaryPageHeader from "@/components/pageHeader/MissionPageHeader";
 
 const MissionaryPage = () => {
   return (
-    <Area>
-      <MissionaryPageHeader />
+    <>
+      <div>
+        <Helmet>
+          <title>동탄 뉴비전 교회 선교</title>
+          <meta name="description" content="동탄 뉴비전 교회 선교"></meta>
+        </Helmet>
+      </div>
+      <Area>
+        <MissionaryPageHeader />
 
-      <Spacer height={"30px"} />
+        <Spacer height={"30px"} />
 
-      <Content>
-        <Flex justifyContent="center"></Flex>
-      </Content>
+        <Content>
+          <Flex justifyContent="center"></Flex>
+        </Content>
 
-      <Spacer height={"100px"} />
-    </Area>
+        <Spacer height={"100px"} />
+      </Area>
+    </>
   );
 };
 
