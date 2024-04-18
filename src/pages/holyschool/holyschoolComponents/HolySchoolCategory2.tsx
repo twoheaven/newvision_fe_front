@@ -1,5 +1,6 @@
 import { Button, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import Category1Component from "./Cate2/Cate1";
 import Category2Component from "./Cate2/Cate2";
@@ -19,23 +20,31 @@ const HolySchoolCategory2 = () => {
   const SelectedComponent = categories[selectedCategoryIndex].component;
 
   return (
-    <Flex width={"80%"} style={{ maxWidth: "700px" }}>
-      <Flex flexDirection="column">
-        <Flex justifyContent="flex-start" alignItems="center">
-          <Flex gap={"20px"}>
-            {categories.map((category, index) => (
-              <Button key={index} onClick={() => handleCategorySelect(index)}>
-                {category.name}
-              </Button>
-            ))}
+    <>
+      <div>
+        <Helmet>
+          <title>김온유 목사 제자양육코스</title>
+          <meta name="descripttion" content="김온유 목사 제자양육코스" />
+        </Helmet>
+      </div>
+      <Flex width={"80%"} style={{ maxWidth: "700px" }}>
+        <Flex flexDirection="column">
+          <Flex justifyContent="flex-start" alignItems="center">
+            <Flex gap={"20px"}>
+              {categories.map((category, index) => (
+                <Button key={index} onClick={() => handleCategorySelect(index)}>
+                  {category.name}
+                </Button>
+              ))}
+            </Flex>
+          </Flex>
+          <Spacer height={"50px"} />
+          <Flex justifyContent="center" alignItems="center">
+            <SelectedComponent />
           </Flex>
         </Flex>
-        <Spacer height={"50px"} />
-        <Flex justifyContent="center" alignItems="center">
-          <SelectedComponent />
-        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 };
 
