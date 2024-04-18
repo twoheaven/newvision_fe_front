@@ -6,6 +6,7 @@ import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
 import naverBlogLogo from "@/assets/naver-blog-logo.png";
 import youtubeLogo from "@/assets/youtube-logo.svg";
+import { Helmet } from "react-helmet-async";
 
 const StyledHeaderArea = styled(Area)`
   background-color: "white"; /* 원하는 배경색으로 변경 */
