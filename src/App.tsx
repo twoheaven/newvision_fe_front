@@ -1,3 +1,4 @@
+import { HelmetProvider } from "react-helmet-async";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -48,7 +49,11 @@ const router = createBrowserRouter(
 
 // React Router의 RouterProvider를 사용하여 앱 전체에 라우터를 적용
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
+  );
 }
 
 export default App;
