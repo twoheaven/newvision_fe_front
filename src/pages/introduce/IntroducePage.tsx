@@ -1,5 +1,6 @@
 import { Area, Button, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 import IntroducePageHeader from "@/components/pageHeader/IntroducePageHeader";
@@ -34,24 +35,35 @@ const IntroducePage = () => {
   const SelectedComponent = categories[selectedCategoryIndex].component;
 
   return (
-    <Area>
-      <IntroducePageHeader />
-      <Spacer height={"15px"} />
-      <Flex justifyContent="center" gap={"8px"}>
-        {categories.map((category, index) => (
-          <Button key={index} onClick={() => handleCategorySelect(index)}>
-            {category.name}
-          </Button>
-        ))}
-        <Spacer height={"8px"} />
-      </Flex>
-      <Divider />
-      <Flex justifyContent="center" gap={"8px"}>
-        <Spacer height={"30px"} />
-        <SelectedComponent />
-      </Flex>
-      <Spacer height={"60px"} />
-    </Area>
+    <>
+      <div>
+        <Helmet>
+          <title>동탄 뉴비전 교회 김온유 목사 소개</title>
+          <meta
+            name="descripttion"
+            content="동탄 뉴비전 교회 김온유 목사 소개"
+          />
+        </Helmet>
+      </div>
+      <Area>
+        <IntroducePageHeader />
+        <Spacer height={"15px"} />
+        <Flex justifyContent="center" gap={"8px"}>
+          {categories.map((category, index) => (
+            <Button key={index} onClick={() => handleCategorySelect(index)}>
+              {category.name}
+            </Button>
+          ))}
+          <Spacer height={"8px"} />
+        </Flex>
+        <Divider />
+        <Flex justifyContent="center" gap={"8px"}>
+          <Spacer height={"30px"} />
+          <SelectedComponent />
+        </Flex>
+        <Spacer height={"60px"} />
+      </Area>
+    </>
   );
 };
 
