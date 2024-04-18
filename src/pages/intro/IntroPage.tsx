@@ -48,9 +48,13 @@ const IntroPage = () => {
           gap={"10px"}
           justifyContent="center"
           alignItems="center"
-          style={{
-            maxWidth: "680px",
-          }}
+          style={
+            isMobile
+              ? { maxWidth: "600px" }
+              : {
+                  maxWidth: "680px",
+                }
+          }
         >
           <Flex height={isMobile ? "35%" : "100%"}>
             <Link
