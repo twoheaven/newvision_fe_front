@@ -1,6 +1,7 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
 
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
+import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
 import img1 from "../asset/2.기름부음학교 (1).jpg"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
@@ -10,12 +11,18 @@ import img4 from "../asset/2.기름부음학교 (4).jpg"; // "../asset/1.성경�
 import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
 
 const Cate2 = () => {
+  const isMobile = useIsMobile();
   const color1 = "#996633"; // color1 변수에 "#996633" 할당
   const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
 
   return (
-    <Flex justifyContent="center" alignItems="center" flexDirection="column">
+    <Flex
+      style={isMobile ? { transform: "translateX(-10%)" } : {}}
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+    >
       {" "}
       {/* 세로 중앙 정렬된 Flex 컨테이너 */}
       <div style={{ position: "relative", width: "100%", height: "auto" }}>
@@ -65,11 +72,19 @@ const Cate2 = () => {
       </Text>{" "}
       <Spacer height={"60px"} /> {/* 30px 간격 */}
       <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
+        style={
+          isMobile
+            ? {
+                width: "120%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+            : {
+                width: "100%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+        }
       >
         {" "}
         {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -83,7 +98,7 @@ const Cate2 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
@@ -95,20 +110,36 @@ const Cate2 = () => {
               <Flex flexDirection="column" alignItems="center">
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "16px" : "18px"}
+                >
                   오직 성령이 너희에게 임하시면 너희가 권능을 받고
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "16px" : "18px"}
+                >
                   예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "16px" : "18px"}
+                >
                   내 증인이 되리라 하시니라
                 </Text>{" "}
                 {/* 텍스트 */}
               </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
+              <Text
+                color={color3}
+                font={Fonts.Regular}
+                size={isMobile ? "14px" : "16px"}
+              >
                 행 1:8
               </Text>{" "}
               {/* 텍스트 */}
@@ -116,7 +147,7 @@ const Cate2 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "

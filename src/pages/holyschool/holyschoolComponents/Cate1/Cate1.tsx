@@ -1,6 +1,7 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
 
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
+import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
 import img1 from "../asset/1.성경맥잡기학교 (1).jpg"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
@@ -10,12 +11,18 @@ import img4 from "../asset/1.성경맥잡기학교 (4).jpg"; // "../asset/1.성�
 import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
 
 const Cate1 = () => {
+  const isMobile = useIsMobile();
   const color1 = "#996633"; // color1 변수에 "#996633" 할당
   const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
 
   return (
-    <Flex justifyContent="center" alignItems="center" flexDirection="column">
+    <Flex
+      style={isMobile ? { transform: "translateX(-10%)" } : {}}
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+    >
       {" "}
       {/* 세로 중앙 정렬된 Flex 컨테이너 */}
       <div style={{ position: "relative", width: "100%", height: "auto" }}>
@@ -58,7 +65,7 @@ const Cate1 = () => {
         <div
           style={{
             position: "relative",
-            width: "80%",
+            width: `${isMobile ? "100%" : "80%"}`,
             height: "auto",
             margin: "10px",
           }}
@@ -95,7 +102,7 @@ const Cate1 = () => {
           </div>
         </div>
       </Flex>
-      <Flex justifyContent="space-between" width={"90%"}>
+      <Flex justifyContent="space-between" width={isMobile ? "120%" : "90%"}>
         {" "}
         {/* 간격이 20px인 Flex 컨테이너 */}
         <Text color={color2} font={Fonts.Bold} size={"26px"}>
@@ -124,11 +131,19 @@ const Cate1 = () => {
       {/* 텍스트 */}
       <Spacer height={"30px"} /> {/* 30px 간격 */}
       <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
+        style={
+          isMobile
+            ? {
+                width: "120%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+            : {
+                width: "100%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+        }
       >
         {" "}
         {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -154,24 +169,44 @@ const Cate1 = () => {
               <Flex flexDirection="column" alignItems="center">
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   모세를 믿었더라면 또 나를 믿었으리니
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   이는 그가 내게 대하여 기록하였음이라
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   그러나 그의 글(모세오경)도 믿지 아니하거든
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   어찌 내 말(계시된 진리)을 믿겠느냐 하시니라
                 </Text>{" "}
                 {/* 텍스트 */}
               </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
+              <Text
+                color={color3}
+                font={Fonts.Regular}
+                size={isMobile ? "14px" : "16px"}
+              >
                 요 5:46-47
               </Text>{" "}
               {/* 텍스트 */}
@@ -333,11 +368,19 @@ const Cate1 = () => {
       </Flex>
       <Spacer height={"55px"} />
       <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
+        style={
+          isMobile
+            ? {
+                width: "120%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+            : {
+                width: "100%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+        }
       >
         {" "}
         {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -351,7 +394,7 @@ const Cate1 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "28px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
@@ -363,16 +406,28 @@ const Cate1 = () => {
               <Flex flexDirection="column" alignItems="center">
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을
                   사느니라
                 </Text>{" "}
               </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
+              <Text
+                color={color3}
+                font={Fonts.Regular}
+                size={isMobile ? "14px" : "16px"}
+              >
                 마 13:44
               </Text>{" "}
               {/* 텍스트 */}
@@ -380,7 +435,7 @@ const Cate1 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "28px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "

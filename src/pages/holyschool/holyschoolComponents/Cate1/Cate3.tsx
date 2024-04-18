@@ -1,6 +1,7 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
 
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
+import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
 import img4 from "../asset/1.성경맥잡기학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
@@ -13,7 +14,7 @@ const Cate3 = () => {
   const color1 = "#996633"; // color1 변수에 "#996633" 할당
   const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
-
+  const isMobile = useIsMobile();
   return (
     <Flex
       style={{
@@ -62,11 +63,19 @@ const Cate3 = () => {
       <Text>종말론의 핵심은 '깨어있는 것'입니다.</Text> {/* 텍스트 */}
       <Spacer height={"30px"} /> {/* 30px 간격 */}
       <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
+        style={
+          isMobile
+            ? {
+                width: "120%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+            : {
+                width: "100%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+        }
       >
         {" "}
         {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -80,7 +89,7 @@ const Cate3 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
@@ -92,16 +101,28 @@ const Cate3 = () => {
               <Flex flexDirection="column" alignItems="center">
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   이러므로 너희는 장차 올 이 모든 일을 능히 피하고
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   인자 앞에 서도록 항상 기도하며 깨어있으라 하시니라
                 </Text>{" "}
                 {/* 텍스트 */}
               </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
+              <Text
+                color={color3}
+                font={Fonts.Regular}
+                size={isMobile ? "14px" : "16px"}
+              >
                 눅 21:36
               </Text>{" "}
               {/* 텍스트 */}
@@ -109,7 +130,7 @@ const Cate3 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
@@ -176,11 +197,19 @@ const Cate3 = () => {
       </Text>
       <Spacer height={"50px"} />
       <div
-        style={{
-          width: "100%",
-          backgroundColor: "ButtonShadow",
-          boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
+        style={
+          isMobile
+            ? {
+                width: "120%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+            : {
+                width: "100%",
+                backgroundColor: "ButtonShadow",
+                boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              }
+        }
       >
         {" "}
         {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -194,7 +223,7 @@ const Cate3 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
@@ -206,15 +235,27 @@ const Cate3 = () => {
               <Flex flexDirection="column" alignItems="center">
                 {" "}
                 {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   주 여호와께서는 자기의 비밀을 그 종 선자자들에게
                 </Text>{" "}
                 {/* 텍스트 */}
-                <Text color={color3} font={Fonts.Medium} size={"18px"}>
+                <Text
+                  color={color3}
+                  font={Fonts.Medium}
+                  size={isMobile ? "14px" : "18px"}
+                >
                   보이지 아니하시고는 결코 행하심이 없으시리라
                 </Text>{" "}
               </Flex>
-              <Text color={color3} font={Fonts.Regular} size={"16px"}>
+              <Text
+                color={color3}
+                font={Fonts.Regular}
+                size={isMobile ? "14px" : "16px"}
+              >
                 암 3:7
               </Text>{" "}
               {/* 텍스트 */}
@@ -222,7 +263,7 @@ const Cate3 = () => {
             <Text
               color={color3}
               font={Fonts.Bold}
-              size={"40px"}
+              size={isMobile ? "30px" : "40px"}
               style={{ transform: "translateY(-14px)" }}
             >
               "
