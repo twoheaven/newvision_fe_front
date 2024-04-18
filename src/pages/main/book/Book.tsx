@@ -99,12 +99,13 @@ const Book = () => {
               <Flex
                 alignItems="center"
                 justifyContent={isMobile ? "flex-start" : "center"} // 모바일 환경에서는 시작점부터 정렬
-                gap={isMobile ? "20px" : "50px"} // 모바일 환경에서는 간격 없앰
+                gap={"15px"} // 모바일 환경에서는 간격 없앰
               >
                 {books.map((book, index) => (
                   <EnlargedImageWrapper
                     key={index}
                     style={{
+                      overflow: "hidden",
                       display: isMobile
                         ? index === currentIndex
                           ? "flex"
