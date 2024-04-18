@@ -52,7 +52,7 @@ const Sermon: React.FC = () => {
       <div>
         <Helmet>
           <title>김온유 목사 설교 말씀</title>
-          <meta name="descripttion" content="메인 화면 김온유 목사 설교 말씀" />
+          <meta name="description" content="메인 화면 김온유 목사 설교 말씀" />
         </Helmet>
       </div>
 

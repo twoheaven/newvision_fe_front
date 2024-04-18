@@ -40,7 +40,7 @@ const IntroducePage = () => {
         <Helmet>
           <title>동탄 뉴비전 교회 김온유 목사 소개</title>
           <meta
-            name="descripttion"
+            name="description"
             content="동탄 뉴비전 교회 김온유 목사 소개"
           />
         </Helmet>

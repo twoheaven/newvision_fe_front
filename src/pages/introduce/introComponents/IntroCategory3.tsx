@@ -15,7 +15,7 @@ const IntroCategory3 = () => {
         <Helmet>
           <title>교회 비전</title>
           <meta
-            name="descripttion"
+            name="description"
             content="뉴비전교회의 비전을 안내드립니다."
           />
         </Helmet>

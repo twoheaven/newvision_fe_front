@@ -15,7 +15,7 @@ const IntroCategory2 = () => {
         <Helmet>
           <title>목회 사명</title>
           <meta
-            name="descripttion"
+            name="description"
             content="뉴비전교회는 다음과 같은 목회사명을 가지고 깨어 신부단장하는 교회입니다!"
           />
         </Helmet>

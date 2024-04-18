@@ -9,7 +9,7 @@ const SermonPage = () => {
       <div>
         <Helmet>
           <title>김온유 목사 설교 말씀</title>
-          <meta name="descripttion" content="김온유 목사 설교 말씀" />
+          <meta name="description" content="김온유 목사 설교 말씀" />
         </Helmet>
       </div>
 

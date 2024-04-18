@@ -15,7 +15,7 @@ const Album = () => {
       <div>
         <Helmet>
           <title>교회 앨범</title>
-          <meta name="descripttion" content="메인 화면 교회 앨범" />
+          <meta name="description" content="메인 화면 교회 앨범" />
         </Helmet>
       </div>
       <Content>
