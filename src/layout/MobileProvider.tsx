@@ -9,7 +9,7 @@ interface MobileProviderProps {
 
 const MobileProvider = ({
   children,
-  breakpoint = 768,
+  breakpoint = 765,
 }: MobileProviderProps) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= breakpoint);
 

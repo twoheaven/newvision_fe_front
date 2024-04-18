@@ -7,6 +7,7 @@ import {
 
 // 각 페이지 컴포넌트를 import
 import Layout from "./layout/Layout";
+import MobileProvider from "./layout/MobileProvider";
 import BookPage from "./pages/book/BookPage";
 import HolySchoolPage from "./pages/holyschool/HolySchoolPage";
 import IntroPage from "./pages/intro/IntroPage";
@@ -22,7 +23,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     // Layout 컴포넌트가 감싸는 최상위 라우트
     <>
-      <Route path={Paths.Intro} element={<IntroPage />} />
+      <Route
+        path={Paths.Intro}
+        element={
+          <MobileProvider>
+            <IntroPage />
+          </MobileProvider>
+        }
+      />
       <Route element={<Layout />}>
         {/* 각 경로에 대한 페이지 컴포넌트 설정 */}
         <Route path="*" element={<MainPage />} />
