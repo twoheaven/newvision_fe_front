@@ -1,5 +1,6 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 import Right from "@/assets/메인이미지_화살표(오른쪽).png";
@@ -56,108 +57,119 @@ const Book = () => {
   };
 
   return (
-    <Content>
-      <Flex
-        alignItems="flex-start"
-        flexDirection="column"
-        justifyContent="center"
-      >
-        <Text size={isMobile ? "24px" : "34px"}>김온유 목사 저서 안내</Text>
-        <Flex alignItems="center" justifyContent="center" width={"100%"}>
-          <Box
-            style={{
-              width: "100%",
-            }}
-            justifyContent={isMobile ? "space-between" : "center"}
-            alignItems="center"
-          >
-            {isMobile && (
-              <>
-                {/* 모바일 환경에서만 보이는 이전 버튼 */}
-                <img
-                  onClick={handlePrevClick}
-                  src={Left}
-                  style={{
-                    height: "60%",
-                    pointerEvents: "auto",
-                    cursor: "pointer",
-                    background: "#e2e2e2",
-                    maxHeight: "100px",
-                  }}
-                />
-              </>
-            )}
-            <Flex
+    <>
+      <div>
+        <Helmet>
+          <title>김온유 목사 저서</title>
+          <meta name="descripttion" content="메인 화면 김온유 목사 저서" />
+        </Helmet>
+      </div>
+
+      <Content>
+        <Flex
+          alignItems="flex-start"
+          flexDirection="column"
+          justifyContent="center"
+        >
+          <Text size={isMobile ? "24px" : "34px"}>김온유 목사 저서 안내</Text>
+          <Flex alignItems="center" justifyContent="center" width={"100%"}>
+            <Box
+              style={{
+                width: "100%",
+              }}
+              justifyContent={isMobile ? "space-between" : "center"}
               alignItems="center"
-              justifyContent={isMobile ? "flex-start" : "center"} // 모바일 환경에서는 시작점부터 정렬
-              gap={isMobile ? "20px" : "50px"} // 모바일 환경에서는 간격 없앰
             >
-              {books.map((book, index) => (
-                <EnlargedImageWrapper
-                  key={index}
-                  style={{
-                    display: isMobile
-                      ? index === currentIndex
-                        ? "flex"
-                        : "none"
-                      : "flex",
-                    // 모바일 환경에서 현재 보이는 책만 보여지도록 설정
-                  }}
-                >
-                  <Flex
-                    flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
-                    style={
-                      isMobile
-                        ? {
-                            margin: "20px 0",
-                            flexShrink: 0, // 모바일 환경에서 축소되지 않도록 설정
-                          }
-                        : {
-                            margin: "30px 0",
-                          }
-                    }
+              {isMobile && (
+                <>
+                  {/* 모바일 환경에서만 보이는 이전 버튼 */}
+                  <img
+                    onClick={handlePrevClick}
+                    src={Left}
+                    style={{
+                      height: "60%",
+                      pointerEvents: "auto",
+                      cursor: "pointer",
+                      background: "#e2e2e2",
+                      maxHeight: "100px",
+                    }}
+                  />
+                </>
+              )}
+              <Flex
+                alignItems="center"
+                justifyContent={isMobile ? "flex-start" : "center"} // 모바일 환경에서는 시작점부터 정렬
+                gap={isMobile ? "20px" : "50px"} // 모바일 환경에서는 간격 없앰
+              >
+                {books.map((book, index) => (
+                  <EnlargedImageWrapper
+                    key={index}
+                    style={{
+                      display: isMobile
+                        ? index === currentIndex
+                          ? "flex"
+                          : "none"
+                        : "flex",
+                      // 모바일 환경에서 현재 보이는 책만 보여지도록 설정
+                    }}
                   >
-                    <img
-                      style={{
-                        width: `${isMobile ? boxWidth / 3.5 : boxWidth / 6}px`,
-                        transition: "transform 0.3s ease-in-out",
-                      }}
-                      src={book.image}
-                      alt="Book Cover"
-                    />
-                    <Text
-                      size={isMobile ? "14px" : "20px"}
-                      style={{ fontWeight: "bold" }}
+                    <Flex
+                      flexDirection="column"
+                      justifyContent="center"
+                      alignItems="center"
+                      style={
+                        isMobile
+                          ? {
+                              margin: "20px 0",
+                              flexShrink: 0, // 모바일 환경에서 축소되지 않도록 설정
+                            }
+                          : {
+                              margin: "30px 0",
+                            }
+                      }
                     >
-                      {book.title}
-                    </Text>
-                  </Flex>
-                </EnlargedImageWrapper>
-              ))}
-            </Flex>
-            {isMobile && (
-              <>
-                {/* 모바일 환경에서만 보이는 다음 버튼 */}
-                <img
-                  onClick={handleNextClick}
-                  src={Right}
-                  style={{
-                    height: "60%",
-                    pointerEvents: "auto",
-                    cursor: "pointer",
-                    background: "#e2e2e2",
-                    maxHeight: "100px",
-                  }}
-                />
-              </>
-            )}
-          </Box>
+                      <img
+                        style={{
+                          width: `${
+                            isMobile ? boxWidth / 3.5 : boxWidth / 6
+                          }px`,
+                          transition: "transform 0.3s ease-in-out",
+                        }}
+                        src={book.image}
+                        alt="Book Cover"
+                      />
+                      <Text
+                        size={isMobile ? "14px" : "20px"}
+                        style={{ fontWeight: "bold" }}
+                      >
+                        {book.title}
+                      </Text>
+                    </Flex>
+                  </EnlargedImageWrapper>
+                ))}
+              </Flex>
+              {isMobile && (
+                <>
+                  {/* 모바일 환경에서만 보이는 다음 버튼 */}
+                  <img
+                    onClick={handleNextClick}
+                    src={Right}
+                    style={{
+                      height: "60%",
+                      pointerEvents: "auto",
+                      cursor: "pointer",
+                      background: "#e2e2e2",
+                      maxHeight: "100px",
+                    }}
+                  />
+                </>
+              )}
+            </Box>
+          </Flex>
+          <Spacer height={isMobile ? "20px" : "50px"} />
         </Flex>
-        <Spacer height={isMobile ? "20px" : "50px"} />
-      </Flex>
-    </Content>
+      </Content>
+    </>
   );
 };
 

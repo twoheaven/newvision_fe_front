@@ -2,6 +2,7 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import SermonCard from "@/components/sermonCard/SermonCard";
 import useIsMobile from "@/hooks/useIsMobile";
@@ -48,6 +49,13 @@ const Sermon: React.FC = () => {
 
   return (
     <>
+      <div>
+        <Helmet>
+          <title>김온유 목사 설교 말씀</title>
+          <meta name="descripttion" content="메인 화면 김온유 목사 설교 말씀" />
+        </Helmet>
+      </div>
+
       <Flex gap={isMobile ? "10px" : "25px"} flexDirection="column">
         <Flex gap={isMobile ? "5px" : "25px"} alignItems={"center"}>
           <div

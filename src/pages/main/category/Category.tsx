@@ -1,5 +1,6 @@
 import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Paths from "src/types/paths";
 import styled from "styled-components";
@@ -94,6 +95,16 @@ const Category = () => {
 
   return (
     <>
+      <div>
+        <Helmet>
+          <title>예배안내 온라인동역헌금 성령학교안내 오시는길</title>
+          <meta
+            name="descripttion"
+            content="예배안내 온라인동역헌금 성령학교안내 오시는길"
+          />
+        </Helmet>
+      </div>
+
       {/* 카테고리 버튼들을 포함한 Flex 컴포넌트 */}
       <Spacer height={isMobile ? "20px" : "50px"} />
       <Flex justifyContent="center" gap={isMobile ? "3px" : "20px"}>
