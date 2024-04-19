@@ -12,7 +12,6 @@ const NewBannerSection = () => {
     <>
       <div>
         <Helmet>
-          <title>뉴비전교회 홈페이지 배너</title>
           <meta
             name="description"
             content="뉴비전교회 메인화면 홈페이지 배너"

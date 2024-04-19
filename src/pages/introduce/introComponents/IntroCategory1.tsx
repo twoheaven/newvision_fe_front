@@ -12,7 +12,6 @@ const IntroCategory1 = () => {
     <>
       <div>
         <Helmet>
-          <title>환영합니다</title>
           <meta
             name="description"
             content="뉴비전교회에 오신 여러분을 진심으로 환영합니다"

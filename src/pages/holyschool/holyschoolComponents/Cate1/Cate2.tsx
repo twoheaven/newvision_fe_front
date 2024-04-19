@@ -21,7 +21,6 @@ const Cate2 = () => {
     <>
       <div>
         <Helmet>
-          <title>김온유 목사 기름 부음 학교</title>
           <meta name="descripttion" content="김온유 목사 기름 부음 학교" />
         </Helmet>
       </div>

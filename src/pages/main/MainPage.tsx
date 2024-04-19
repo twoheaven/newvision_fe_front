@@ -13,7 +13,6 @@ const MainPage = () => {
     <>
       <div>
         <Helmet>
-          <title>동탄 뉴비전 교회 홈페이지</title>
           <meta name="description" content="동탄 뉴비전 교회 홈페이지입니다." />
         </Helmet>
       </div>

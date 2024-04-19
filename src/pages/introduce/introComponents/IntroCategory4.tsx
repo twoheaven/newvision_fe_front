@@ -13,7 +13,6 @@ const IntroCategory4 = () => {
     <>
       <div>
         <Helmet>
-          <title>예배/모임</title>
           <meta
             name="description"
             content="예배 시간 안내 온라인 동역 헌금 안내"

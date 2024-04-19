@@ -8,8 +8,7 @@ const MissionaryPage = () => {
     <>
       <div>
         <Helmet>
-          <title>동탄 뉴비전 교회 선교</title>
-          <meta name="description" content="동탄 뉴비전 교회 선교"></meta>
+          <meta name="description" content="동탄 뉴비전 교회 선교사역"></meta>
         </Helmet>
       </div>
       <Area>

@@ -12,7 +12,6 @@ const NewsnewfamProvider = () => {
     <>
       <div>
         <Helmet>
-          <title>교회소식 새가족등록</title>
           <meta name="description" content="메인 화면 교회소식 새가족등록" />
         </Helmet>
       </div>

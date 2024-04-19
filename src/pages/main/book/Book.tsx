@@ -60,7 +60,6 @@ const Book = () => {
     <>
       <div>
         <Helmet>
-          <title>김온유 목사 저서</title>
           <meta name="description" content="메인 화면 김온유 목사 저서" />
         </Helmet>
       </div>

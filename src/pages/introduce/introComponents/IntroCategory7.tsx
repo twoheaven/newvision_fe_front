@@ -25,7 +25,6 @@ const IntroCategory7 = () => {
     <>
       <div>
         <Helmet>
-          <title>자주 묻는 질문</title>
           <meta
             name="description"
             content="뉴비전교회에 대해 자주 물어보시는 질문과 그에 대한 답변들을 알려드립니다."

@@ -97,7 +97,6 @@ const Category = () => {
     <>
       <div>
         <Helmet>
-          <title>예배안내 온라인동역헌금 성령학교안내 오시는길</title>
           <meta
             name="description"
             content="예배안내 온라인동역헌금 성령학교안내 오시는길"

@@ -20,7 +20,6 @@ const Cate3 = () => {
     <>
       <div>
         <Helmet>
-          <title>김온유 목사 요한 계시록 학교</title>
           <meta name="descripttion" content="김온유 목사 요한 계시록 학교" />
         </Helmet>
       </div>
