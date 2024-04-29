@@ -9,12 +9,9 @@ import img1 from "../asset/2.기름부음학교 (1).jpg"; // "../asset/1.성경�
 import img2 from "../asset/2.기름부음학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (2).jpg" 이미지를 가져옴
 import img3 from "../asset/2.기름부음학교 (3).jpg"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 import img4 from "../asset/2.기름부음학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
-import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
 
 const Cate2 = () => {
   const isMobile = useIsMobile();
-  const color1 = "#996633"; // color1 변수에 "#996633" 할당
-  const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
 
   return (

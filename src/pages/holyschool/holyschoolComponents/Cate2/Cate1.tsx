@@ -8,10 +8,6 @@ import img1 from "../asset/4.킹덤리더스쿨.png"; // "../asset/1.성경맥�
 import img3 from "../asset/5.청년리더훈련(nltc).png"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 
 const Cate1 = () => {
-  const color1 = "#996633"; // color1 변수에 "#996633" 할당
-  const color2 = "#996633"; // color2 변수에 "#996633" 할당
-  const color3 = "#996633"; // color3 변수에 "#996633" 할당
-
   return (
     <>
       <div>

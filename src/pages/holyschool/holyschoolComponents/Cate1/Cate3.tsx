@@ -5,15 +5,10 @@ import ShadowText from "@/components/text/shadowtext"; // "@/components/text/sha
 import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
-import img4 from "../asset/1.성경맥잡기학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
 import img1 from "../asset/3.요한계시록학교 (1).jpg"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
-import img3 from "../asset/3.요한계시록학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 import img2 from "../asset/3.요한계시록학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (2).jpg" 이미지를 가져옴
-import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
 
 const Cate3 = () => {
-  const color1 = "#996633"; // color1 변수에 "#996633" 할당
-  const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
   const isMobile = useIsMobile();
   return (
