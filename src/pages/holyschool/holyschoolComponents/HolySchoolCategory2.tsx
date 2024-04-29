@@ -23,7 +23,6 @@ const HolySchoolCategory2 = () => {
     <>
       <div>
         <Helmet>
-          <title>김온유 목사 제자양육코스</title>
           <meta name="descripttion" content="김온유 목사 제자양육코스" />
         </Helmet>
       </div>

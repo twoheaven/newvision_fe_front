@@ -25,7 +25,6 @@ const HolySchoolCategory1 = () => {
     <>
       <div>
         <Helmet>
-          <title>김온유 목사 쉐카이나 성령학교</title>
           <meta name="descripttion" content="김온유 목사 쉐카이나 성령학교" />
         </Helmet>
       </div>
