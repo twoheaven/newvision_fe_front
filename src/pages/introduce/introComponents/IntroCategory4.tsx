@@ -5,7 +5,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts";
 
 import timeimg from "./asset/예배시간안내.jpg";
-import offerimg from "./asset/온라인 동역 헌금안내.jpg";
+import offerimg from "./asset/온라인 동역 헌금안내.png";
 
 const IntroCategory4 = () => {
   const isMobile = useIsMobile();
@@ -55,12 +55,6 @@ const IntroCategory4 = () => {
           <Spacer height={"50px"} />
           <img src={offerimg} width={isMobile ? "100%" : "80%"}></img>
           <Spacer height={"15px"} />
-          <Flex gap={"5px"} justifyContent="center">
-            <Text>계좌 입금시 입금자명을</Text>
-            <Text font={Fonts.Bold}>"이름+헌금명"</Text>
-            <Text>순으로 기입해주시기 바랍니다.</Text>
-          </Flex>
-          <Text>ex) 김00십일조 / 박00주정</Text>
         </Flex>
       </Content>
     </>

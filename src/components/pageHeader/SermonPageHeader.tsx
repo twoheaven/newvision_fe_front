@@ -37,6 +37,21 @@ const SermonPageHeader = () => {
                     }
               }
             />
+
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                color: "white", // 텍스트 색상
+                fontSize: "2rem", // 폰트 크기
+                fontWeight: "bold", // 폰트 굵기
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // 텍스트 그림자
+              }}
+            >
+              말씀
+            </div>
           </div>
 
           {/* 헤더 */}
