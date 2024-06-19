@@ -1,8 +1,11 @@
 /* IntroPage.css */
+
 .intro-container {
     background-image: url('/public/introimg.png'); /* IntroPage에만 사용할 이미지 경로로 대체 */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
   }

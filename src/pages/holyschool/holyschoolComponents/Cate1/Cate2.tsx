@@ -12,7 +12,8 @@ import img4 from "../asset/2.기름부음학교 (4).jpg"; // "../asset/1.성경�
 
 const Cate2 = () => {
   const isMobile = useIsMobile();
-  const color3 = "#996633"; // color3 변수에 "#996633" 할당
+  const color3 = "#BEBEED";
+  const color1 = "#6161BA";
 
   return (
     <>
@@ -66,14 +67,17 @@ const Cate2 = () => {
         <Text font={Fonts.Bold}>초대교회와 같은</Text>
         <Text font={Fonts.Bold}>사도행전의 역사가 나타나는 교회!</Text>
         <Spacer height={"40px"} />
-        <Text>
-          마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로 폭포수같이
-          부어지는
-        </Text>{" "}
-        <Text>
-          성령의 기름부음 안에서 환상과 꿈과 예언을 통한 예언적인 체질의 교회가
-          될 것입니다.
-        </Text>{" "}
+        <Flex gap={"3px"}>
+          <Text>
+            마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로{" "}
+          </Text>
+          <Text color={color1} font={Fonts.Bold}>폭포수같이 부어지는</Text>
+        </Flex>
+        <Flex gap={"3px"}>
+          <Text>성령의 기름부음 안에서 환상과 꿈과 예언을 통한</Text>
+          <Text color={color1} font={Fonts.Bold}>예언적인 체질의 교회</Text>
+          <Text>가 될 것입니다.</Text>{" "}
+        </Flex>
         <Spacer height={"60px"} /> {/* 30px 간격 */}
         <div
           style={
@@ -115,7 +119,7 @@ const Cate2 = () => {
                   {" "}
                   {/* 세로로 정렬된 Flex 컨테이너 */}
                   <Text
-                    color={color3}
+                    color={color1}
                     font={Fonts.Medium}
                     size={isMobile ? "16px" : "18px"}
                   >
@@ -123,7 +127,7 @@ const Cate2 = () => {
                   </Text>{" "}
                   {/* 텍스트 */}
                   <Text
-                    color={color3}
+                    color={color1}
                     font={Fonts.Medium}
                     size={isMobile ? "16px" : "18px"}
                   >
@@ -131,7 +135,7 @@ const Cate2 = () => {
                   </Text>{" "}
                   {/* 텍스트 */}
                   <Text
-                    color={color3}
+                    color={color1}
                     font={Fonts.Medium}
                     size={isMobile ? "16px" : "18px"}
                   >
@@ -140,7 +144,7 @@ const Cate2 = () => {
                   {/* 텍스트 */}
                 </Flex>
                 <Text
-                  color={color3}
+                  color={color1}
                   font={Fonts.Regular}
                   size={isMobile ? "14px" : "16px"}
                 >
