@@ -1,0 +1,21 @@
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video-wrapper {
+    width: 345px; /* 유튜브 플레이어의 너비와 맞춥니다 */
+    height: 200px; /* 실제로 보이게 할 높이 */
+    overflow: hidden; /* 넘치는 부분을 숨깁니다 */
+    position: relative;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: -100px; /* 위쪽을 자르는 위치 조정 */
+    left: 0;
+    width: 345px;
+    height: 400px; /* 원래의 iframe 높이 */
+  }
+  

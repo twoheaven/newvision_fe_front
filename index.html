@@ -25,5 +25,14 @@
     
     <!-- React 애플리케이션의 메인 TypeScript 파일을 로드 -->
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // JavaScript에서 환경 변수를 가져와서 설정
+      const naverMapClientId = process.env.REACT_APP_NAVER_MAP_CLIENT_ID;
+      const script = document.createElement('script');
+      
+      // 프로덕션 환경에서도 정상적으로 로드되도록 설정
+      script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${naverMapClientId}&callback=CALLBACK_FUNCTION`;
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>

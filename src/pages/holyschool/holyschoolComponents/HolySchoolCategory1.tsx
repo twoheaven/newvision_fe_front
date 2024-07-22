@@ -28,7 +28,7 @@ const HolySchoolCategory1 = () => {
           <meta name="descripttion" content="김온유 목사 쉐카이나 성령학교" />
         </Helmet>
       </div>
-      <Flex width={"80%"} style={{ maxWidth: "700px" }}>
+      <Flex width={"100%"} style={{ maxWidth: "700px" }}>
         <Flex flexDirection="column">
           <Flex justifyContent="flex-start" alignItems="center">
             <Flex gap={"20px"}>

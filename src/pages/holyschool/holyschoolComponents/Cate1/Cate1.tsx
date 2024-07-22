@@ -1,5 +1,6 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
 import { Helmet } from "react-helmet-async";
+import YouTube from "react-youtube";
 
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
 import useIsMobile from "@/hooks/useIsMobile";
@@ -16,6 +17,21 @@ const Cate1 = () => {
   const color1 = "#996633"; // color1 변수에 "#996633" 할당
   const color2 = "#996633"; // color2 변수에 "#996633" 할당
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
+
+  const videoId1 = "7CYdFN-qhMo"; // 유튜브 비디오 ID를 여기에 넣습니다.
+  const videoId2 = "2RU3lfa5DUs"; // 유튜브 비디오 ID를 여기에 넣습니다.
+
+  const opts = {
+    height: "200",
+    width: "345",
+    playerVars: {
+      autoplay: 0, // 자동 재생
+      controls: 0, // 플레이어 컨트롤 표시
+      loop: 1, // 반복 재생
+      mute: 0, // 음소거
+      start: 0, // 0초부터 시작
+    },
+  };
 
   return (
     <>
@@ -458,8 +474,31 @@ const Cate1 = () => {
           </Flex>
         </div>
       </Flex>
+      <Spacer height={"30px"} />
+
+      <Flex justifyContent="center" gap={"10px"}>
+        <Flex
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Text font={Fonts.Bold}>성경맥잡기 홍보영상</Text>
+          <Spacer height={"5px"} />
+          <YouTube videoId={videoId1} opts={opts} />
+        </Flex>
+        <Flex justifyContent="center" gap={"10px"}>
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text font={Fonts.Bold}>성경맥잡기 첫번째 오픈강의</Text>
+            <Spacer height={"5px"} />
+            <YouTube videoId={videoId2} opts={opts} />
+          </Flex>
+        </Flex>
+      </Flex>
     </>
   );
 };
-
 export default Cate1; // Cate1 컴포넌트 내보내기

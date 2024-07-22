@@ -1,10 +1,13 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { Helmet } from "react-helmet-async";
 
 import useIsMobile from "@/hooks/useIsMobile";
 import Header2Provider from "@/layout/Header2Provider";
 
-import mainImg from "./assets/mainpageimg.png";
+import BannerSlider from "./BannerSlider";
 
 const NewBannerSection = () => {
   const isMobile = useIsMobile();
@@ -26,23 +29,7 @@ const NewBannerSection = () => {
         >
           {/* 배너 이미지 표시 */}
           <div style={{ textAlign: "center", overflow: "hidden" }}>
-            <img
-              width={isMobile ? "140%" : "100%"}
-              src={mainImg}
-              alt="mainimg"
-              style={
-                isMobile
-                  ? {
-                      pointerEvents: "none",
-                      display: "block",
-                      transform: "translateX(-15%)",
-                    }
-                  : {
-                      pointerEvents: "none",
-                      display: "block",
-                    }
-              }
-            />
+            <BannerSlider />
           </div>
           {/* 헤더 */}
           <Flex
