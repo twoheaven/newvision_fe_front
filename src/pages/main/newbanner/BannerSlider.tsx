@@ -26,14 +26,17 @@ const NextArrow = (props: { onClick: undefined }) => {
       onClick={onClick}
     >
       <svg
-        width="30"
-        height="30"
-        viewBox="0 0 24 24"
+        width="35"
+        height="82"
+        viewBox="0 0 35 82"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ fill: "red" }}
       >
-        <path d="M8.293 16.293a1 1 0 0 1 1.414 0L15 13.414l5.293 5.293a1 1 0 0 1-1.414 1.414L15 15.828l-5.293 5.293a1 1 0 0 1-1.414-1.414L13.586 14 8.293 8.707a1 1 0 0 1 0-1.414z" />
+        <path
+          opacity="0.6"
+          d="M0.401001 5.37167L30.4409 40.8069L0.401001 76.2421V81.6138L35.001 40.8069L0.401001 0V5.37167Z"
+          fill="white"
+        />
       </svg>
     </div>
   );
@@ -56,14 +59,17 @@ const PrevArrow = (props: { onClick: undefined }) => {
       onClick={onClick}
     >
       <svg
-        width="30"
-        height="30"
-        viewBox="0 0 24 24"
+        width="35"
+        height="82"
+        viewBox="0 0 35 82"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ fill: "red" }}
       >
-        <path d="M15.707 16.293a1 1 0 0 0-1.414 0L9 13.414 3.707 18.707a1 1 0 0 0 1.414 1.414L9 15.828l5.293 5.293a1 1 0 0 0 1.414-1.414L10.414 14l5.293-5.293a1 1 0 0 0-1.414-1.414z" />
+        <path
+          opacity="0.6"
+          d="M34.6 76.2421L4.56 40.8069L34.6 5.37167V0L0 40.8069L34.6 81.6138V76.2421Z"
+          fill="white"
+        />
       </svg>
     </div>
   );
