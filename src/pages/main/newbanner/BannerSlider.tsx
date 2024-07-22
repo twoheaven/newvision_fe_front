@@ -39,10 +39,6 @@ const PrevArrow = (props: { onClick: any }) => {
     <div
       style={{
         display: "block",
-        background: "red",
-        borderRadius: "50%",
-        width: "30px",
-        height: "30px",
         position: "absolute",
         left: "10px",
         top: "50%",
@@ -51,7 +47,19 @@ const PrevArrow = (props: { onClick: any }) => {
         zIndex: 1,
       }}
       onClick={onClick}
-    />
+    >
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ fill: "red" }}
+      >
+        <path d="M14.71 16.29a1 1 0 0 1-1.42 0L9 13.41l-4.29 4.29a1 1 0 0 1-1.42-1.42l5-5a1 1 0 0 1 1.42 0l5 5a1 1 0 0 1 0 1.42z" />
+        <path d="M14.71 16.29a1 1 0 0 1-1.42 0L9 13.41l-4.29 4.29a1 1 0 0 1-1.42-1.42l5-5a1 1 0 0 1 1.42 0l5 5a1 1 0 0 1 0 1.42z" />
+      </svg>
+    </div>
   );
 };
 
