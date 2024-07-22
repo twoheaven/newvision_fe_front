@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { NavermapsProvider } from "react-naver-maps";
 
 import App from "./App";
 
@@ -15,11 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <NavermapsProvider
-        ncpClientId={process.env.REACT_APP_NAVER_MAP_CLIENT_ID!}
-      >
-        <App />
-      </NavermapsProvider>
+      <App />
     </QueryClientProvider>
   </React.StrictMode>,
 );
