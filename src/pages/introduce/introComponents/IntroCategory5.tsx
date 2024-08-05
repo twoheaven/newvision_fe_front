@@ -4,11 +4,8 @@ import { Helmet } from "react-helmet-async";
 import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts";
 
-import video2 from "./asset/다은마을(중)~뉴비전교회.mp4";
 import thumbnail2 from "./asset/다은마을(중)~뉴비전교회.png";
-import video3 from "./asset/롯데캐슬~뉴비전교회.mp4";
 import thumbnail3 from "./asset/롯데캐슬~뉴비전교회.png";
-import video1 from "./asset/병점역~병점역사거리.mp4";
 import thumbnail1 from "./asset/병점역~병점역사거리.png"; // 썸네일 이미지 추가
 import roadimg1 from "./asset/오시는길.jpg";
 import roadimg2 from "./asset/오시는길2.jpg";
@@ -46,51 +43,42 @@ const IntroCategory5 = () => {
             style={{ width: isMobile ? "100%" : "60%", position: "relative" }}
           >
             <img src={roadimg3} width="100%" />
-            <video
+            <img
               width="70%"
-              controls
-              poster={thumbnail1}
+              src={thumbnail1}
               style={{
                 position: "absolute",
                 top: "32%",
                 left: "15%",
                 objectFit: "cover",
               }}
-            >
-              <source src={video1} type="video/mp4" />
-            </video>
+            ></img>
           </div>{" "}
           <img src={roadimg4} width={isMobile ? "100%" : "60%"}></img>
           <div
             style={{ width: isMobile ? "100%" : "60%", position: "relative" }}
           >
             <img src={roadimg5} width="100%" />
-            <video
+            <img
               width="70%"
-              controls
-              poster={thumbnail2}
+              src={thumbnail2}
               style={{
                 position: "absolute",
                 top: "20%",
                 left: "15%",
                 objectFit: "cover",
               }}
-            >
-              <source src={video2} type="video/mp4" />
-            </video>
-            <video
+            ></img>
+            <img
               width="70%"
-              controls
-              poster={thumbnail3}
+              src={thumbnail3}
               style={{
                 position: "absolute",
                 top: "60%",
                 left: "15%",
                 objectFit: "cover",
               }}
-            >
-              <source src={video3} type="video/mp4" />
-            </video>
+            ></img>
           </div>{" "}
         </Flex>
       </Content>
