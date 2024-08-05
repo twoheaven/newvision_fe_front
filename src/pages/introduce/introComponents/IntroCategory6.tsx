@@ -5,6 +5,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import Fonts from "@/styles/fonts";
 
 import visitimg from "./asset/교회직접방문.jpg";
+import visitimg2 from "./asset/페이지준비중.png";
 
 const IntroCategory6 = () => {
   const isMobile = useIsMobile();
@@ -108,6 +109,50 @@ const IntroCategory6 = () => {
               수 있습니다.
             </Text>
           </Flex>
+        </Flex>
+        <Spacer height={"50px"} />
+        <Flex
+          gap={"5px"}
+          style={isMobile ? {} : { marginLeft: "200px" }}
+          alignItems="center"
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+              width: "24px",
+              height: "24px",
+              padding: "0.3em",
+              borderRadius: "50%",
+              backgroundColor: "#7DAFE2",
+              color: "white",
+            }}
+          >
+            <Text
+              size={"28px"}
+              font={Fonts.Bold}
+              color="white"
+              style={{
+                transform: "translate(-1px,-9.5px)",
+              }}
+            >
+              2
+            </Text>
+          </div>
+          <Text size={"20px"} font={Fonts.Bold}>
+            온라인 등록
+          </Text>
+          <Text>지역별 온라인 임시 등록</Text>
+        </Flex>
+        <Spacer height={"10px"} />
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <img src={visitimg2} width={isMobile ? "100%" : "70%"}></img>
+          <Spacer height={"20px"} />
         </Flex>
       </Content>
     </>
