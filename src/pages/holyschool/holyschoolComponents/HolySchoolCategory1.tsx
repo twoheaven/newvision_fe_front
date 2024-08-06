@@ -5,8 +5,10 @@ import { Helmet } from "react-helmet-async";
 import Category1Component from "./Cate1/Cate1";
 import Category2Component from "./Cate1/Cate2";
 import Category3Component from "./Cate1/Cate3";
+import Category4Component from "./Cate1/Cate4";
 
 const categories = [
+  { name: "전체개요", component: Category4Component },
   { name: "성경맥잡기학교", component: Category1Component },
   { name: "기름부음학교", component: Category2Component },
   { name: "요한계시록학교", component: Category3Component },
