@@ -1,15 +1,18 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import for navigation
 
 import useIsMobile from "@/hooks/useIsMobile";
 import news from "@/pages/main/newsnewfam/asset/공지배경.png";
 import visit1 from "@/pages/main/newsnewfam/asset/교회직접방문.png";
 import visit2 from "@/pages/main/newsnewfam/asset/온라인등록.png";
 import train from "@/pages/main/newsnewfam/asset/훈련&행사배경.png";
+import Paths from "@/types/paths";
 
 const Newsnewfam = () => {
   const isMobile = useIsMobile();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,6 +25,21 @@ const Newsnewfam = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleVisit1Click = () => {
+    console.log("Navigating to", Paths.Introduce);
+    navigate(Paths.Introduce, {
+      state: { visit1: "새가족안내" }, // 카테고리 전달
+    });
+  };
+
+  const handleVisit2Click = () => {
+    console.log("Navigating to", Paths.Introduce);
+    navigate(Paths.Introduce, {
+      state: { visit2: "새가족안내" }, // 카테고리 전달
+    });
+  };
+
   return (
     <Content>
       <Flex gap={isMobile ? "5px" : "10px"} justifyContent="center">
@@ -92,12 +110,22 @@ const Newsnewfam = () => {
           {isMobile ? <Spacer height={"25px"} /> : ""}
           <Text size={isMobile ? "24px" : "34px"}>새가족 등록</Text>
           <Flex justifyContent="center">
-            <img
-              src={visit1}
-              width={"100%"}
-              style={{ marginBottom: "10px" }}
-            ></img>
-            <img src={visit2} width={"100%"}></img>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={handleVisit1Click} // Add click handler
+            >
+              <img
+                src={visit1}
+                width={"100%"}
+                style={{ marginBottom: "10px" }}
+              />
+            </div>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={handleVisit2Click} // Add click handler
+            >
+              <img src={visit2} width={"100%"} />
+            </div>
           </Flex>
         </Flex>
       </Flex>

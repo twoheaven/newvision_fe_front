@@ -25,13 +25,20 @@ const categories = [
 
 const IntroducePage = () => {
   const location = useLocation();
-  const lego = location.state || 0;
-  console.log(location.state);
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(lego);
+  const visit1 = location.state?.visit1 ?? 0; // `visit1` 상태를 받아와서 기본값으로 사용
+  const visit2 = location.state?.visit2 ?? null;
+
+  // visit1과 visit2가 새가족안내(5번째 인덱스)로 갈 수 있도록 설정
+  const initialCategoryIndex =
+    visit1 === "새가족안내" || visit2 === "새가족안내" ? 5 : visit1;
+
+  const [selectedCategoryIndex, setSelectedCategoryIndex] =
+    useState(initialCategoryIndex);
 
   const handleCategorySelect = (index: number) => {
     setSelectedCategoryIndex(index);
   };
+
   const SelectedComponent = categories[selectedCategoryIndex].component;
 
   return (

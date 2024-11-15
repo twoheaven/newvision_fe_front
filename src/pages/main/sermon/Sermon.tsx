@@ -1,7 +1,6 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import YouTube from "react-youtube";
 
 import useIsMobile from "@/hooks/useIsMobile";
 
@@ -58,25 +57,11 @@ const Sermon: React.FC = () => {
   const opts1 = {
     height: cardWidth,
     width: (cardWidth * 16) / 9,
-    playerVars: {
-      autoplay: 0, // 자동 재생
-      controls: 0, // 플레이어 컨트롤 표시
-      loop: 1, // 반복 재생
-      mute: 0, // 음소거
-      start: 0, // 0초부터 시작
-    },
   };
 
   const opts = {
     height: cardWidth * 0.75,
     width: (cardWidth * 16 * 0.75) / 9,
-    playerVars: {
-      autoplay: 0, // 자동 재생
-      controls: 0, // 플레이어 컨트롤 표시
-      loop: 1, // 반복 재생
-      mute: 0, // 음소거
-      start: 0, // 0초부터 시작
-    },
   };
 
   return (
@@ -115,23 +100,50 @@ const Sermon: React.FC = () => {
         </Flex>
         <Flex gap={"25px"}>
           <Flex>
-            {" "}
             {/* 예배와 말씀: 1번째 영상 */}
             {videoIds.length > 0 && videoIds[0] && (
-              <YouTube videoId={videoIds[0]} opts={opts1} />
+              <iframe
+                width={opts1.width}
+                height={opts1.height}
+                src={`https://www.youtube.com/embed/${videoIds[0]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
             )}
           </Flex>
           <Flex flexDirection="column">
             <Flex gap={"5px"}>
               {/* 최근설교: 2, 3, 4번째 영상 */}
               {videoIds.length > 1 && videoIds[1] && (
-                <YouTube videoId={videoIds[1]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[1]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
               {videoIds.length > 2 && videoIds[2] && (
-                <YouTube videoId={videoIds[2]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[2]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
               {videoIds.length > 3 && videoIds[3] && (
-                <YouTube videoId={videoIds[3]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[3]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
             </Flex>
             <Spacer height={"30px"} />
@@ -140,13 +152,34 @@ const Sermon: React.FC = () => {
             <Flex gap={"5px"}>
               {/* 성령학교 영상: 5, 6, 7번째 영상 */}
               {videoIds.length > 4 && videoIds[4] && (
-                <YouTube videoId={videoIds[4]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[4]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
               {videoIds.length > 5 && videoIds[5] && (
-                <YouTube videoId={videoIds[5]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[5]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
               {videoIds.length > 6 && videoIds[6] && (
-                <YouTube videoId={videoIds[6]} opts={opts} />
+                <iframe
+                  width={opts.width}
+                  height={opts.height}
+                  src={`https://www.youtube.com/embed/${videoIds[6]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
               )}
             </Flex>
           </Flex>

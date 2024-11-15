@@ -9,7 +9,6 @@ import mainImg3 from "./assets/main3.jpg";
 
 const images = [mainImg1, mainImg2, mainImg3];
 
-// 커스텀 Next 버튼
 const NextArrow = (props: { onClick: undefined }) => {
   const { onClick } = props;
   return (
@@ -42,7 +41,6 @@ const NextArrow = (props: { onClick: undefined }) => {
   );
 };
 
-// 커스텀 Prev 버튼
 const PrevArrow = (props: { onClick: undefined }) => {
   const { onClick } = props;
   return (
@@ -89,19 +87,17 @@ const BannerSlider = () => {
   };
 
   return (
-    <div style={{ width: "100%", margin: "auto", position: "relative" }}>
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img
-              src={image}
-              alt={`Slide ${index + 1}`}
-              style={{ width: "100%" }}
-            />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {images.map((image, index) => (
+        <div key={index}>
+          <img
+            src={image}
+            alt={`Slide ${index + 1}`}
+            style={{ width: "100%" }}
+          />
+        </div>
+      ))}
+    </Slider>
   );
 };
 
