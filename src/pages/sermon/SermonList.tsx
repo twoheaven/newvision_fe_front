@@ -159,6 +159,11 @@ function SermonList() {
                   padding: "8px",
                   borderLeft: "none", // 왼쪽 테두리 제거
                   borderRight: "none", // 오른쪽 테두리 제거
+
+                  height: "40px", // 고정 높이 설정
+                  whiteSpace: "nowrap", // 줄바꿈 금지
+                  overflow: "hidden", // 넘치는 텍스트 숨기기
+                  textOverflow: "ellipsis", // 넘치는 텍스트를 ...으로 표시
                 }}
               >
                 <div
@@ -197,6 +202,7 @@ function SermonList() {
                   padding: "8px",
                   borderLeft: "none", // 왼쪽 테두리 제거
                   borderRight: "none", // 오른쪽 테두리 제거
+                  width: "80px", // 칸의 너비를 넓히기 위한 설정
                 }}
               >
                 <div
