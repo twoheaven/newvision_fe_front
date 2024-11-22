@@ -1,5 +1,6 @@
 // 필요한 컴포넌트 및 라이브러리 가져오기
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
+import { Helmet } from "react-helmet-async"; // Helmet 가져오기
 import { WrapperLink } from "src/components/wrapperLink/WrapperLink";
 import Paths from "src/types/paths";
 import styled from "styled-components";
@@ -26,36 +27,58 @@ const Header2 = () => {
   const isMobile = useIsMobile();
 
   return (
-    // Header 영역
-    <Content>
-      {/* 두번째 층 시작 */}
-      <Spacer height={isMobile ? "3px" : "5px"} />
-      {/* 메인 페이지로 이동하는 링크 */}
-      <StyledFlexContainer justifyContent="space-between" alignItems="center">
-        <Flex>
-          <WrapperLink to={Paths.Main}>
-            <img src={Logo} alt={"logo"} width={isMobile ? "75px" : "180px"} />
-          </WrapperLink>
-        </Flex>
-        {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
-        {/* 각종 메뉴에 대한 링크 */}
-        <Flex gap={isMobile ? "6px" : "12px"}>
-          {[
-            { path: Paths.Introduce, label: "소개" },
-            { path: Paths.Sermon, label: "말씀" },
-            { path: Paths.HolySchool, label: "성령학교" },
-            { path: Paths.News, label: "소식" },
-            { path: Paths.Book, label: "저서" },
-            { path: Paths.Missionary, label: "선교사역" },
-          ].map(({ path, label }) => (
-            <WrapperLink to={path} key={path}>
-              <StyledText font={Fonts.Bold} size={isMobile ? "12px" : "24px"}>{label}</StyledText>
+    <>
+      {/* Helmet으로 메타데이터 설정 */}
+      <Helmet>
+        <title>뉴비전교회</title>
+        <meta
+          name="description"
+          content="뉴비전교회: 기름 준비하는 교회, 재림을 대비하는 교회"
+        />
+        <meta
+          name="keywords"
+          content="뉴비전교회, 예수님 재림, 교회 소개, 말씀, 성령학교, 선교사역"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+
+      {/* Header 영역 */}
+      <Content>
+        {/* 두번째 층 시작 */}
+        <Spacer height={isMobile ? "3px" : "5px"} />
+        {/* 메인 페이지로 이동하는 링크 */}
+        <StyledFlexContainer justifyContent="space-between" alignItems="center">
+          <Flex>
+            <WrapperLink to={Paths.Main}>
+              <img
+                src={Logo}
+                alt={"logo"}
+                width={isMobile ? "75px" : "180px"}
+              />
             </WrapperLink>
-          ))}
-        </Flex>
-      </StyledFlexContainer>
-      <Spacer height={"5px"} />
-    </Content>
+          </Flex>
+          {/* Flex 컨테이너 - 공간을 벌려주고, 아이템을 가운데 정렬 */}
+          {/* 각종 메뉴에 대한 링크 */}
+          <Flex gap={isMobile ? "6px" : "12px"}>
+            {[
+              { path: Paths.Introduce, label: "소개" },
+              { path: Paths.Sermon, label: "말씀" },
+              { path: Paths.HolySchool, label: "성령학교" },
+              { path: Paths.News, label: "소식" },
+              { path: Paths.Book, label: "저서" },
+              { path: Paths.Missionary, label: "선교사역" },
+            ].map(({ path, label }) => (
+              <WrapperLink to={path} key={path}>
+                <StyledText font={Fonts.Bold} size={isMobile ? "12px" : "24px"}>
+                  {label}
+                </StyledText>
+              </WrapperLink>
+            ))}
+          </Flex>
+        </StyledFlexContainer>
+        <Spacer height={"5px"} />
+      </Content>
+    </>
   );
 };
 
