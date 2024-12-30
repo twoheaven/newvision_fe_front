@@ -30,20 +30,32 @@ const StyledButton = styled.button<{
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* 이미지에 따라 다른 배경 스타일을 설정 */
+  /* 기본 배경 스타일 */
   ${({ backgroundImage }) =>
     backgroundImage &&
     `
     background-image: url('${backgroundImage}');
   `}
 
-  /* borderRadius prop을 사용하여 모서리를 둥글게 설정 */
+  /* 둥근 모서리 */
   ${({ borderRadius }) =>
     borderRadius &&
     `
     border-radius: ${borderRadius};
   `}
+
+  /* Hover 애니메이션 */
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 클릭 시 애니메이션 */
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 const Category = () => {

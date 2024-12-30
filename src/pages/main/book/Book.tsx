@@ -7,9 +7,9 @@ import Right from "@/assets/메인이미지_화살표(오른쪽).png";
 import Left from "@/assets/메인이미지_화살표(왼쪽).png";
 import Box from "@/components/box/Box";
 import useIsMobile from "@/hooks/useIsMobile";
-import book1 from "@/pages/book/assets/book1.webp";
-import book2 from "@/pages/book/assets/book2.webp";
-import book3 from "@/pages/book/assets/book3.webp";
+import book1 from "@/pages/book/bookComponents/assets/book1.webp";
+import book2 from "@/pages/book/bookComponents/assets/book2.webp";
+import book3 from "@/pages/book/bookComponents/assets/book3.webp";
 
 const EnlargedImageWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
