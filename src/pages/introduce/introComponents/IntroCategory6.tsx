@@ -83,14 +83,18 @@ const IntroCategory6 = () => {
           flexDirection="column"
           style={isMobile ? {} : { marginLeft: "200px" }}
         >
-          <Flex gap={"5px"}>
+          <Flex gap={"5px"} flexDirection="row">
             <Text font={Fonts.Bold}>1. 교회등록</Text>
-            <Text>
-              본당 내에 있는 '새가족 등록카드'를 작성하시고 제출해주십시오.
-            </Text>
+            <div style={{ width: "58px" }} />
+            <Flex flexDirection="row" alignItems="center">
+              <div>본당 내에 있는 &#39;</div>
+              <div style={{ fontFamily: Fonts.Bold }}>새가족 등록카드</div>
+              <div> &#39;를 작성하시고 제출해주십시오.</div>
+            </Flex>
           </Flex>
           <Flex gap={"5px"}>
             <Text font={Fonts.Bold}>2. 등록기간</Text>
+            <div style={{ width: "55px" }} />
             <Text>
               등록기간 동안 유튜브를 통하여 말씀을 듣고 준비하는 기간을
               가집니다.
@@ -100,13 +104,6 @@ const IntroCategory6 = () => {
             <Text font={Fonts.Bold}>3. 담임 목사님과 만남</Text>
             <Text>
               등록기간이 지나면, 담임목사님과 상담 및 인사가 있습니다.
-            </Text>
-          </Flex>
-          <Flex gap={"5px"}>
-            <Text font={Fonts.Bold}>4. 등록 심방</Text>
-            <Text>
-              담임목사님께서 심방을 원하는 가정이 편한 시간과 장소에서 심방을 할
-              수 있습니다.
             </Text>
           </Flex>
         </Flex>

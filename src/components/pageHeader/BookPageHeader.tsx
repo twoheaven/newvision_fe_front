@@ -3,6 +3,7 @@ import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 import useIsMobile from "@/hooks/useIsMobile";
 import Header2Provider from "@/layout/Header2Provider";
 
+import Fonts from "../../styles/fonts";
 import mainImg from "./assets/writingimg.webp";
 
 // BannerSection 컴포넌트 정의
@@ -45,7 +46,7 @@ const BookPageHeader = () => {
                 transform: "translate(-50%, -50%)",
                 color: "white", // 텍스트 색상
                 fontSize: "2rem", // 폰트 크기
-                fontWeight: "bold", // 폰트 굵기
+                fontWeight: Fonts.Bold, // 폰트 굵기
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // 텍스트 그림자
               }}
             >
