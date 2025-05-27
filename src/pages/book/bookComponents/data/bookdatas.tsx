@@ -12,6 +12,8 @@ const bookdatas = [
     label1: "Good1",
     label2: "제1권 『 선한말 습관 프로젝트 』",
     label3: "하나님 나라 백성들의 '예수님 언어' 사용하기!",
+    label4:
+      "저자:김온유목사\n페이지 및 크기 : 92page / 120*170mm\n*개별 판매하지 않습니다",
   },
   {
     name: "선한시리즈2",
@@ -19,6 +21,8 @@ const bookdatas = [
     label1: "Good2",
     label2: "제2권 『 선한 동역자 프로젝트 』",
     label3: "교회 안에서 하나님 나라의 '권위와 질서'를 회복하라!",
+    label4:
+      "저자:김온유목사\n페이지 및 크기 : 66page / 120*170mm\n*개별 판매하지 않습니다",
   },
   {
     name: "선한시리즈3",
@@ -26,6 +30,8 @@ const bookdatas = [
     label1: "Good3",
     label2: "제3권 『 선한 청지기 프로젝트 』",
     label3: "하나님 나라의 성경적 '재정 원리'",
+    label4:
+      "저자:김온유목사\n페이지 및 크기 : 180page / 120*170mm\n*개별 판매하지 않습니다",
   },
   {
     name: "구원론1",
@@ -33,6 +39,7 @@ const bookdatas = [
     label1: "Salvation1",
     label2: "『 재림전 개혁해야 할 진리 1탄 』",
     label3: "잘못된 구원론 올바르게 알기!",
+    label4: "재림전 개혁해야 할 진리 시리즈의 첫 번째 책!",
   },
   {
     name: "구원론2",
@@ -40,6 +47,7 @@ const bookdatas = [
     label1: "Salvation2",
     label2: "『 재림전 개혁해야 할 진리 2탄 』",
     label3: "그리스도의 심판대, 온전히 이해하기",
+    label4: "재림전 개혁해야 할 진리 시리즈의 두 번째 책!",
   },
   {
     name: "구원론3",
@@ -47,6 +55,7 @@ const bookdatas = [
     label1: "Salvation3",
     label2: "『 재림전 개혁해야 할 진리 3탄 』",
     label3: "하나님의 우선 순위로 새 부대 준비되기",
+    label4: "재림전 개혁해야 할 진리 시리즈의 세 번째 책!",
   },
   {
     name: "성령학교교재1",

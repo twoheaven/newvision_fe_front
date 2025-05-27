@@ -44,7 +44,7 @@ function DynamicBookRouter() {
         <Area>
           <BookPageHeader />
           {Component}
-          <Spacer height={"15px"} />
+          <Spacer height={"10px"} />
         </Area>
       </div>
     ) || <MainPage />

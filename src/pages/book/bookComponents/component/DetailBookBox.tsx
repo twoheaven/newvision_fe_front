@@ -6,12 +6,14 @@ const DetailBookBox = ({
   label1 = "책 이미지",
   label2,
   label3,
+  label4,
   imgwidth = "300px",
 }: {
   bookimg: File | string; // bookimg는 File 또는 string 타입으로 받을 수 있습니다.
   label1?: string;
   label2: string;
   label3: string;
+  label4?: string; // label4는 선택적 속성으로, 기본값이 설정되어 있습니다.
   imgwidth?: string; // 이미지 너비를 조정할 수 있는 선택적 속성
 }) => {
   return (
@@ -26,7 +28,7 @@ const DetailBookBox = ({
           src={
             typeof bookimg === "string" ? bookimg : URL.createObjectURL(bookimg)
           }
-          alt={"책 이미지"}
+          alt={label1}
           style={{ maxWidth: imgwidth, width: "100%" }}
         />
       </div>
@@ -39,8 +41,12 @@ const DetailBookBox = ({
         </Text>
         <Spacer height={"30px"} />
         <Text font={Fonts.Regular} style={{ color: "#888888" }}>
-          {label1}
-        </Text>
+          {(label4 || "").split("\n").map((line, idx) => (
+            <Text key={idx} font={Fonts.Regular} style={{ color: "#888888" }}>
+              {line}
+            </Text>
+          ))}
+        </Text>{" "}
       </Flex>
     </Flex>
   );
