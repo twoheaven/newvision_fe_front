@@ -9,7 +9,9 @@ import {
 // 각 페이지 컴포넌트를 import
 import Layout from "./layout/Layout";
 import MobileProvider from "./layout/MobileProvider";
+// import BookDetailPage from "./pages/book/BookDetailPage";
 import BookPage from "./pages/book/BookPage";
+import DynamicBookRouter from "./pages/book/DynamicBookRouter";
 import HolySchoolPage from "./pages/holyschool/HolySchoolPage";
 import IntroPage from "./pages/intro/IntroPage";
 import IntroducePage from "./pages/introduce/IntroducePage";
@@ -42,6 +44,7 @@ const router = createBrowserRouter(
         <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
         <Route path={Paths.News} element={<NewsPage />} />
         <Route path={Paths.Book} element={<BookPage />} />
+        <Route path="/book/:label1" element={<DynamicBookRouter />} />
       </Route>
     </>,
   ),

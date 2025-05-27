@@ -1,8 +1,7 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 
 import Fonts from "../../../../styles/fonts";
-import bookDetailIcon from "../assets/more.png"; // 책 상세보기 아이콘 경로
-const SmallBookBox = ({
+const DetailBookBox = ({
   bookimg,
   label1 = "책 이미지",
   label2,
@@ -35,20 +34,15 @@ const SmallBookBox = ({
         <Text font={Fonts.Bold} size={"24px"}>
           {label2}
         </Text>
-        <Text font={Fonts.Regular} size={"20px"}>
+        <Text font={Fonts.Medium} size={"20px"}>
           {label3}
         </Text>
         <Spacer height={"30px"} />
-        <a href={`/book/${label1}`} style={{ textDecoration: "none" }}>
-          <img
-            src={bookDetailIcon}
-            alt="책 상세보기"
-            width={"60px"}
-            style={{ marginLeft: "2px" }}
-          />
-        </a>
+        <Text font={Fonts.Regular} style={{ color: "#888888" }}>
+          {label1}
+        </Text>
       </Flex>
     </Flex>
   );
 };
-export default SmallBookBox; // SmallBookBox 컴포넌트 내보내기
+export default DetailBookBox; // DetailBookBox 컴포넌트 내보내기

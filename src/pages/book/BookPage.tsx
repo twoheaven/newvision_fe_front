@@ -4,10 +4,11 @@ import { Helmet } from "react-helmet-async";
 
 import BookPageHeader from "@/components/pageHeader/BookPageHeader";
 
-import Category1Component from "./bookComponents/cate1/Cate1";
-import Category2Component from "./bookComponents/cate2/Cate2";
-import Category3Component from "./bookComponents/cate3/Cate3";
-import Category4Component from "./bookComponents/cate4/Cate4";
+import Fonts from "../../styles/fonts";
+import Category1Component from "./bookComponents/cate/Cate1";
+import Category2Component from "./bookComponents/cate/Cate2";
+import Category3Component from "./bookComponents/cate/Cate3";
+import Category4Component from "./bookComponents/cate/Cate4";
 
 const categories = [
   { name: "전체", component: Category1Component },
@@ -29,7 +30,7 @@ const BookPage = () => {
     <>
       <div>
         <Helmet>
-          <meta name="descripttion" content="김온유 목사 성령학교" />
+          <meta name="descripttion" content="김온유 목사 저서" />
         </Helmet>
       </div>
       <Area>
@@ -39,7 +40,14 @@ const BookPage = () => {
 
         <Flex justifyContent="center" gap={"8px"}>
           {categories.map((category, index) => (
-            <Button key={index} onClick={() => handleCategorySelect(index)}>
+            <Button
+              key={index}
+              onClick={() => handleCategorySelect(index)}
+              style={{
+                fontFamily:
+                  selectedCategoryIndex === index ? Fonts.Bold : Fonts.Regular,
+              }}
+            >
               {category.name}
             </Button>
           ))}

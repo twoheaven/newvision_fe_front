@@ -7,6 +7,7 @@ enum Paths {
   News = "/news",
   Book = "/book",
   Intro = "/intro",
+  BookDetail = "/book/:id",
 }
 
 export default Paths;

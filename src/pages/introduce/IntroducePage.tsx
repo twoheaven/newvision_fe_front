@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 
 import IntroducePageHeader from "@/components/pageHeader/IntroducePageHeader";
 
+import Fonts from "../../styles/fonts";
 import Category1Component from "./introComponents/IntroCategory1";
 import Category2Component from "./introComponents/IntroCategory2";
 import Category3Component from "./introComponents/IntroCategory3";
@@ -56,7 +57,14 @@ const IntroducePage = () => {
         <Spacer height={"15px"} />
         <Flex justifyContent="center" gap={"8px"}>
           {categories.map((category, index) => (
-            <Button key={index} onClick={() => handleCategorySelect(index)}>
+            <Button
+              key={index}
+              onClick={() => handleCategorySelect(index)}
+              style={{
+                fontFamily:
+                  selectedCategoryIndex === index ? Fonts.Bold : Fonts.Regular,
+              }}
+            >
               {category.name}
             </Button>
           ))}

@@ -2,6 +2,7 @@ import { Button, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
+import Fonts from "../../../styles/fonts";
 import Category1Component from "./Cate1/Cate1";
 import Category2Component from "./Cate1/Cate2";
 import Category3Component from "./Cate1/Cate3";
@@ -35,7 +36,16 @@ const HolySchoolCategory1 = () => {
           <Flex justifyContent="flex-start" alignItems="center">
             <Flex gap={"20px"}>
               {categories.map((category, index) => (
-                <Button key={index} onClick={() => handleCategorySelect(index)}>
+                <Button
+                  key={index}
+                  onClick={() => handleCategorySelect(index)}
+                  style={{
+                    fontFamily:
+                      selectedCategoryIndex === index
+                        ? Fonts.Bold
+                        : Fonts.Regular,
+                  }}
+                >
                   {category.name}
                 </Button>
               ))}

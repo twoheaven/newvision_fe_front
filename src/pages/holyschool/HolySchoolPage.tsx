@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 import HolySchoolPageHeader from "@/components/pageHeader/HolyschoolPageHeader";
 
+import Fonts from "../../styles/fonts";
 import Category1Component from "./holyschoolComponents/HolySchoolCategory1";
 import Category2Component from "./holyschoolComponents/HolySchoolCategory2";
 
@@ -35,7 +36,14 @@ const HolySchoolPage = () => {
 
         <Flex justifyContent="center" gap={"8px"}>
           {categories.map((category, index) => (
-            <Button key={index} onClick={() => handleCategorySelect(index)}>
+            <Button
+              key={index}
+              onClick={() => handleCategorySelect(index)}
+              style={{
+                fontFamily:
+                  selectedCategoryIndex === index ? Fonts.Bold : Fonts.Regular,
+              }}
+            >
               {category.name}
             </Button>
           ))}
