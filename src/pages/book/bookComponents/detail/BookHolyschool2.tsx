@@ -24,6 +24,7 @@ const Holyschool2 = () => {
           label1="성령학교 교재"
           label2="구원론, 성령론, 종말론의 개혁을 위한 세가지 집중과정! 성령학교 강의 교재"
         />
+        <Spacer height={"30px"} />
         <Flex alignItems="center" justifyContent="center">
           <DetailBookBox
             bookimg={bookdatas[7].img}
