@@ -43,7 +43,7 @@ const Header = () => {
               />
             </a>
             {/* Instagram 링크를 위한 WrapperLink */}
-            <a href={"https://www.instagram.com/now_manna/"}>
+            <a href={"https://www.instagram.com/newvision_manna/"}>
               <img
                 src={instagramLogo}
                 alt="인스타그램"
