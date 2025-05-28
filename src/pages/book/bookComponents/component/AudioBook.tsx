@@ -1,4 +1,4 @@
-import { Button, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
+import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 
 import Fonts from "../../../../styles/fonts";
 import AudioBookImg from "../assets/audiobook.png";
