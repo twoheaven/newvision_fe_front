@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/config';
-import { useNavigate, Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import Paths from "../../types/paths";
+import { auth } from "../firebase/config";
 
 const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');
+      navigate(Paths.Main);
     } catch (error: any) {
       alert(error.message);
     }
@@ -41,8 +43,8 @@ const LoginPage: React.FC = () => {
         로그인
       </button>
       <p className="mt-4 text-sm">
-        계정이 없으신가요?{' '}
-        <Link to="/register" className="text-blue-700 underline">
+        계정이 없으신가요?{" "}
+        <Link to={Paths.Register} className="text-blue-700 underline">
           회원가입
         </Link>
       </p>

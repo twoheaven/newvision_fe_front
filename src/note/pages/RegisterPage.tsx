@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/config';
-import { useNavigate, Link } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import Paths from "../../types/paths";
+import { auth } from "../firebase/config";
 
 const RegisterPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert('회원가입 성공!');
-      navigate('/login');
+      alert("회원가입 성공!");
+      navigate("/login");
     } catch (err: any) {
       alert(`회원가입 실패: ${err.message}`);
     }
@@ -41,12 +43,12 @@ const RegisterPage: React.FC = () => {
       >
         회원가입
       </button>
-      <div className="mt-2 text-sm text-center">
-        이미 계정이 있으신가요?{' '}
-        <Link to="/login" className="text-blue-600">
+      <p className="mt-4 text-sm">
+        이미 계정이 있으신가요?{" "}
+        <Link to={Paths.Login} className="text-blue-600">
           로그인
         </Link>
-      </div>
+      </p>
     </div>
   );
 };

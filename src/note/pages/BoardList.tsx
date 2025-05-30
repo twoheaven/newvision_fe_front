@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Fonts from "../../styles/fonts";
+import Paths from "../../types/paths";
 import { auth, db } from "../firebase/config";
 import { Post } from "../types/post";
 
@@ -210,7 +211,7 @@ const BoardList: React.FC = () => {
       {user && (
         <div className="mt-4 flex justify-end">
           <Link
-            to="/new"
+            to={Paths.NewPost}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             글쓰기

@@ -18,6 +18,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 import NewsPageHeader from "../../components/pageHeader/NewsPageHeader";
 import Fonts from "../../styles/fonts";
+import Paths from "../../types/paths";
 import { auth, db } from "../firebase/config";
 import { Post } from "../types/post";
 
@@ -270,7 +271,7 @@ const ViewPost: React.FC = () => {
               )}
             </div>
             <Link
-              to="/news"
+              to={Paths.News}
               style={{
                 textDecoration: "none",
                 color: "#666666",

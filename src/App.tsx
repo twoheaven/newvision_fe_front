@@ -59,23 +59,29 @@ function App() {
             <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
             <Route path={Paths.News} element={<NewsPage />} />
             <Route path={Paths.Book} element={<BookPage />} />
-            <Route path="/book/:label1" element={<DynamicBookRouter />} />
+            <Route path={Paths.BookDetail} element={<DynamicBookRouter />} />
 
             {/* 로그인하지 않아도 접근 가능 */}
-            <Route path="/post/:id" element={<ViewPost />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path={Paths.ViewPost} element={<ViewPost />} />
+            <Route path={Paths.Login} element={<LoginPage />} />
+            <Route path={Paths.Register} element={<RegisterPage />} />
 
             {/* 로그인한 사용자만 접근 가능 */}
             {user ? (
               <>
-                <Route path="/new" element={<NewPost />} />
-                <Route path="/edit/:id" element={<EditPost />} />
+                <Route path={Paths.NewPost} element={<NewPost />} />
+                <Route path={Paths.EditPost} element={<EditPost />} />
               </>
             ) : (
               <>
-                <Route path="/new" element={<Navigate to="/login" />} />
-                <Route path="/edit/:id" element={<Navigate to="/login" />} />
+                <Route
+                  path={Paths.NewPost}
+                  element={<Navigate to={Paths.Login} />}
+                />
+                <Route
+                  path={Paths.EditPost}
+                  element={<Navigate to={Paths.Login} />}
+                />
               </>
             )}
           </Route>
