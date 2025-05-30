@@ -194,7 +194,11 @@ const BoardList: React.FC = () => {
                     className="whitespace-nowrap text-sm text-gray-500"
                     style={{ padding: "12px 6px", textAlign: "center" }}
                   >
-                    {post.author}
+                    {!user && post.author ? (
+                      <span className="text-gray-400">관리자</span>
+                    ) : (
+                      post.author
+                    )}
                   </td>
                   <td
                     className="whitespace-nowrap text-sm text-gray-500"

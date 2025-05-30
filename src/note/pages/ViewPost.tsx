@@ -188,7 +188,14 @@ const ViewPost: React.FC = () => {
                   gap: "10px",
                 }}
               >
-                <span>{post.author}</span>
+                <span>
+                  {" "}
+                  {!user && post.author ? (
+                    <span className="text-gray-400">관리자</span>
+                  ) : (
+                    post.author
+                  )}
+                </span>
                 <span>|</span>
                 <span>
                   등록일:{" "}
