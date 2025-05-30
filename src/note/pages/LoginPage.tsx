@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Paths from "../../types/paths";
@@ -8,6 +8,14 @@ import { auth } from "../firebase/config";
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState<any>(null);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -42,12 +50,14 @@ const LoginPage: React.FC = () => {
       >
         로그인
       </button>
-      <p className="mt-4 text-sm">
-        계정이 없으신가요?{" "}
-        <Link to={Paths.Register} className="text-blue-700 underline">
-          회원가입
-        </Link>
-      </p>
+      {user && (
+        <p className="mt-4 text-sm">
+          계정이 없으신가요?{" "}
+          <Link to={Paths.Register} className="text-blue-700 underline">
+            회원가입
+          </Link>
+        </p>
+      )}
     </div>
   );
 };
