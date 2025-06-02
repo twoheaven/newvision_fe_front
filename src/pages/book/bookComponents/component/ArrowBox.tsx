@@ -1,8 +1,10 @@
 import { Flex, Text } from "@dohyun-ko/react-atoms";
 
+import useIsMobile from "../../../../hooks/useIsMobile";
 import Fonts from "../../../../styles/fonts";
 
 const ArrowBox = ({ label1, label2 }: { label1: string; label2: string }) => {
+  const isMobile = useIsMobile();
   return (
     <div>
       <Flex alignItems="end" gap="12px" justifyContent="center">
@@ -55,6 +57,7 @@ const ArrowBox = ({ label1, label2 }: { label1: string; label2: string }) => {
               textAlign: "initial",
               transform: "translateY(-120%)",
               marginLeft: "30px",
+              display: isMobile ? "none" : "block",
             }}
           >
             {label2}

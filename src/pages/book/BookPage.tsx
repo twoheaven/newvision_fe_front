@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 import BookPageHeader from "@/components/pageHeader/BookPageHeader";
 
+import useIsMobile from "../../hooks/useIsMobile";
 import Fonts from "../../styles/fonts";
 import Category1Component from "./bookComponents/cate/Cate1";
 import Category2Component from "./bookComponents/cate/Cate2";
@@ -18,6 +19,7 @@ const categories = [
 ];
 
 const BookPage = () => {
+  const isMobile = useIsMobile();
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
   const handleCategorySelect = (index: number) => {
@@ -54,7 +56,7 @@ const BookPage = () => {
           <Spacer height={"8px"} />
         </Flex>
         <Divider />
-        <Flex justifyContent="center" width={"90%"}>
+        <Flex justifyContent="center" width={isMobile ? "100%" : "90%"}>
           <Spacer height={"30px"} />
           <SelectedComponent />
         </Flex>

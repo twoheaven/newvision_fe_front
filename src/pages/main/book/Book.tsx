@@ -1,15 +1,15 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import Right from "@/assets/메인이미지_화살표(오른쪽).png";
-import Left from "@/assets/메인이미지_화살표(왼쪽).png";
 import Box from "@/components/box/Box";
 import useIsMobile from "@/hooks/useIsMobile";
 import book1 from "@/pages/book/bookComponents/assets/book1.webp";
 import book2 from "@/pages/book/bookComponents/assets/book2.webp";
 import book3 from "@/pages/book/bookComponents/assets/book3.webp";
+import Paths from "@/types/paths";
 
 const EnlargedImageWrapper = styled.div`
   transition: transform 0.3s ease-in-out;
@@ -19,12 +19,37 @@ const EnlargedImageWrapper = styled.div`
   }
 `;
 
+const ArrowButton = styled.button`
+  background: #e2e2e2;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #d1d1d1;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: #666;
+  }
+`;
+
 const Book = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   const [boxWidth, setBoxWidth] = useState(
     isMobile ? window.innerWidth : window.innerWidth * 0.8,
   );
-  const [currentIndex, setCurrentIndex] = useState(0); // 현재 보이는 책의 인덱스
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [lastTapTime, setLastTapTime] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,6 +81,25 @@ const Book = () => {
     );
   };
 
+  const handleBookClick = () => {
+    if (!isMobile) {
+      navigate(Paths.Book);
+    }
+  };
+
+  const handleBookTap = () => {
+    if (isMobile) {
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTapTime;
+
+      if (tapLength < 500 && tapLength > 0) {
+        navigate(Paths.Book);
+      }
+
+      setLastTapTime(currentTime);
+    }
+  };
+
   return (
     <>
       <div>
@@ -80,25 +124,16 @@ const Book = () => {
               alignItems="center"
             >
               {isMobile && (
-                <>
-                  {/* 모바일 환경에서만 보이는 이전 버튼 */}
-                  <img
-                    onClick={handlePrevClick}
-                    src={Left}
-                    style={{
-                      height: "60%",
-                      pointerEvents: "auto",
-                      cursor: "pointer",
-                      background: "#e2e2e2",
-                      maxHeight: "100px",
-                    }}
-                  />
-                </>
+                <ArrowButton onClick={handlePrevClick}>
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                  </svg>
+                </ArrowButton>
               )}
               <Flex
                 alignItems="center"
-                justifyContent={isMobile ? "flex-start" : "center"} // 모바일 환경에서는 시작점부터 정렬
-                gap={"15px"} // 모바일 환경에서는 간격 없앰
+                justifyContent={isMobile ? "flex-start" : "center"}
+                gap={"15px"}
               >
                 {books.map((book, index) => (
                   <EnlargedImageWrapper
@@ -110,8 +145,10 @@ const Book = () => {
                           ? "flex"
                           : "none"
                         : "flex",
-                      // 모바일 환경에서 현재 보이는 책만 보여지도록 설정
+                      cursor: "pointer",
                     }}
+                    onClick={handleBookClick}
+                    onTouchStart={handleBookTap}
                   >
                     <Flex
                       flexDirection="column"
@@ -121,7 +158,7 @@ const Book = () => {
                         isMobile
                           ? {
                               margin: "20px 0",
-                              flexShrink: 0, // 모바일 환경에서 축소되지 않도록 설정
+                              flexShrink: 0,
                             }
                           : {
                               margin: "30px 0",
@@ -149,20 +186,11 @@ const Book = () => {
                 ))}
               </Flex>
               {isMobile && (
-                <>
-                  {/* 모바일 환경에서만 보이는 다음 버튼 */}
-                  <img
-                    onClick={handleNextClick}
-                    src={Right}
-                    style={{
-                      height: "60%",
-                      pointerEvents: "auto",
-                      cursor: "pointer",
-                      background: "#e2e2e2",
-                      maxHeight: "100px",
-                    }}
-                  />
-                </>
+                <ArrowButton onClick={handleNextClick}>
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                  </svg>
+                </ArrowButton>
               )}
             </Box>
           </Flex>

@@ -21,7 +21,6 @@ const Cate3 = () => {
       </div>
       <Flex
         style={{
-          transform: isMobile ? "translateX(-10%)" : "0",
           textAlign: isMobile ? "center" : "left",
         }}
         justifyContent="center"
@@ -64,22 +63,15 @@ const Cate3 = () => {
           </div>
         </div>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
-        <Text>종말론의 핵심은 '깨어있는 것'입니다.</Text> {/* 텍스트 */}
+        <Text>종말론의 핵심은 &apos;깨어있는 것&apos;입니다.</Text>{" "}
+        {/* 텍스트 */}
         <Spacer height={"30px"} /> {/* 30px 간격 */}
         <div
-          style={
-            isMobile
-              ? {
-                  width: "120%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-              : {
-                  width: "100%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-          }
+          style={{
+            width: "100%",
+            backgroundColor: "ButtonShadow",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
         >
           {" "}
           {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -96,7 +88,7 @@ const Cate3 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
               <Flex flexDirection="column" alignItems="center" gap={"20px"}>
@@ -137,7 +129,7 @@ const Cate3 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>
@@ -174,7 +166,9 @@ const Cate3 = () => {
             <Flex flexDirection="column">
               {" "}
               {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>'역사를 이끄시는 하나님을 알 때'</Text>{" "}
+              <Text size={"14px"}>
+                &apos;역사를 이끄시는 하나님을 알 때&apos;
+              </Text>{" "}
               {/* 텍스트 */}
             </Flex>
             <Flex flexDirection="column">
@@ -205,19 +199,11 @@ const Cate3 = () => {
         </Text>
         <Spacer height={"50px"} />
         <div
-          style={
-            isMobile
-              ? {
-                  width: "120%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-              : {
-                  width: "100%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-          }
+          style={{
+            width: "100%",
+            backgroundColor: "ButtonShadow",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
         >
           {" "}
           {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -234,7 +220,7 @@ const Cate3 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
               <Flex flexDirection="column" alignItems="center" gap={"20px"}>
@@ -274,7 +260,7 @@ const Cate3 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>

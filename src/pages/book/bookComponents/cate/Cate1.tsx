@@ -1,18 +1,27 @@
 import { Flex, Spacer } from "@dohyun-ko/react-atoms";
 
+import useIsMobile from "../../../../hooks/useIsMobile";
 import ArrowBox from "../component/ArrowBox";
 import SmallBookBox from "../component/SmallBookBox";
 import bookdatas from "../data/bookdatas";
 
 const Cate1 = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <div style={{ width: "90%", padding: "16px" }}>
+    <div
+      style={
+        isMobile
+          ? { width: "100%", padding: "16px" }
+          : { width: "90%", padding: "16px" }
+      }
+    >
       <Flex flexDirection="column" gap="16px">
         <ArrowBox
           label1="선한시리즈"
           label2="교회 안에서 하나님 나라를 이루어가기 위해 꼭 읽어야 할 책!"
         />
-        <Flex alignItems="center" justifyContent="center">
+        <Flex alignItems="center" justifyContent="center" width={"90%"}>
           <SmallBookBox
             bookimg={bookdatas[0].img}
             label1={bookdatas[0].label1}

@@ -41,12 +41,7 @@ const Cate1 = () => {
         </Helmet>
       </div>
 
-      <Flex
-        style={isMobile ? { transform: "translateX(-10%)" } : {}}
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
+      <Flex justifyContent="center" alignItems="center" flexDirection="column">
         {" "}
         {/* 세로 중앙 정렬된 Flex 컨테이너 */}
         <div style={{ position: "relative", width: "100%", height: "auto" }}>
@@ -89,7 +84,7 @@ const Cate1 = () => {
           <div
             style={{
               position: "relative",
-              width: `${isMobile ? "100%" : "80%"}`,
+              width: `${isMobile ? "100%" : "60%"}`,
               height: "auto",
               margin: "10px",
             }}
@@ -126,7 +121,7 @@ const Cate1 = () => {
             </div>
           </div>
         </Flex>
-        <Flex justifyContent="space-between" width={isMobile ? "120%" : "90%"}>
+        <Flex justifyContent="space-between" width={isMobile ? "100%" : "90%"}>
           {" "}
           {/* 간격이 20px인 Flex 컨테이너 */}
           <Text color={color2} font={Fonts.Bold} size={"26px"}>
@@ -157,19 +152,11 @@ const Cate1 = () => {
         {/* 텍스트 */}
         <Spacer height={"30px"} /> {/* 30px 간격 */}
         <div
-          style={
-            isMobile
-              ? {
-                  width: "120%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-              : {
-                  width: "100%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-          }
+          style={{
+            width: "100%",
+            backgroundColor: "ButtonShadow",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
         >
           {" "}
           {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -186,7 +173,7 @@ const Cate1 = () => {
                 size={"40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
               <Flex flexDirection="column" alignItems="center" gap={"20px"}>
@@ -243,7 +230,7 @@ const Cate1 = () => {
                 size={"40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>
@@ -366,7 +353,7 @@ const Cate1 = () => {
           {/* 이미지 표시 */}
         </Flex>
         <Spacer height={"50px"} /> {/* 50px 간격 */}
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" alignItems="center">
           {" "}
           {/* 가로 중앙 정렬된 Flex 컨테이너 */}
           <Text size={"14px"}>
@@ -378,15 +365,15 @@ const Cate1 = () => {
           {/* 텍스트 */}
         </Flex>
         <Spacer height={"30px"} /> {/* 10px 간격 */}
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" alignItems="center">
           {" "}
           {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-          <Text size={"14px"}>
+          <Text size={"14px"} style={{ textAlign: "center" }}>
             부흥의 열쇠는 개혁이며 참된 개혁의 열쇠는 신명기[모세오경]의 회복을
             통해 일어납니다.
           </Text>{" "}
           {/* 텍스트 */}
-          <Text size={"14px"}>
+          <Text size={"14px"} style={{ textAlign: "center" }}>
             이 수업을 통해 주님의 시각과 마음을 받아 개혁의 정신으로 많은 사람을
             옳은 데로 돌이키는
           </Text>{" "}
@@ -396,19 +383,11 @@ const Cate1 = () => {
         </Flex>
         <Spacer height={"55px"} />
         <div
-          style={
-            isMobile
-              ? {
-                  width: "120%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-              : {
-                  width: "100%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-          }
+          style={{
+            width: "100%",
+            backgroundColor: "ButtonShadow",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
         >
           {" "}
           {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -425,7 +404,7 @@ const Cate1 = () => {
                 size={isMobile ? "28px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
               <Flex flexDirection="column" alignItems="center" gap={"20px"}>
@@ -466,7 +445,7 @@ const Cate1 = () => {
                 size={isMobile ? "28px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &rdquo;
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>

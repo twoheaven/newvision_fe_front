@@ -17,11 +17,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import NewsPageHeader from "../../components/pageHeader/NewsPageHeader";
+import useIsMobile from "../../hooks/useIsMobile";
 import Fonts from "../../styles/fonts";
 import Paths from "../../types/paths";
 import { auth, db } from "../firebase/config";
 import { Post } from "../types/post";
-
 const ViewPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<Post | null>(null);
@@ -109,6 +109,7 @@ const ViewPost: React.FC = () => {
       }
     }
   };
+  const isMobile = useIsMobile();
 
   if (!post) return <div className="p-4">Loading...</div>;
 
@@ -136,7 +137,7 @@ const ViewPost: React.FC = () => {
         <Spacer height={"10px"} />
       </Flex>
 
-      <Flex justifyContent="center" width={"100%"}>
+      <Flex justifyContent="center" width={isMobile ? "92%" : "100%"}>
         <div
           style={{
             maxWidth: "800px",
@@ -216,7 +217,7 @@ const ViewPost: React.FC = () => {
             dangerouslySetInnerHTML={{ __html: post.content }}
             className="prose"
             style={{
-              width: "100%",
+              width: "108%",
               overflow: "hidden",
             }}
           />

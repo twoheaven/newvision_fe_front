@@ -1,7 +1,9 @@
 import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 
+import useIsMobile from "../../../../hooks/useIsMobile";
 import Fonts from "../../../../styles/fonts";
 import bookDetailIcon from "../assets/more.png"; // 책 상세보기 아이콘 경로
+
 const SmallBookBox = ({
   bookimg,
   label1 = "책 이미지",
@@ -15,9 +17,13 @@ const SmallBookBox = ({
   label3: string;
   imgwidth?: string; // 이미지 너비를 조정할 수 있는 선택적 속성
 }) => {
+  const isMobile = useIsMobile();
   return (
     <Flex
-      style={{ width: "80%", transform: "translateX(10%)" }}
+      style={{
+        width: "80%",
+        transform: isMobile ? "translateX(0%)" : "translateX(10%)",
+      }}
       alignItems="center"
       justifyContent="initial"
       gap=" 16px"

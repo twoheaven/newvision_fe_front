@@ -26,15 +26,22 @@ const categories = [
 
 const IntroducePage = () => {
   const location = useLocation();
-  const visit1 = location.state?.visit1 ?? 0; // `visit1` 상태를 받아와서 기본값으로 사용
+  const visit1 = location.state?.visit1 ?? 0;
   const visit2 = location.state?.visit2 ?? null;
+  const category = location.state?.category;
 
-  // visit1과 visit2가 새가족안내(5번째 인덱스)로 갈 수 있도록 설정
-  const initialCategoryIndex =
-    visit1 === "새가족안내" || visit2 === "새가족안내" ? 5 : visit1;
+  // 카테고리에 따른 초기 인덱스 설정
+  const getInitialCategoryIndex = () => {
+    if (visit1 === "새가족안내" || visit2 === "새가족안내") return 5;
+    if (category === "worship") return 3; // 예배/모임
+    if (category === "offering") return 3; // 예배/모임의 헌금 정보
+    if (category === "location") return 4; // 오시는 길
+    return visit1;
+  };
 
-  const [selectedCategoryIndex, setSelectedCategoryIndex] =
-    useState(initialCategoryIndex);
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(
+    getInitialCategoryIndex(),
+  );
 
   const handleCategorySelect = (index: number) => {
     setSelectedCategoryIndex(index);

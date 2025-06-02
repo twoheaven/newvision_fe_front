@@ -3,36 +3,30 @@
   <head>
     <!-- 문서의 문자 인코딩을 UTF-8로 설정 -->
     <meta charset="UTF-8" />
-    
+
     <!-- normalize.css와 index.css 파일을 스타일 시트로 연결 -->
     <link href="/normalize.css" rel="stylesheet" />
     <link href="/index.css" rel="stylesheet" />
-    
+
     <!-- 웹사이트의 파비콘 설정 -->
     <link rel="shortcut icon" href="color_logo.ico" />
 
     <!-- 웹 페이지의 제목 설정 -->
     <title>뉴비전교회 (김온유목사)</title>
-    
-    <meta name="description" content="동탄 뉴비전 교회 김온유 목사">
-    <meta name="description" content="https://www.youtube.com/channel/UCfItTXw28rd2Z2DSw0UqAXg">
+
+    <meta name="description" content="동탄 뉴비전 교회 김온유 목사" />
+    <meta
+      name="description"
+      content="https://www.youtube.com/channel/UCfItTXw28rd2Z2DSw0UqAXg"
+    />
     <!-- viewport 설정으로 모바일 환경에 최적화 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <!-- React 애플리케이션의 루트 엘리먼트 -->
     <div id="root"></div>
-    
+
     <!-- React 애플리케이션의 메인 TypeScript 파일을 로드 -->
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // JavaScript에서 환경 변수를 가져와서 설정
-      const naverMapClientId = process.env.REACT_APP_NAVER_MAP_CLIENT_ID;
-      const script = document.createElement('script');
-      
-      // 프로덕션 환경에서도 정상적으로 로드되도록 설정
-      script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${naverMapClientId}&callback=CALLBACK_FUNCTION`;
-      document.body.appendChild(script);
-    </script>
   </body>
 </html>

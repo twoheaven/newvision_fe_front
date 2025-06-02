@@ -23,10 +23,10 @@ const Cate2 = () => {
         </Helmet>
       </div>
       <Flex
-        style={isMobile ? { transform: "translateX(-10%)" } : {}}
         justifyContent="center"
         alignItems="center"
         flexDirection="column"
+        style={{ textAlign: "center" }}
       >
         {" "}
         {/* 세로 중앙 정렬된 Flex 컨테이너 */}
@@ -71,28 +71,24 @@ const Cate2 = () => {
           <Text>
             마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로{" "}
           </Text>
-          <Text color={color1} font={Fonts.Bold}>폭포수같이 부어지는</Text>
+          <Text color={color1} font={Fonts.Bold}>
+            폭포수같이 부어지는
+          </Text>
         </Flex>
         <Flex gap={"3px"}>
           <Text>성령의 기름부음 안에서 환상과 꿈과 예언을 통한</Text>
-          <Text color={color1} font={Fonts.Bold}>예언적인 체질의 교회</Text>
+          <Text color={color1} font={Fonts.Bold}>
+            예언적인 체질의 교회
+          </Text>
           <Text>가 될 것입니다.</Text>{" "}
         </Flex>
         <Spacer height={"60px"} /> {/* 30px 간격 */}
         <div
-          style={
-            isMobile
-              ? {
-                  width: "120%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-              : {
-                  width: "100%",
-                  backgroundColor: "ButtonShadow",
-                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-                }
-          }
+          style={{
+            width: "100%",
+            backgroundColor: "ButtonShadow",
+            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+          }}
         >
           {" "}
           {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
@@ -109,7 +105,7 @@ const Cate2 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &ldquo;
               </Text>{" "}
               {/* 텍스트 */}
               <Flex flexDirection="column" alignItems="center" gap={"20px"}>
@@ -158,7 +154,7 @@ const Cate2 = () => {
                 size={isMobile ? "30px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
-                "
+                &rdquo;
               </Text>{" "}
               {/* 텍스트 */}
             </Flex>

@@ -5,11 +5,11 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import useIsMobile from "../../hooks/useIsMobile";
 import Fonts from "../../styles/fonts";
 import Paths from "../../types/paths";
 import { auth, db } from "../firebase/config";
 import { Post } from "../types/post";
-
 const BoardList: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [user, setUser] = useState<any>(null);
@@ -55,10 +55,15 @@ const BoardList: React.FC = () => {
     return () => unsubscribe();
   }, []);
 
+  const isMobile = useIsMobile();
+
   if (isLoading) return <div className="p-4">로딩 중...</div>;
 
   return (
-    <div className="max-w-6xl mx-auto p-4" style={{ width: "80%" }}>
+    <div
+      className="max-w-6xl mx-auto p-4"
+      style={{ width: isMobile ? "100%" : "80%" }}
+    >
       <Flex style={{ width: "100%" }}>
         <div className="overflow-x-auto" style={{ width: "100%" }}>
           <table

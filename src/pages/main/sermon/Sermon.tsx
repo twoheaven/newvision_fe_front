@@ -7,7 +7,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 const Sermon: React.FC = () => {
   const isMobile = useIsMobile();
   const [cardWidth, setCardWidth] = useState(
-    isMobile ? window.innerWidth / 4 : window.innerWidth / 8,
+    isMobile ? window.innerWidth - 32 : window.innerWidth / 8,
   );
 
   // videoId 상태 추가
@@ -15,7 +15,7 @@ const Sermon: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setCardWidth(window.innerWidth / 8);
+      setCardWidth(isMobile ? window.innerWidth - 32 : window.innerWidth / 8);
     };
 
     window.addEventListener("resize", handleResize);
@@ -54,14 +54,8 @@ const Sermon: React.FC = () => {
       });
   }, []);
 
-  const opts1 = {
-    height: cardWidth,
-    width: (cardWidth * 16) / 9,
-  };
-
-  const opts = {
-    height: cardWidth * 0.75,
-    width: (cardWidth * 16 * 0.75) / 9,
+  const getVideoHeight = (width: number) => {
+    return (width * 9) / 16;
   };
 
   return (
@@ -72,15 +66,9 @@ const Sermon: React.FC = () => {
         </Helmet>
       </div>
 
-      <Flex gap={isMobile ? "10px" : "25px"} flexDirection="column">
+      <Flex gap={isMobile ? "20px" : "25px"} flexDirection="column">
         <Flex gap={isMobile ? "5px" : "25px"} alignItems={"center"}>
-          <div
-            style={
-              isMobile
-                ? { width: `${cardWidth * 1.4}px`, minWidth: "110px" }
-                : { width: `${cardWidth * 1.78}px` }
-            }
-          >
+          <div style={{ width: isMobile ? "auto" : `${cardWidth * 1.78}px` }}>
             <Text
               size={isMobile ? "24px" : "34px"}
               style={{ fontWeight: "bold" }}
@@ -95,97 +83,137 @@ const Sermon: React.FC = () => {
                 : { position: "relative", top: "32px" }
             }
           >
-            최근설교
+            {isMobile ? "" : "최근설교"}
           </Text>
         </Flex>
-        <Flex gap={"25px"}>
-          <Flex>
-            {/* 예배와 말씀: 1번째 영상 */}
+
+        {isMobile ? (
+          // 모바일 레이아웃
+          <Flex flexDirection="column" gap="20px">
+            {/* 첫 번째 영상 */}
             {videoIds.length > 0 && videoIds[0] && (
               <iframe
-                width={opts1.width}
-                height={opts1.height}
+                width={cardWidth}
+                height={getVideoHeight(cardWidth)}
                 src={`https://www.youtube.com/embed/${videoIds[0]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
               ></iframe>
             )}
+
+            {/* 두 번째 영상 */}
+            {videoIds.length > 1 && videoIds[1] && (
+              <iframe
+                width={cardWidth}
+                height={getVideoHeight(cardWidth)}
+                src={`https://www.youtube.com/embed/${videoIds[1]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            )}
+
+            {/* 세 번째 영상 */}
+            {videoIds.length > 2 && videoIds[2] && (
+              <iframe
+                width={cardWidth}
+                height={getVideoHeight(cardWidth)}
+                src={`https://www.youtube.com/embed/${videoIds[2]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            )}
           </Flex>
-          <Flex flexDirection="column">
-            <Flex gap={"5px"}>
-              {/* 최근설교: 2, 3, 4번째 영상 */}
-              {videoIds.length > 1 && videoIds[1] && (
+        ) : (
+          // 데스크톱 레이아웃
+          <Flex gap={"25px"}>
+            <Flex>
+              {videoIds.length > 0 && videoIds[0] && (
                 <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[1]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              )}
-              {videoIds.length > 2 && videoIds[2] && (
-                <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[2]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              )}
-              {videoIds.length > 3 && videoIds[3] && (
-                <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[3]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                  width={(cardWidth * 16) / 9}
+                  height={cardWidth}
+                  src={`https://www.youtube.com/embed/${videoIds[0]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
                   allowFullScreen
                 ></iframe>
               )}
             </Flex>
-            <Spacer height={"30px"} />
-            <Text>성령학교 영상</Text>
-            <Spacer height={"10px"} />
-            <Flex gap={"5px"}>
-              {/* 성령학교 영상: 5, 6, 7번째 영상 */}
-              {videoIds.length > 4 && videoIds[4] && (
-                <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[4]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              )}
-              {videoIds.length > 5 && videoIds[5] && (
-                <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[5]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              )}
-              {videoIds.length > 6 && videoIds[6] && (
-                <iframe
-                  width={opts.width}
-                  height={opts.height}
-                  src={`https://www.youtube.com/embed/${videoIds[6]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              )}
+            <Flex flexDirection="column">
+              <Flex gap={"5px"}>
+                {videoIds.length > 1 && videoIds[1] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[1]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+                {videoIds.length > 2 && videoIds[2] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[2]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+                {videoIds.length > 3 && videoIds[3] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[3]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+              </Flex>
+              <Spacer height={"30px"} />
+              <Text>성령학교 영상</Text>
+              <Spacer height={"10px"} />
+              <Flex gap={"5px"}>
+                {videoIds.length > 4 && videoIds[4] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[4]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+                {videoIds.length > 5 && videoIds[5] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[5]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+                {videoIds.length > 6 && videoIds[6] && (
+                  <iframe
+                    width={(cardWidth * 16 * 0.75) / 9}
+                    height={cardWidth * 0.75}
+                    src={`https://www.youtube.com/embed/${videoIds[6]}?autoplay=0&controls=0&loop=1&mute=0&start=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  ></iframe>
+                )}
+              </Flex>
             </Flex>
           </Flex>
-        </Flex>
+        )}
       </Flex>
-      <Spacer height={isMobile ? "10px" : "50px"} />
+      <Spacer height={isMobile ? "20px" : "50px"} />
     </>
   );
 };

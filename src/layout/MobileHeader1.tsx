@@ -1,10 +1,10 @@
 // 필요한 컴포넌트 및 라이브러리 가져오기
 import { Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
 
-import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
-import naverBlogLogo from "@/assets/naver-blog-logo.png";
-import youtubeLogo from "@/assets/youtube-logo.svg";
+import naverBlogIcon from "@/assets/블로그아이콘.png";
+import youtubeIcon from "@/assets/유튜브아이콘.png";
+import instagramIcon from "@/assets/인스타아이콘.png";
 
 // Header를 나타내는 함수형 컴포넌트
 const MobileHeader1 = () => {
@@ -24,7 +24,7 @@ const MobileHeader1 = () => {
         {/* YouTube 링크를 위한 WrapperLink */}
         <a href={"https://www.youtube.com/@kimonyou153"}>
           <img
-            src={youtubeLogo}
+            src={youtubeIcon}
             alt="유튜브"
             style={{
               width: "20px",
@@ -34,7 +34,7 @@ const MobileHeader1 = () => {
         {/* Instagram 링크를 위한 WrapperLink */}
         <a href={"https://www.instagram.com/new_vision_story"}>
           <img
-            src={instagramLogo}
+            src={instagramIcon}
             alt="인스타그램"
             style={{
               width: "16px",
@@ -45,7 +45,7 @@ const MobileHeader1 = () => {
         {/* Naver 블로그 링크를 위한 WrapperLink */}
         <a href={"https://blog.naver.com/new_vision_church"}>
           <img
-            src={naverBlogLogo}
+            src={naverBlogIcon}
             alt="네이버블로그"
             style={{
               width: "16px",

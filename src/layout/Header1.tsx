@@ -2,10 +2,10 @@
 import { Area, Content, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import styled from "styled-components";
 
-import instagramLogo from "@/assets/instagram-logo.svg";
 // 로고 이미지 가져오기
-import naverBlogLogo from "@/assets/naver-blog-logo.png";
-import youtubeLogo from "@/assets/youtube-logo.svg";
+import naverBlogIcon from "@/assets/블로그아이콘.png";
+import youtubeIcon from "@/assets/유튜브아이콘.png";
+import instagramIcon from "@/assets/인스타아이콘.png";
 
 const StyledHeaderArea = styled(Area)`
   background-color: "white"; /* 원하는 배경색으로 변경 */
@@ -35,7 +35,7 @@ const Header = () => {
             {/* YouTube 링크를 위한 WrapperLink */}
             <a href={"https://www.youtube.com/@kimonyou153"}>
               <img
-                src={youtubeLogo}
+                src={youtubeIcon}
                 alt="유튜브"
                 style={{
                   width: "28px",
@@ -45,7 +45,7 @@ const Header = () => {
             {/* Instagram 링크를 위한 WrapperLink */}
             <a href={"https://www.instagram.com/newvision_manna/"}>
               <img
-                src={instagramLogo}
+                src={instagramIcon}
                 alt="인스타그램"
                 style={{
                   width: "24px",
@@ -56,7 +56,7 @@ const Header = () => {
             {/* Naver 블로그 링크를 위한 WrapperLink */}
             <a href={"https://blog.naver.com/new_vision_church"}>
               <img
-                src={naverBlogLogo}
+                src={naverBlogIcon}
                 alt="네이버블로그"
                 style={{
                   width: "24px",
