@@ -401,7 +401,7 @@ const Cate1 = () => {
               <Text
                 color={color3}
                 font={Fonts.Bold}
-                size={isMobile ? "28px" : "40px"}
+                size={isMobile ? "26px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
                 &ldquo;
@@ -442,7 +442,7 @@ const Cate1 = () => {
               <Text
                 color={color3}
                 font={Fonts.Bold}
-                size={isMobile ? "28px" : "40px"}
+                size={isMobile ? "26px" : "40px"}
                 style={{ transform: "translateY(-14px)" }}
               >
                 &rdquo;
