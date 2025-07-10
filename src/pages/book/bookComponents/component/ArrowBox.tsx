@@ -20,23 +20,41 @@ const ArrowBox = ({ label1, label2 }: { label1: string; label2: string }) => {
             display: "inline-block",
           }}
         >
-          <Text font={Fonts.Bold} size={"20px"} color={"#FFFFFF"}>
+          <Text
+            font={Fonts.Bold}
+            size={isMobile ? "16px" : "20px"}
+            color={"#FFFFFF"}
+          >
             {label1}
           </Text>
 
           {/* 화살표 꼬리 */}
           <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              right: "-23px",
-              transform: "translateY(-50%)",
-              width: "0",
-              height: "0px",
-              borderTop: "23px solid transparent",
-              borderBottom: "23px solid transparent",
-              borderLeft: "23px solid #DDA6A6",
-            }}
+            style={
+              isMobile
+                ? {
+                    position: "absolute",
+                    top: "50%",
+                    right: "-20px",
+                    transform: "translateY(-50%)",
+                    width: "0",
+                    height: "0px",
+                    borderTop: "20px solid transparent",
+                    borderBottom: "20px solid transparent",
+                    borderLeft: "20px solid #DDA6A6",
+                  }
+                : {
+                    position: "absolute",
+                    top: "50%",
+                    right: "-23px",
+                    transform: "translateY(-50%)",
+                    width: "0",
+                    height: "0px",
+                    borderTop: "23px solid transparent",
+                    borderBottom: "23px solid transparent",
+                    borderLeft: "23px solid #DDA6A6",
+                  }
+            }
           />
         </div>
 
