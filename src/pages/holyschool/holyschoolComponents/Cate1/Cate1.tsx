@@ -416,7 +416,7 @@ const Cate1 = () => {
                   <Text
                     color={color3}
                     font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
+                    size={isMobile ? "13px" : "18px"}
                   >
                     천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후
                   </Text>{" "}
@@ -424,7 +424,7 @@ const Cate1 = () => {
                   <Text
                     color={color3}
                     font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
+                    size={isMobile ? "13px" : "18px"}
                   >
                     숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을
                     사느니라
