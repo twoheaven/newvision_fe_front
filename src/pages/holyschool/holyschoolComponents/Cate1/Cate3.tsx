@@ -62,7 +62,7 @@ const Cate3 = () => {
             {/* 그림자 효과가 있는 텍스트 */}
           </div>
         </div>
-        <Spacer height={"80px"} /> {/* 80px 간격 */}
+        <Spacer height={isMobile ? "40px" : "80px"} /> {/* 80px 간격 */}
         <Text>종말론의 핵심은 &apos;깨어있는 것&apos;입니다.</Text>{" "}
         {/* 텍스트 */}
         <Spacer height={"30px"} /> {/* 30px 간격 */}

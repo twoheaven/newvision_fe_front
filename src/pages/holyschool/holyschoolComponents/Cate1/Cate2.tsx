@@ -117,7 +117,7 @@ const Cate2 = () => {
                   <Text
                     color={color1}
                     font={Fonts.Medium}
-                    size={isMobile ? "16px" : "18px"}
+                    size={isMobile ? "15px" : "18px"}
                   >
                     오직 성령이 너희에게 임하시면 너희가 권능을 받고
                   </Text>{" "}
@@ -125,7 +125,7 @@ const Cate2 = () => {
                   <Text
                     color={color1}
                     font={Fonts.Medium}
-                    size={isMobile ? "16px" : "18px"}
+                    size={isMobile ? "15px" : "18px"}
                   >
                     예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러
                   </Text>{" "}
@@ -133,7 +133,7 @@ const Cate2 = () => {
                   <Text
                     color={color1}
                     font={Fonts.Medium}
-                    size={isMobile ? "16px" : "18px"}
+                    size={isMobile ? "15px" : "18px"}
                   >
                     내 증인이 되리라 하시니라
                   </Text>{" "}
