@@ -9,6 +9,10 @@ enum Paths {
   Intro = "/intro",
   BookDetail = "/book/:label1",
 
+  // Vimeo 영상
+  VimeoList = "/vimeo",
+  VimeoDetail = "/vimeo/:id",
+
   // 게시판 관련 경로
   ViewPost = "/post/:id",
   Login = "/login",

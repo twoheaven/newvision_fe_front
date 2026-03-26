@@ -22,6 +22,9 @@ import MainPage from "./pages/main/MainPage";
 import MissionaryPage from "./pages/missionary/MissionaryPage";
 import NewsPage from "./pages/news/NewsPage";
 import SermonPage from "./pages/sermon/SermonPage";
+import VimeoDetailAccessGate from "./pages/vimeo/VimeoDetailAccessGate";
+import VimeoDetailPage from "./pages/vimeo/VimeoDetailPage";
+import VimeoListPage from "./pages/vimeo/VimeoListPage";
 import Paths from "./types/paths";
 
 function App() {
@@ -60,6 +63,20 @@ function App() {
             <Route path={Paths.News} element={<NewsPage />} />
             <Route path={Paths.Book} element={<BookPage />} />
             <Route path={Paths.BookDetail} element={<DynamicBookRouter />} />
+
+            {/* Vimeo */}
+            <Route
+              path={Paths.VimeoList}
+              element={user ? <VimeoListPage /> : <Navigate to={Paths.Login} />}
+            />
+            <Route
+              path={Paths.VimeoDetail}
+              element={
+                <VimeoDetailAccessGate isAuthed={!!user}>
+                  <VimeoDetailPage />
+                </VimeoDetailAccessGate>
+              }
+            />
 
             {/* 로그인하지 않아도 접근 가능 */}
             <Route path={Paths.ViewPost} element={<ViewPost />} />
