@@ -18,7 +18,7 @@ const isGuestAllowedFromNaverCafe = (): boolean => {
     sessionStorage.setItem("naver_cafe_access", "1");
     params.delete("from");
     const newUrl = `${window.location.pathname}${
-      params.size ? "?" + params.toString() : ""
+      params.toString() ? "?" + params.toString() : ""
     }`;
     window.history.replaceState({}, "", newUrl);
     return true;
