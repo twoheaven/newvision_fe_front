@@ -194,7 +194,9 @@ const VimeoListPage = () => {
                     onClick={async () => {
                       try {
                         await copyToClipboard(
-                          window.location.origin + detailHref,
+                          window.location.origin +
+                            detailHref +
+                            "?from=naver_cafe",
                         );
                         alert("주소가 복사되었습니다.");
                       } catch (err) {
