@@ -1,7 +1,8 @@
-import React, { useEffect } from "react"; // ← useEffect 추가
+import React from "react";
 
 const NaverCafeBlockMessage = "네이버 카페를 통해서 들어오실 수 있습니다";
 
+/** 네이버 카페 앱(인앱 브라우저) UA 예: ... NAVER(inapp; cafe; 123; 1.2.3) */
 const NaverCafeInAppUaPattern = /NAVER\(inapp;\s*cafe/i;
 
 const isGuestAllowedFromNaverCafe = (): boolean => {
@@ -23,18 +24,15 @@ const VimeoDetailAccessGate = ({
   isAuthed,
   children,
 }: VimeoDetailAccessGateProps) => {
-  // ↓ 이 useEffect 추가 (isAuthed 상관없이 항상 파라미터 제거)
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("from") === "naver_cafe") {
-      sessionStorage.setItem("naver_cafe_access", "1");
-      params.delete("from");
-      const newUrl = `${window.location.pathname}${
-        params.toString() ? "?" + params.toString() : ""
-      }`;
-      window.history.replaceState({}, "", newUrl);
-    }
-  }, []);
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("from") === "naver_cafe") {
+    sessionStorage.setItem("naver_cafe_access", "1");
+    params.delete("from");
+    const newUrl = `${window.location.pathname}${
+      params.toString() ? "?" + params.toString() : ""
+    }`;
+    window.history.replaceState({}, "", newUrl);
+  }
 
   if (isAuthed) return <>{children}</>;
 
