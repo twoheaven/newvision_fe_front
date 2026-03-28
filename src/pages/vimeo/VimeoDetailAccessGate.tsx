@@ -4,7 +4,8 @@ const NaverCafeHostFragment = "cafe.naver.com";
 const NaverCafeBlockMessage = "네이버 카페를 통해서 들어오실 수 있습니다";
 
 /** 네이버 카페 앱(인앱 브라우저) UA 예: ... NAVER(inapp; cafe; 123; 1.2.3) */
-const NaverCafeInAppUaPattern = /naver\s*\(\s*inapp\s*;\s*cafe\b/i;
+//const NaverCafeInAppUaPattern = /naver\s*\(\s*inapp\s*;\s*cafe\b/i;
+const NaverCafeInAppUaPattern = /naver.*cafe|navercafe/i;
 
 const isGuestAllowedFromNaverCafe = (): boolean => {
   if (typeof window === "undefined") return false;
