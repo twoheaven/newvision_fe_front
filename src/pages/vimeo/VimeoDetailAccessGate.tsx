@@ -10,6 +10,9 @@ const isGuestAllowedFromNaverCafe = (): boolean => {
 
   if (sessionStorage.getItem("naver_cafe_access") === "1") return true;
 
+  const referrer = document.referrer ?? "";
+  if (referrer.toLowerCase().includes("cafe.naver.com")) return true;
+
   const ua = navigator.userAgent ?? "";
   if (NaverCafeInAppUaPattern.test(ua)) return true;
   return false;
