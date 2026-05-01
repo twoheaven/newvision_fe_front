@@ -20,6 +20,7 @@ import IntroPage from "./pages/intro/IntroPage";
 import IntroducePage from "./pages/introduce/IntroducePage";
 import MainPage from "./pages/main/MainPage";
 import MissionaryPage from "./pages/missionary/MissionaryPage";
+import ChurchAlbumPage from "./pages/news/ChurchAlbumPage";
 import NewsPage from "./pages/news/NewsPage";
 import SermonPage from "./pages/sermon/SermonPage";
 import VimeoDetailAccessGate from "./pages/vimeo/VimeoDetailAccessGate";
@@ -60,7 +61,12 @@ function App() {
             <Route path={Paths.Sermon} element={<SermonPage />} />
             <Route path={Paths.Missionary} element={<MissionaryPage />} />
             <Route path={Paths.HolySchool} element={<HolySchoolPage />} />
-            <Route path={Paths.News} element={<NewsPage />} />
+            <Route
+              path={Paths.News}
+              element={<Navigate to={Paths.NewsNotice} replace />}
+            />
+            <Route path={Paths.NewsNotice} element={<NewsPage />} />
+            <Route path={Paths.NewsAlbum} element={<ChurchAlbumPage />} />
             <Route path={Paths.Book} element={<BookPage />} />
             <Route path={Paths.BookDetail} element={<DynamicBookRouter />} />
 

@@ -1,6 +1,7 @@
 import { Area, Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
 
 import NewsPageHeader from "@/components/pageHeader/NewsPageHeader";
+import NewsSectionNav from "@/pages/news/NewsSectionNav";
 
 import BoardList from "../../note/pages/BoardList";
 import Fonts from "../../styles/fonts";
@@ -11,6 +12,8 @@ const NewsPage = () => {
     <Area>
       <NewsPageHeader />
 
+      <Spacer height={"15px"} />
+      <NewsSectionNav />
       <Spacer height={"30px"} />
       <Flex
         flexDirection={"column"}

@@ -13,4 +13,8 @@ export interface Post {
   postNumber?: number; // 게시글 번호 (선택적 필드)
   isNotice?: boolean; // 공지사항 여부
   hasAttachment?: boolean; // 첨부파일 여부
+  category?: string;
+  thumbnailUrl?: string;
+  imageUrl?: string;
+  imagePath?: string;
 }

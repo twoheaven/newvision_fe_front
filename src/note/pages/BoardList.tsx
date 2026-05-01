@@ -25,9 +25,12 @@ const BoardList: React.FC = () => {
           id: doc.id,
           ...doc.data(),
         })) as Post[];
+        const postsForNews = fetchedPosts.filter(
+          (post) => post.category !== "churchAlbum",
+        );
 
         // 공지사항을 먼저 보여주기 위해 정렬
-        const sortedPosts = fetchedPosts.sort((a, b) => {
+        const sortedPosts = postsForNews.sort((a, b) => {
           if (a.isNotice && !b.isNotice) return -1;
           if (!a.isNotice && b.isNotice) return 1;
           // 공지사항끼리는 번호 내림차순

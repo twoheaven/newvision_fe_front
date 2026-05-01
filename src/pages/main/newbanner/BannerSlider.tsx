@@ -8,6 +8,7 @@ import OptimizedImage from "@/components/common/OptimizedImage";
 import { LAYOUT } from "@/constants/layout";
 import useIsMobile from "@/hooks/useIsMobile";
 
+import { MainBannerItem } from "./bannerService";
 import mainImg1 from "./assets/main1.jpg";
 import mainImg2 from "./assets/main2.jpg";
 import mainImg3 from "./assets/main3.jpg";
@@ -36,7 +37,7 @@ const ArrowButton = styled.div<{ isNext?: boolean }>`
   }
 `;
 
-const NextArrow = (props: { onClick: undefined }) => {
+const NextArrow = (props: { onClick?: () => void }) => {
   const { onClick } = props;
   return (
     <ArrowButton isNext onClick={onClick}>
@@ -47,7 +48,7 @@ const NextArrow = (props: { onClick: undefined }) => {
   );
 };
 
-const PrevArrow = (props: { onClick: undefined }) => {
+const PrevArrow = (props: { onClick?: () => void }) => {
   const { onClick } = props;
   return (
     <ArrowButton onClick={onClick}>
@@ -58,8 +59,34 @@ const PrevArrow = (props: { onClick: undefined }) => {
   );
 };
 
-const BannerSlider = () => {
+type BannerSliderProps = {
+  banners?: MainBannerItem[];
+  isAdmin?: boolean;
+  onDeleteBanner?: (id: string) => Promise<void>;
+};
+
+const BannerItemContainer = styled.div`
+  position: relative;
+`;
+
+const DeleteButton = styled.button`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1001;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+`;
+
+const BannerSlider = ({ banners = [], isAdmin = false, onDeleteBanner }: BannerSliderProps) => {
   const isMobile = useIsMobile();
+  const displayBanners = banners.length > 0 ? banners : [];
+  const displayImages = banners.length > 0 ? [] : images;
 
   const settings = {
     dots: true,
@@ -69,28 +96,47 @@ const BannerSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    nextArrow: isMobile ? <></> : <NextArrow onClick={undefined} />,
-    prevArrow: isMobile ? <></> : <PrevArrow onClick={undefined} />,
+    nextArrow: isMobile ? <></> : <NextArrow />,
+    prevArrow: isMobile ? <></> : <PrevArrow />,
     lazyLoad: "ondemand" as const,
   };
 
   return (
     <Slider {...settings}>
-      {images.map((image, index) => (
-        <div key={index}>
-          <OptimizedImage
-            src={image}
-            alt={`메인 배너 ${index + 1}`}
-            style={{
-              width: "100%",
-              height: isMobile
-                ? `${LAYOUT.MOBILE.BANNER_HEIGHT}px`
-                : LAYOUT.DESKTOP.BANNER_HEIGHT,
-              objectFit: isMobile ? "cover" : "contain",
-            }}
-          />
-        </div>
-      ))}
+      {displayBanners.length > 0
+        ? displayBanners.map((banner, index) => (
+            <BannerItemContainer key={banner.id}>
+              {isAdmin && onDeleteBanner && (
+                <DeleteButton onClick={() => onDeleteBanner(banner.id)}>삭제</DeleteButton>
+              )}
+              <OptimizedImage
+                src={banner.imageUrl || banner.thumbnailUrl || ""}
+                alt={banner.title || `메인 배너 ${index + 1}`}
+                style={{
+                  width: "100%",
+                  height: isMobile
+                    ? `${LAYOUT.MOBILE.BANNER_HEIGHT}px`
+                    : LAYOUT.DESKTOP.BANNER_HEIGHT,
+                  objectFit: isMobile ? "cover" : "contain",
+                }}
+              />
+            </BannerItemContainer>
+          ))
+        : displayImages.map((image, index) => (
+            <div key={index}>
+              <OptimizedImage
+                src={image}
+                alt={`메인 배너 ${index + 1}`}
+                style={{
+                  width: "100%",
+                  height: isMobile
+                    ? `${LAYOUT.MOBILE.BANNER_HEIGHT}px`
+                    : LAYOUT.DESKTOP.BANNER_HEIGHT,
+                  objectFit: isMobile ? "cover" : "contain",
+                }}
+              />
+            </div>
+          ))}
     </Slider>
   );
 };

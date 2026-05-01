@@ -5,6 +5,8 @@ enum Paths {
   Missionary = "/missionary",
   HolySchool = "/holyschool",
   News = "/news",
+  NewsNotice = "/news/notice",
+  NewsAlbum = "/news/album",
   Book = "/book",
   Intro = "/intro",
   BookDetail = "/book/:label1",

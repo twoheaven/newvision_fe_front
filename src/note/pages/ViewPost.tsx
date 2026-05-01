@@ -39,7 +39,7 @@ const ViewPost: React.FC = () => {
       postsRef,
       where("postNumber", ">", currentPost.postNumber),
       orderBy("postNumber"),
-      limit(1),
+      limit(20),
     );
 
     // 다음글 가져오기 (현재 글보다 번호가 작은 글 중 가장 큰 번호)
@@ -47,7 +47,7 @@ const ViewPost: React.FC = () => {
       postsRef,
       where("postNumber", "<", currentPost.postNumber),
       orderBy("postNumber", "desc"),
-      limit(1),
+      limit(20),
     );
 
     const [prevSnapshot, nextSnapshot] = await Promise.all([
@@ -56,13 +56,29 @@ const ViewPost: React.FC = () => {
     ]);
 
     if (!prevSnapshot.empty) {
-      const prevDoc = prevSnapshot.docs[0];
-      setPrevPost({ id: prevDoc.id, ...prevDoc.data() } as Post);
+      const prevDoc = prevSnapshot.docs.find(
+        (docSnap) => docSnap.data().category !== "churchAlbum",
+      );
+      if (prevDoc) {
+        setPrevPost({ id: prevDoc.id, ...prevDoc.data() } as Post);
+      } else {
+        setPrevPost(null);
+      }
+    } else {
+      setPrevPost(null);
     }
 
     if (!nextSnapshot.empty) {
-      const nextDoc = nextSnapshot.docs[0];
-      setNextPost({ id: nextDoc.id, ...nextDoc.data() } as Post);
+      const nextDoc = nextSnapshot.docs.find(
+        (docSnap) => docSnap.data().category !== "churchAlbum",
+      );
+      if (nextDoc) {
+        setNextPost({ id: nextDoc.id, ...nextDoc.data() } as Post);
+      } else {
+        setNextPost(null);
+      }
+    } else {
+      setNextPost(null);
     }
   };
 
@@ -76,6 +92,10 @@ const ViewPost: React.FC = () => {
       const docSnap = await getDoc(doc(db, "posts", id));
       if (docSnap.exists()) {
         const currentPost = { id, ...docSnap.data() } as Post;
+        if (currentPost.category === "churchAlbum") {
+          navigate(Paths.NewsAlbum);
+          return;
+        }
         setPost(currentPost);
         fetchAdjacentPosts(currentPost);
       } else {

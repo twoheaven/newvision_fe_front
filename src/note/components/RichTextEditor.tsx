@@ -175,6 +175,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           postNumber: lastPostNumber + 1,
           title,
           content,
+          category: "notice",
           author: auth.currentUser.email || "익명",
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
