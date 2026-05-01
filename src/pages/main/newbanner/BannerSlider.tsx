@@ -83,7 +83,11 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-const BannerSlider = ({ banners = [], isAdmin = false, onDeleteBanner }: BannerSliderProps) => {
+const BannerSlider = ({
+  banners = [],
+  isAdmin = false,
+  onDeleteBanner,
+}: BannerSliderProps) => {
   const isMobile = useIsMobile();
   const displayBanners = banners.length > 0 ? banners : [];
   const displayImages = banners.length > 0 ? [] : images;
@@ -107,7 +111,9 @@ const BannerSlider = ({ banners = [], isAdmin = false, onDeleteBanner }: BannerS
         ? displayBanners.map((banner, index) => (
             <BannerItemContainer key={banner.id}>
               {isAdmin && onDeleteBanner && (
-                <DeleteButton onClick={() => onDeleteBanner(banner.id)}>삭제</DeleteButton>
+                <DeleteButton onClick={() => onDeleteBanner(banner.id)}>
+                  삭제
+                </DeleteButton>
               )}
               <OptimizedImage
                 src={banner.imageUrl || banner.thumbnailUrl || ""}
