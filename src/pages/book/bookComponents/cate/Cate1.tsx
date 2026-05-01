@@ -49,8 +49,8 @@ const Cate1 = () => {
           <Flex
             alignItems="center"
             justifyContent="center"
-            gap={"60px"}
             style={{ marginLeft: "65px" }}
+            gap={"60px"}
           >
             <SmallBookBox
               bookimg={bookdatas[3].img}

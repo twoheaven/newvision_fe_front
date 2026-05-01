@@ -1,10 +1,11 @@
-import { Flex, Spacer, Text } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
+import { Flex, Spacer } from "@dohyun-ko/react-atoms"; // @dohyun-ko/react-atoms 패키지에서 Flex, Spacer, Text를 가져옴
 import { Helmet } from "react-helmet-async";
 
 import ShadowText from "@/components/text/shadowtext"; // "@/components/text/shadowtext"에서 ShadowText 컴포넌트를 가져옴
 import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 
 import img1 from "../asset/6.새가족양육훈련.png"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
+import img2 from "../asset/페이지준비중.png"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
 
 const Cate2 = () => {
   return (
@@ -51,12 +52,7 @@ const Cate2 = () => {
           </div>
         </div>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
-        <Text>새가족양육훈련 설명</Text>
-        <Text>새가족양육훈련 설명</Text>
-        <Text>새가족양육훈련 설명</Text>
-        <Text>새가족양육훈련 설명</Text>
-        <Text>새가족양육훈련 설명</Text>
-        <Text>새가족양육훈련 설명</Text>
+        <img src={img2} style={{ width: "100%" }} /> {/* 이미지 표시 */}
       </Flex>
     </>
   );
