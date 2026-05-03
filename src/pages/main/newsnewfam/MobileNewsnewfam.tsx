@@ -206,8 +206,8 @@ const MobileNewsnewfam = () => {
           style={{
             cursor: "pointer",
             width: "100%",
-            aspectRatio: "16 / 9",
-            overflow: "hidden",
+            aspectRatio: "1601 / 760",
+            overflow: "visible",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -219,7 +219,7 @@ const MobileNewsnewfam = () => {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
               display: "block",
             }}
           />
@@ -228,8 +228,8 @@ const MobileNewsnewfam = () => {
           style={{
             cursor: "pointer",
             width: "100%",
-            aspectRatio: "16 / 9",
-            overflow: "hidden",
+            aspectRatio: "1601 / 759",
+            overflow: "visible",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -241,7 +241,7 @@ const MobileNewsnewfam = () => {
             style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
               display: "block",
             }}
           />
