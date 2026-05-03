@@ -22,8 +22,8 @@ const Cate1 = () => {
   const videoId2 = "2RU3lfa5DUs"; // 유튜브 비디오 ID를 여기에 넣습니다.
 
   const opts = {
-    height: "200",
-    width: "345",
+    height: isMobile ? "220" : "200",
+    width: isMobile ? "100%" : "345",
     playerVars: {
       autoplay: 0, // 자동 재생
       controls: 0, // 플레이어 컨트롤 표시
@@ -41,7 +41,16 @@ const Cate1 = () => {
         </Helmet>
       </div>
 
-      <Flex justifyContent="center" alignItems="center" flexDirection="column">
+      <Flex
+        justifyContent="center"
+        alignItems={isMobile ? "stretch" : "center"}
+        flexDirection="column"
+        style={{
+          width: "100%",
+          maxWidth: "700px",
+          boxSizing: "border-box",
+        }}
+      >
         {" "}
         {/* 세로 중앙 정렬된 Flex 컨테이너 */}
         <div style={{ position: "relative", width: "100%", height: "auto" }}>
@@ -121,32 +130,57 @@ const Cate1 = () => {
             </div>
           </div>
         </Flex>
-        <Flex justifyContent="space-between" width={isMobile ? "100%" : "90%"}>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          flexDirection="row"
+          width={isMobile ? "100%" : "90%"}
+          gap={isMobile ? "8px" : "0"}
+          style={{
+            flexWrap: "nowrap",
+            padding: isMobile ? "0 8px" : undefined,
+            margin: isMobile ? "0 auto" : undefined,
+            overflowX: isMobile ? "hidden" : undefined,
+            WebkitOverflowScrolling: isMobile ? "touch" : undefined,
+            boxSizing: isMobile ? "border-box" : undefined,
+          }}
+        >
           {" "}
-          {/* 간격이 20px인 Flex 컨테이너 */}
-          <Text color={color2} font={Fonts.Bold} size={"26px"}>
-            창세기
-          </Text>{" "}
-          {/* 텍스트 */}
-          <Text color={color2} font={Fonts.Bold} size={"26px"}>
-            출애굽기
-          </Text>{" "}
-          {/* 텍스트 */}
-          <Text color={color2} font={Fonts.Bold} size={"26px"}>
-            레위기
-          </Text>{" "}
-          {/* 텍스트 */}
-          <Text color={color2} font={Fonts.Bold} size={"26px"}>
-            민수기
-          </Text>{" "}
-          {/* 텍스트 */}
-          <Text color={color2} font={Fonts.Bold} size={"26px"}>
-            신명기
-          </Text>{" "}
-          {/* 텍스트 */}
+          {/* 간격이 있는 Flex 컨테이너 */}
+          {[
+            "창세기",
+            "출애굽기",
+            "레위기",
+            "민수기",
+            "신명기",
+          ].map((title) => (
+            <Text
+              key={title}
+              color={color2}
+              font={Fonts.Bold}
+              size={isMobile ? "18px" : "26px"}
+              style={{
+                flex: isMobile ? "1 1 0" : undefined,
+                minWidth: 0,
+                flexShrink: 1,
+                whiteSpace: "nowrap",
+                textAlign: "center",
+                padding: isMobile ? "0 4px" : undefined,
+              }}
+            >
+              {title}
+            </Text>
+          ))}
         </Flex>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
-        <Text>
+        <Text
+          style={{
+            width: isMobile ? "100%" : "auto",
+            margin: isMobile ? "0 auto" : undefined,
+            textAlign: isMobile ? "center" : "left",
+            whiteSpace: "normal",
+          }}
+        >
           예수님은 모세오경의 가치에 대해서 이렇게 말씀하셨습니다.
         </Text>{" "}
         {/* 텍스트 */}
@@ -238,12 +272,22 @@ const Cate1 = () => {
           </Flex>
         </div>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
-        <Flex gap={"15px"} justifyContent="center" alignItems="center">
+        <Flex
+          gap={"15px"}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: "100%" }}
+        >
           {" "}
           {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
           <img
             src={img2}
-            style={{ width: "50%", height: "auto", objectFit: "cover" }}
+            style={{
+              width: isMobile ? "100%" : "50%",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />{" "}
           {/* 이미지 표시 */}
           <Flex flexDirection="column" gap={"20px"}>
@@ -252,134 +296,181 @@ const Cate1 = () => {
             <Flex flexDirection="column">
               {" "}
               {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>구약의 핵심이자 뼈대인 모세오경은</Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                하나님이 누구인지, 인류를 경작하시는 농부의 경영
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                방식을 잘 알 수 있는 거울과 모범 교재입니다.
-              </Text>{" "}
-              {/* 텍스트 */}
+              <Text
+                size={"14px"}
+                style={{
+                  width: "100%",
+                  whiteSpace: "normal",
+                  textAlign: isMobile ? "center" : "left",
+                }}
+              >
+                구약의 핵심이자 뼈대인 모세오경은 하나님이 누구인지, 인류를
+                경작하시는 농부의 경영 방식을 잘 알 수 있는 거울과 모범
+                교재입니다.
+              </Text>
             </Flex>
             <Flex flexDirection="column">
               {" "}
               {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                또한 모세오경은 '신약의 문'을 여는 열쇠이며 실체
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                이신 예수님을 온전하게 이해하는 모형이자 예표이
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>고 그림자입니다.</Text> {/* 텍스트 */}
+              <Text
+                size={"14px"}
+                style={{
+                  width: "100%",
+                  whiteSpace: "normal",
+                  textAlign: isMobile ? "center" : "left",
+                }}
+              >
+                또한 모세오경은 '신약의 문'을 여는 열쇠이며 실체이신 예수님을
+                온전하게 이해하는 모형이자 예표이고 그림자입니다.
+              </Text>
             </Flex>
             <Flex flexDirection="column">
               {" "}
               {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                이 수업을 통해 창조와 구원의 목적을 회복하여 신
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                앙의 본질에 접근하게 도리 것이며, 감추어진 하나님
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                의 구속사의 경륜을 깨달아 놀라운 하나님의 영광을
-              </Text>{" "}
-              <Text size={"14px"}>보게 될 것입니다.</Text> {/* 텍스트 */}
+              <Text
+                size={"14px"}
+                style={{
+                  width: "100%",
+                  whiteSpace: "normal",
+                  textAlign: isMobile ? "center" : "left",
+                }}
+              >
+                이 수업을 통해 창조와 구원의 목적을 회복하여 신앙의 본질에
+                접근하게 도리 것이며, 감추어진 하나님의 구속사의 경륜을 깨달아
+                놀라운 하나님의 영광을 보게 될 것입니다.
+              </Text>
             </Flex>
           </Flex>
+          ,
         </Flex>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
         <img
           src={img3}
-          style={{ width: "70%", height: "auto", objectFit: "cover" }}
+          style={{
+            width: isMobile ? "100%" : "70%",
+            height: "auto",
+            objectFit: "cover",
+          }}
         />{" "}
         {/* 이미지 표시 */}
         <Spacer height={"50px"} /> {/* 50px 간격 */}
-        <Text>위 세 가지의 이해는 모세오경 수업의 핵심주제입니다.</Text>{" "}
+        <Text
+          style={{
+            width: isMobile ? "100%" : "auto",
+            whiteSpace: "normal",
+            textAlign: isMobile ? "center" : "left",
+          }}
+        >
+          위 세 가지의 이해는 모세오경 수업의 핵심주제입니다.
+        </Text>{" "}
         {/* 텍스트 */}
         <Spacer height={"50px"} /> {/* 50px 간격 */}
-        <Flex gap={"15px"} justifyContent="center" alignItems="center">
+        <Flex
+          gap={"15px"}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: "100%" }}
+        >
           {" "}
           {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
-          <Flex flexDirection="column" gap={"20px"}>
+          <Flex
+            flexDirection="column"
+            gap={"20px"}
+            style={{
+              width: isMobile ? "100%" : "auto",
+              textAlign: isMobile ? "center" : "left",
+            }}
+          >
             {" "}
             {/* 세로 간격이 20px인 Flex 컨테이너 */}
-            <Flex flexDirection="column">
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                모세오경에 숨겨져있는 출애굽 속 구원의 모형론을
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                통해 왜곡되고 변질된 구원론과 예빼론, 물질론,성
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                령론, 마귀론 등 감추어진 성경 속 신학들이 참된 진
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                리의 기준으로 회복하게 될 것입니다.
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Flex flexDirection="column">
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                또한 언약의 하나님을 이해하며 언약을 중심으로 신
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                구약 전체에 흐르는 일관된 흐름과 맥을 잡아 신앙의
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                실제적인 뼈대와 기둥을 세우는 수업이 될 것입니다.
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
+            <Text size={"14px"} style={{ width: "100%", whiteSpace: "normal" }}>
+              모세오경에 숨겨져있는 출애굽 속 구원의 모형론을 통해 왜곡되고
+              변질된 구원 론 과 예배론, 물질론, 성령론, 마귀론 등 감추어진 성경
+              속 , 신학들이 참된 진리의 기준으로 회복하게 될 것입니다.
+            </Text>{" "}
+            {/* 텍스트 */}
+            <Text size={"14px"} style={{ width: "100%", whiteSpace: "normal" }}>
+              또한 언약의 하나님을 이해하며 언약을 중심으로 신구약 전체에 흐르는
+              일관된 흐름과 맥을 잡아 신앙의 실제적인 뼈대와 기둥을 세우는
+              수업이 될 것입니다.
+            </Text>{" "}
+            {/* 텍스트 */}
           </Flex>
           <img
             src={img4}
-            style={{ width: "50%", height: "auto", objectFit: "cover" }}
+            style={{
+              width: isMobile ? "100%" : "50%",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />{" "}
           {/* 이미지 표시 */}
         </Flex>
         <Spacer height={"50px"} /> {/* 50px 간격 */}
-        <Flex justifyContent="center" alignItems="center">
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          gap={"10px"}
+          style={{
+            width: "100%",
+            maxWidth: "100%",
+            overflowWrap: "break-word",
+
+            wordBreak: "keep-all",
+          }}
+        >
           {" "}
           {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-          <Text size={"14px"}>
+          <Text
+            size={"14px"}
+            style={{
+              width: isMobile ? "100%" : "auto",
+              whiteSpace: "normal",
+              textAlign: isMobile ? "center" : "left",
+              lineHeight: "1.7",
+              overflowWrap: "break-word",
+              wordBreak: "keep-all",
+            }}
+          >
             남유다 3대 성군 중 한 명인 요시야 왕의 종교개혁은 신명기를 통한
-            개혁이었습니다.
+            개혁이었습니다. 참된 부흥은 개혁을 앞서지 않습니다.
           </Text>{" "}
-          {/* 텍스트 */}
-          <Text size={"14px"}>참된 부흥은 개혁을 앞서지 않습니다.</Text>{" "}
           {/* 텍스트 */}
         </Flex>
         <Spacer height={"30px"} /> {/* 10px 간격 */}
-        <Flex justifyContent="center" alignItems="center">
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          gap={"10px"}
+          style={{
+            width: "100%",
+            maxWidth: "100%",
+
+            overflowWrap: "break-word",
+            wordBreak: "keep-all",
+          }}
+        >
           {" "}
           {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-          <Text size={"14px"} style={{ textAlign: "center" }}>
+          <Text
+            size={"14px"}
+            style={{
+              width: isMobile ? "100%" : "auto",
+              textAlign: "center",
+              whiteSpace: "normal",
+              lineHeight: "1.7",
+              overflowWrap: "break-word",
+              wordBreak: "keep-all",
+            }}
+          >
             부흥의 열쇠는 개혁이며 참된 개혁의 열쇠는 신명기[모세오경]의 회복을
-            통해 일어납니다.
+            통해 일어납니다. 이 수업을 통해 주님의 시각과 마음을 받아 개혁의
+            정신으로 많은 사람을 옳은 데로 돌이키는 추수할 일꾼으로 준비될
+            것입니다.
           </Text>{" "}
-          {/* 텍스트 */}
-          <Text size={"14px"} style={{ textAlign: "center" }}>
-            이 수업을 통해 주님의 시각과 마음을 받아 개혁의 정신으로 많은 사람을
-            옳은 데로 돌이키는
-          </Text>{" "}
-          {/* 텍스트 */}
-          <Text size={"14px"}>추수할 일꾼으로 준비될 것입니다.</Text>{" "}
           {/* 텍스트 */}
         </Flex>
         <Spacer height={"55px"} />
@@ -456,21 +547,32 @@ const Cate1 = () => {
       </Flex>
       <Spacer height={"30px"} />
 
-      <Flex justifyContent="center" gap={"10px"}>
+      <Flex
+        justifyContent="center"
+        gap={"10px"}
+        flexDirection={isMobile ? "column" : "row"}
+        style={{ width: "100%" }}
+      >
         <Flex
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          style={{ width: isMobile ? "100%" : "auto" }}
         >
           <Text font={Fonts.Bold}>성경맥잡기 홍보영상</Text>
           <Spacer height={"5px"} />
           <YouTube videoId={videoId1} opts={opts} />
         </Flex>
-        <Flex justifyContent="center" gap={"10px"}>
+        <Flex
+          justifyContent="center"
+          gap={"10px"}
+          style={{ width: isMobile ? "100%" : "auto" }}
+        >
           <Flex
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            style={{ width: isMobile ? "100%" : "auto" }}
           >
             <Text font={Fonts.Bold}>성경맥잡기 첫번째 오픈강의</Text>
             <Spacer height={"5px"} />

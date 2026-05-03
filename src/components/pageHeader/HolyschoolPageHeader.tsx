@@ -21,6 +21,7 @@ const HolySchoolPageHeader = () => {
           }}
         >
           {/* 배너 이미지 표시 */}
+          {/* 배너 이미지 표시 */}
           <div style={{ overflow: "hidden" }}>
             <img
               width={isMobile ? "200%" : "100%"}
@@ -37,7 +38,6 @@ const HolySchoolPageHeader = () => {
                     }
               }
             />
-
             <div
               style={{
                 position: "absolute",
@@ -53,7 +53,6 @@ const HolySchoolPageHeader = () => {
               성령학교
             </div>
           </div>
-
           {/* 헤더 */}
           <Flex
             justifyContent="center"

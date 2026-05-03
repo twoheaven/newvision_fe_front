@@ -13,12 +13,15 @@ const NewsSectionNav = () => {
   return (
     <>
       <Flex justifyContent="center" gap={"8px"}>
-        <Button
-          onClick={() => navigate(Paths.NewsNotice)}
-          style={{ fontFamily: isNotice ? Fonts.Bold : Fonts.Regular }}
-        >
-          공지
-        </Button>
+        <Flex alignItems="center" gap={"8px"}>
+          <Button
+            onClick={() => navigate(Paths.NewsNotice)}
+            style={{ fontFamily: isNotice ? Fonts.Bold : Fonts.Regular }}
+          >
+            공지
+          </Button>
+          <span style={{ color: "#c7c7c7", fontFamily: Fonts.Regular }}>|</span>
+        </Flex>
         <Button
           onClick={() => navigate(Paths.NewsAlbum)}
           style={{ fontFamily: isAlbum ? Fonts.Bold : Fonts.Regular }}

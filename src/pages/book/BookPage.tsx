@@ -42,16 +42,24 @@ const BookPage = () => {
 
         <Flex justifyContent="center" gap={"8px"}>
           {categories.map((category, index) => (
-            <Button
-              key={index}
-              onClick={() => handleCategorySelect(index)}
-              style={{
-                fontFamily:
-                  selectedCategoryIndex === index ? Fonts.Bold : Fonts.Regular,
-              }}
-            >
-              {category.name}
-            </Button>
+            <Flex key={index} alignItems="center" gap={"8px"}>
+              <Button
+                onClick={() => handleCategorySelect(index)}
+                style={{
+                  fontFamily:
+                    selectedCategoryIndex === index
+                      ? Fonts.Bold
+                      : Fonts.Regular,
+                }}
+              >
+                {category.name}
+              </Button>
+              {index < categories.length - 1 && (
+                <span style={{ color: "#c7c7c7", fontFamily: Fonts.Regular }}>
+                  |
+                </span>
+              )}
+            </Flex>
           ))}
           <Spacer height={"8px"} />
         </Flex>

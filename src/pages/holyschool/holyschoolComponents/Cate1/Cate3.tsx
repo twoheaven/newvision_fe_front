@@ -137,65 +137,62 @@ const Cate3 = () => {
           </Flex>
         </div>
         <Spacer height={"40px"} /> {/* 80px 간격 */}
-        <Text>시대는 점점 종말론을 열어가고 있고,</Text>
-        <Text>
-          주님은 말세 징조와 표적을 통해 믿는 자들에게 영적 메세지를 주고
-          계십니다.
+        <Text
+          style={{
+            width: isMobile ? "100%" : "auto",
+            whiteSpace: "normal",
+            textAlign: isMobile ? "center" : "left",
+          }}
+        >
+          시대는 점점 종말론을 열어가고 있고, 주님은 말세 징조와 표적을 통해 믿는 자들에게 영적 메세지를 주고 계십니다.
         </Text>
         <Spacer height={"40px"} /> {/* 80px 간격 */}
-        <Flex gap={"15px"} justifyContent="center" alignItems="center">
+        <Flex
+          gap={"15px"}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: "100%" }}
+        >
           {" "}
           {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
           <img
             src={img2}
-            style={{ width: "50%", height: "auto", objectFit: "cover" }}
+            style={{
+              width: isMobile ? "100%" : "50%",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />{" "}
           {/* 이미지 표시 */}
-          <Flex flexDirection="column" gap={"20px"}>
+          <Flex
+            flexDirection="column"
+            gap={"20px"}
+            style={{
+              width: isMobile ? "100%" : "auto",
+              textAlign: isMobile ? "center" : "left",
+            }}
+          >
             {" "}
             {/* 세로 간격이 20px인 Flex 컨테이너 */}
-            <Flex flexDirection="column">
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                단순히 말세 정보가 구원에 이르는 지혜를 주는 것
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>이 아니라,</Text> {/* 텍스트 */}
-            </Flex>
-            <Flex flexDirection="column">
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                &apos;역사를 이끄시는 하나님을 알 때&apos;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Flex flexDirection="column">
-              {" "}
-              {/* 세로로 정렬된 Flex 컨테이너 */}
-              <Text size={"14px"}>
-                하나님 안에서 마지막 때를 향한 감추어진 만나가
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Text size={"14px"}>
-                우리 가운데 구원에 이르도록 자라가게 할 것입니다.
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
+            <Text
+              size={"14px"}
+              style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+            >
+              단순히 말세 정보가 구원에 이르는 지혜를 주는 것이 아니라, '역사를 이끄시는 하나님을 알 때' 하나님 안에서 마지막 때를 향한 감추어진 만나가 우리 가운데 구원에 이르도록 자라가게 할 것입니다.
+            </Text>{" "}
+            {/* 텍스트 */}
           </Flex>
         </Flex>
         <Spacer height={"80px"} /> {/* 80px 간격 */}
-        <Text>지금은 요한계시록이 열리는 시대입니다.</Text>
-        <Text>
-          노아에게 물심판의 경고의 계시를 주셨던 것처럼 말세지말 주님은
-        </Text>
-        <Text>
-          당신의 사랑하는 자에게 자신의 뜻을 드러내고 계시할 것입니다.
-        </Text>
-        <Text>
-          무엇보다 end-time 비밀을 성경을 통해 성령 안에서 증거하며 이해하는
-          수업이 될 것입니다.
+        <Text
+          style={{
+            width: isMobile ? "100%" : "auto",
+            whiteSpace: "normal",
+            textAlign: isMobile ? "center" : "left",
+          }}
+        >
+          지금은 요한계시록이 열리는 시대입니다. 노아에게 물심판의 경고의 계시를 주셨던 것처럼 말세지말 주님은 당신의 사랑하는 자에게 자신의 뜻을 드러내고 계시할 것입니다. 무엇보다 end-time 비밀을 성경을 통해 성령 안에서 증거하며 이해하는 수업이 될 것입니다.
         </Text>
         <Spacer height={"50px"} />
         <div

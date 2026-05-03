@@ -67,20 +67,40 @@ const Cate2 = () => {
         <Text font={Fonts.Bold}>초대교회와 같은</Text>
         <Text font={Fonts.Bold}>사도행전의 역사가 나타나는 교회!</Text>
         <Spacer height={"40px"} />
-        <Flex gap={"3px"}>
-          <Text>
-            마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로{" "}
+        <Flex
+          gap={"3px"}
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: isMobile ? "100%" : "auto", textAlign: isMobile ? "center" : "left" }}
+        >
+          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+            마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로
           </Text>
-          <Text color={color1} font={Fonts.Bold}>
+          <Text
+            color={color1}
+            font={Fonts.Bold}
+            style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+          >
             폭포수같이 부어지는
           </Text>
         </Flex>
-        <Flex gap={"3px"}>
-          <Text>성령의 기름부음 안에서 환상과 꿈과 예언을 통한</Text>
-          <Text color={color1} font={Fonts.Bold}>
+        <Flex
+          gap={"3px"}
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: isMobile ? "100%" : "auto", textAlign: isMobile ? "center" : "left" }}
+        >
+          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+            성령의 기름부음 안에서 환상과 꿈과 예언을 통한
+          </Text>
+          <Text
+            color={color1}
+            font={Fonts.Bold}
+            style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+          >
             예언적인 체질의 교회
           </Text>
-          <Text>가 될 것입니다.</Text>{" "}
+          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+            가 될 것입니다.
+          </Text>{" "}
         </Flex>
         <Spacer height={"60px"} /> {/* 30px 간격 */}
         <div
@@ -167,12 +187,22 @@ const Cate2 = () => {
           style={{ width: "100%", height: "auto", objectFit: "cover" }}
         />{" "}
         <Spacer height={"60px"} /> {/* 80px 간격 */}
-        <Flex gap={"15px"} justifyContent="center" alignItems="center">
+        <Flex
+          gap={"15px"}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isMobile ? "column" : "row"}
+          style={{ width: "100%" }}
+        >
           {" "}
           {/* 간격이 15px인, 세로 및 가로 중앙 정렬된 Flex 컨테이너 */}
           <img
             src={img3}
-            style={{ width: "50%", height: "auto", objectFit: "cover" }}
+            style={{
+              width: isMobile ? "100%" : "50%",
+              height: "auto",
+              objectFit: "cover",
+            }}
           />{" "}
           {/* 이미지 표시 */}
           <Flex flexDirection="column" gap={"20px"}>
@@ -221,23 +251,23 @@ const Cate2 = () => {
         </Flex>
         <Spacer height={"60px"} /> {/* 80px 간격 */}
         {/* 이미지 표시 */}
-        <Text size={"14px"}>
-          이 수업은 은사 자체보다 은사를 주신 하나님께 인도하는 주된 목적을
-          가지고 있습니다.
+        <Text
+          size={"14px"}
+          style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal", textAlign: isMobile ? "center" : "left" }}
+        >
+          이 수업은 은사 자체보다 은사를 주신 하나님께 인도하는 주된 목적을 가지고 있습니다.
         </Text>{" "}
         <Spacer height={"30px"} />
-        <Text size={"14px"}>
-          교회에게 주신 도구[은사]를 어떻게 활용할 것인가에 대해 배워서 은사가
-          영혼을 죽이는 무기가 아니라
-        </Text>{" "}
-        <Text size={"14px"}>
-          교회에 덕을 끼치며 하나님 나라 확장의 살리는 도구가 되도록 준비시키고
-          훈련시키는 장이 될 것입니다.
+        <Text
+          size={"14px"}
+          style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal", textAlign: isMobile ? "center" : "left" }}
+        >
+          교회에게 주신 도구[은사]를 어떻게 활용할 것인가에 대해 배워서 은사가 영혼을 죽이는 무기가 아니라 교회에 덕을 끼치며 하나님 나라 확장의 살리는 도구가 되도록 준비시키고 훈련시키는 장이 될 것입니다.
         </Text>{" "}
         <Spacer height={"60px"} />
         <img
           src={img4}
-          style={{ width: "60%", height: "auto", objectFit: "cover" }}
+          style={{ width: isMobile ? "100%" : "60%", height: "auto", objectFit: "cover" }}
         />{" "}
         {/* 이미지 표시 */}
       </Flex>

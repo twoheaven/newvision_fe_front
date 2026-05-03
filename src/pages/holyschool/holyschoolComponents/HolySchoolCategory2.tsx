@@ -2,6 +2,8 @@ import { Button, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
+import useIsMobile from "@/hooks/useIsMobile";
+
 import Fonts from "../../../styles/fonts";
 import Category1Component from "./Cate2/Cate1";
 import Category2Component from "./Cate2/Cate2";
@@ -12,6 +14,7 @@ const categories = [
 ];
 
 const HolySchoolCategory2 = () => {
+  const isMobile = useIsMobile();
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
   const handleCategorySelect = (index: number) => {
@@ -27,10 +30,29 @@ const HolySchoolCategory2 = () => {
           <meta name="descripttion" content="김온유 목사 제자양육코스" />
         </Helmet>
       </div>
-      <Flex width={"100%"} style={{ maxWidth: "700px" }}>
+      <Flex
+        width={"100%"}
+        style={{
+          maxWidth: "700px",
+          width: "100%",
+          margin: "0 auto",
+          padding: isMobile ? "0 16px" : undefined,
+          boxSizing: "border-box",
+        }}
+      >
         <Flex flexDirection="column">
-          <Flex justifyContent="flex-start" alignItems="center">
-            <Flex gap={"20px"}>
+          <Flex
+            justifyContent={isMobile ? "center" : "flex-start"}
+            alignItems="center"
+          >
+            <Flex
+              gap={"20px"}
+              style={{
+                flexWrap: isMobile ? "wrap" : undefined,
+                justifyContent: isMobile ? "center" : undefined,
+                rowGap: isMobile ? "12px" : undefined,
+              }}
+            >
               {categories.map((category, index) => (
                 <Button
                   key={index}

@@ -200,14 +200,51 @@ const MobileNewsnewfam = () => {
           </div>
         </Flex>
       </Flex>
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" gap={"8px"}>
         <Text size={"24px"}>새가족 등록</Text>
-        <div style={{ cursor: "pointer" }} onClick={handleVisit1Click}>
-          <img src={visit1} width={"100%"} />
+        <div
+          style={{
+            cursor: "pointer",
+            width: "100%",
+            aspectRatio: "16 / 9",
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onClick={handleVisit1Click}
+        >
+          <img
+            src={visit1}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
         </div>
-        <Spacer height={"5px"} />
-        <div style={{ cursor: "pointer" }} onClick={handleVisit2Click}>
-          <img src={visit2} width={"100%"} />
+        <div
+          style={{
+            cursor: "pointer",
+            width: "100%",
+            aspectRatio: "16 / 9",
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onClick={handleVisit2Click}
+        >
+          <img
+            src={visit2}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
         </div>
       </Flex>
       <Spacer height={"10px"} />

@@ -19,6 +19,10 @@ const Newsnewfam = () => {
   const [noticePosts, setNoticePosts] = useState<Post[]>([]);
   const [eventPosts, setEventPosts] = useState<Post[]>([]);
 
+  const sectionHeight = isMobile
+    ? undefined
+    : Math.min(Math.max(windowWidth / 3.6, 260), 420);
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -94,22 +98,27 @@ const Newsnewfam = () => {
           style={{
             flex: "2",
             width: `${windowWidth / 2.8}px`,
-            height: `${windowWidth / 3.6}px`,
+            height: sectionHeight,
             minWidth: "230px",
             minHeight: "170px",
           }}
           gap={"10px"}
         >
           <Text size={isMobile ? "24px" : "34px"}>교회 소식</Text>
-          <Flex gap={"10px"} justifyContent="center">
+          <Flex
+            gap={"10px"}
+            justifyContent="center"
+            style={{ flex: 1, minHeight: 0 }}
+          >
             <Flex
               justifyContent="center"
               style={{
-                flex: "1",
+                flex: 1,
+                minHeight: 0,
+                height: "100%",
                 backgroundImage: `url(${news})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
-                aspectRatio: "1 / 1",
+                backgroundPosition: "top center",
                 position: "relative",
               }}
             >
@@ -120,9 +129,12 @@ const Newsnewfam = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  padding: "20px",
+                  padding: "16px 16px 20px",
+                  paddingTop: "6%",
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "flex-start",
+                  boxSizing: "border-box",
                 }}
               >
                 <Text
@@ -170,10 +182,11 @@ const Newsnewfam = () => {
               justifyContent="center"
               style={{
                 flex: "1",
+                minHeight: 0,
+                height: "100%",
                 backgroundImage: `url(${train})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
-                aspectRatio: "1 / 1",
+                backgroundPosition: "top center",
                 position: "relative",
               }}
             >
@@ -184,9 +197,12 @@ const Newsnewfam = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  padding: "20px",
+                  padding: "16px 16px 20px",
+                  paddingTop: "6%",
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "flex-start",
+                  boxSizing: "border-box",
                 }}
               >
                 <Text
@@ -233,34 +249,67 @@ const Newsnewfam = () => {
           </Flex>
         </Flex>
         <Flex
+          flexDirection="column"
           gap={"10px"}
-          alignItems={"flex-start"}
           style={{
             flex: "1",
-            width: `${windowWidth / 2.7}px`,
-            height: `${windowWidth / 3.6}px`,
-            minHeight: "170px",
+            width: isMobile ? "100%" : `${windowWidth / 2.7}px`,
             minWidth: "130px",
+            height: sectionHeight,
           }}
         >
-          {isMobile ? <Spacer height={"25px"} /> : ""}
           <Text size={isMobile ? "24px" : "34px"}>새가족 등록</Text>
-          <Flex justifyContent="center">
+          <Flex
+            flexDirection="column"
+            gap={"10px"}
+            style={{
+              flex: 1,
+              minHeight: 0,
+            }}
+          >
             <div
-              style={{ cursor: "pointer" }}
-              onClick={handleVisit1Click} // Add click handler
+              style={{
+                cursor: "pointer",
+                flex: 1,
+                minHeight: 0,
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              onClick={handleVisit1Click}
             >
               <img
                 src={visit1}
-                width={"100%"}
-                style={{ marginBottom: "10px" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </div>
             <div
-              style={{ cursor: "pointer" }}
-              onClick={handleVisit2Click} // Add click handler
+              style={{
+                cursor: "pointer",
+                flex: 1,
+                minHeight: 0,
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              onClick={handleVisit2Click}
             >
-              <img src={visit2} width={"100%"} />
+              <img
+                src={visit2}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
             </div>
           </Flex>
         </Flex>
