@@ -152,6 +152,14 @@ const BoardList: React.FC = () => {
                     className="whitespace-nowrap text-sm text-gray-500"
                     style={{ padding: "12px 6px", textAlign: "center" }}
                   >
+                    {post.isNotice || post.category === "notice"
+                      ? ""
+                      : post.postNumber}
+                  </td>
+                  <td
+                    className="whitespace-nowrap text-sm text-gray-500"
+                    style={{ padding: "12px 6px", textAlign: "center" }}
+                  >
                     {post.isNotice || post.category === "notice" ? (
                       <span
                         style={{
