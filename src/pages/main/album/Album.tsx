@@ -1,5 +1,12 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -35,7 +42,10 @@ const Album = () => {
         })) as Post[];
         setAlbumPosts(albumDocs);
       } catch (error) {
-        console.error("메인 교회 앨범을 불러오는 중 오류가 발생했습니다:", error);
+        console.error(
+          "메인 교회 앨범을 불러오는 중 오류가 발생했습니다:",
+          error,
+        );
         const code = (error as { code?: string })?.code;
         if (code === "failed-precondition") {
           console.error(
@@ -75,19 +85,52 @@ const Album = () => {
             </WrapperLink>
             <Spacer height={"5px"} />
           </Flex>
-          <Flex gap={isMobile ? "5px" : "5px"} justifyContent="center">
+          <Flex
+            gap={isMobile ? "5px" : "5px"}
+            justifyContent="center"
+            style={{ width: "100%" }}
+          >
             {albumPosts.length > 0
               ? albumPosts.map((post) => (
-                  <img
+                  <WrapperLink
                     key={post.id}
-                    src={post.thumbnailUrl || post.imagePath || post.imageUrl}
-                    alt={post.title}
-                    width={isMobile ? "49%" : "24%"}
-                    style={{ aspectRatio: "4 / 3", objectFit: "cover" }}
-                  />
+                    to={Paths.NewsAlbum}
+                    style={{
+                      width: isMobile ? "49%" : "24%",
+                      display: "block",
+                    }}
+                  >
+                    <img
+                      src={post.thumbnailUrl || post.imagePath || post.imageUrl}
+                      alt={post.title}
+                      width="100%"
+                      style={{
+                        aspectRatio: "4 / 3",
+                        objectFit: "cover",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </WrapperLink>
                 ))
               : FALLBACK_ALBUM_IMAGES.map((image, index) => (
-                  <img key={index} src={image} width={isMobile ? "49%" : "24%"} />
+                  <WrapperLink
+                    key={index}
+                    to={Paths.NewsAlbum}
+                    style={{
+                      width: isMobile ? "49%" : "24%",
+                      display: "block",
+                    }}
+                  >
+                    <img
+                      src={image}
+                      width="100%"
+                      style={{
+                        cursor: "pointer",
+                        aspectRatio: "4 / 3",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </WrapperLink>
                 ))}
           </Flex>
           <Spacer height={isMobile ? "20px" : "50px"} />

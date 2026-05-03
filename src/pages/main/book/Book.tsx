@@ -1,55 +1,55 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import Box from "@/components/box/Box";
 import useIsMobile from "@/hooks/useIsMobile";
-import book1 from "@/pages/book/bookComponents/assets/book1.webp";
-import book2 from "@/pages/book/bookComponents/assets/book2.webp";
-import book3 from "@/pages/book/bookComponents/assets/book3.webp";
+import bookdatas from "@/pages/book/bookComponents/data/bookdatas";
 import Paths from "@/types/paths";
 
-const EnlargedImageWrapper = styled.div`
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.2);
-  }
+const CarouselContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 `;
 
-const ArrowButton = styled.button`
-  background: #e2e2e2;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+const CarouselTrack = styled.div`
   display: flex;
+  gap: 15px;
+  transition: transform 0.8s ease-in-out;
+`;
+
+const BookItemWrapper = styled.div`
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease-in-out;
 
   &:hover {
-    background: #d1d1d1;
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-    fill: #666;
+    transform: scale(1.05);
   }
 `;
 
 const Book = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [currentTranslate, setCurrentTranslate] = useState(() => {
+    // 초기값을 음수로 설정하여 첫 책이 중앙에 위치하도록 함
+    const itemWidth = isMobile
+      ? window.innerWidth / 3.5
+      : (window.innerWidth * 0.8) / 6;
+    const gapWidth = 15;
+    return -(itemWidth + gapWidth) * 3;
+  });
   const [boxWidth, setBoxWidth] = useState(
     isMobile ? window.innerWidth : window.innerWidth * 0.8,
   );
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [lastTapTime, setLastTapTime] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,41 +63,51 @@ const Book = () => {
     };
   }, [isMobile]);
 
-  const books = [
-    { image: book2, title: "01. 선한 동역자 프로젝트" },
-    { image: book3, title: "02. 선한 청지기 프로젝트" },
-    { image: book1, title: "03. 선한말 습관 프로젝트" },
+  const itemWidth = isMobile ? boxWidth / 3.5 : boxWidth / 6;
+  const gapWidth = 15;
+  const moveDistance = itemWidth + gapWidth;
+  const totalDistance = moveDistance * bookdatas.length;
+
+  // 책 배열 앞뒤에 3개씩 복제본 추가 (양쪽 끝에 공간 생성)
+  const displayBooks = [
+    ...bookdatas.slice(-3),
+    ...bookdatas,
+    ...bookdatas.slice(0, 3),
   ];
 
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? books.length - 1 : prevIndex - 1,
-    );
+  // 위치를 정규화: 루프 처리
+  const normalizeTranslate = (translate: number): number => {
+    // 처음 3개 복제본(-moveDistance * 3)과 끝 3개 복제본 사이에서 순환
+    if (translate <= -moveDistance * 3 - totalDistance) {
+      return translate + totalDistance;
+    }
+    if (translate > -moveDistance * 3) {
+      return translate - totalDistance;
+    }
+    return translate;
   };
 
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === books.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
+  // 자동 회전 effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTranslate((prev) => {
+        let newTranslate = prev - moveDistance;
+        return normalizeTranslate(newTranslate);
+      });
+    }, 4000); // 4초마다 다음 책으로 이동
+
+    return () => clearInterval(interval);
+  }, [moveDistance]);
+
+  // currentTranslate 변경시 DOM 업데이트
+  useEffect(() => {
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${currentTranslate}px)`;
+    }
+  }, [currentTranslate]);
 
   const handleBookClick = () => {
-    if (!isMobile) {
-      navigate(Paths.Book);
-    }
-  };
-
-  const handleBookTap = () => {
-    if (isMobile) {
-      const currentTime = new Date().getTime();
-      const tapLength = currentTime - lastTapTime;
-
-      if (tapLength < 500 && tapLength > 0) {
-        navigate(Paths.Book);
-      }
-
-      setLastTapTime(currentTime);
-    }
+    navigate(Paths.Book);
   };
 
   return (
@@ -120,78 +130,54 @@ const Book = () => {
               style={{
                 width: "100%",
               }}
-              justifyContent={isMobile ? "space-between" : "center"}
+              justifyContent="center"
               alignItems="center"
             >
-              {isMobile && (
-                <ArrowButton onClick={handlePrevClick}>
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                  </svg>
-                </ArrowButton>
-              )}
-              <Flex
-                alignItems="center"
-                justifyContent={isMobile ? "flex-start" : "center"}
-                gap={"15px"}
-              >
-                {books.map((book, index) => (
-                  <EnlargedImageWrapper
-                    key={index}
-                    style={{
-                      overflow: "hidden",
-                      display: isMobile
-                        ? index === currentIndex
-                          ? "flex"
-                          : "none"
-                        : "flex",
-                      cursor: "pointer",
-                    }}
-                    onClick={handleBookClick}
-                    onTouchStart={handleBookTap}
-                  >
-                    <Flex
-                      flexDirection="column"
-                      justifyContent="center"
-                      alignItems="center"
-                      style={
-                        isMobile
-                          ? {
-                              margin: "20px 0",
-                              flexShrink: 0,
-                            }
-                          : {
-                              margin: "30px 0",
-                            }
-                      }
+              <CarouselContainer style={{ flex: 1 }}>
+                <CarouselTrack ref={trackRef}>
+                  {displayBooks.map((book, index) => (
+                    <BookItemWrapper
+                      key={index}
+                      onClick={handleBookClick}
+                      style={{
+                        width: isMobile
+                          ? `${boxWidth / 3.5}px`
+                          : `${boxWidth / 6}px`,
+                      }}
                     >
-                      <img
+                      <Flex
+                        flexDirection="column"
+                        justifyContent="center"
+                        alignItems="center"
                         style={{
-                          width: `${
-                            isMobile ? boxWidth / 3.5 : boxWidth / 6
-                          }px`,
-                          transition: "transform 0.3s ease-in-out",
+                          margin: isMobile ? "20px 0" : "30px 0",
                         }}
-                        src={book.image}
-                        alt="Book Cover"
-                      />
-                      <Text
-                        size={isMobile ? "14px" : "20px"}
-                        style={{ fontWeight: "bold" }}
                       >
-                        {book.title}
-                      </Text>
-                    </Flex>
-                  </EnlargedImageWrapper>
-                ))}
-              </Flex>
-              {isMobile && (
-                <ArrowButton onClick={handleNextClick}>
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-                  </svg>
-                </ArrowButton>
-              )}
+                        <img
+                          style={{
+                            width: "100%",
+                            aspectRatio: "3 / 4",
+                            objectFit: "cover",
+                            borderRadius: "4px",
+                          }}
+                          src={book.img}
+                          alt={book.label2}
+                        />
+                        <Text
+                          size={isMobile ? "12px" : "14px"}
+                          style={{
+                            fontWeight: "bold",
+                            marginTop: "8px",
+                            textAlign: "center",
+                          }}
+                        >
+                          {book.label2}
+                        </Text>
+                      </Flex>
+                    </BookItemWrapper>
+                  ))}
+                </CarouselTrack>
+              </CarouselContainer>
             </Box>
           </Flex>
           <Spacer height={isMobile ? "20px" : "50px"} />

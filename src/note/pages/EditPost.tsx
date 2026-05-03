@@ -12,7 +12,7 @@ const EditPost: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [isNotice, setIsNotice] = useState(false);
+  const [initialCategory, setInitialCategory] = useState("notice");
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -23,7 +23,9 @@ const EditPost: React.FC = () => {
           const data = docSnap.data();
           setTitle(data.title);
           setContent(data.content);
-          setIsNotice(data.isNotice || false);
+          setInitialCategory(
+            data.category || (data.isNotice ? "notice" : "notice"),
+          );
         }
       } catch (error) {
         console.error("게시글을 불러오는 중 오류가 발생했습니다:", error);
@@ -55,7 +57,7 @@ const EditPost: React.FC = () => {
         isEditing={true}
         title={title}
         postId={id}
-        initialIsNotice={isNotice}
+        initialCategory={initialCategory}
       />
     </div>
   );

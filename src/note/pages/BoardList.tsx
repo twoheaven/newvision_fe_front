@@ -29,19 +29,24 @@ const BoardList: React.FC = () => {
           (post) => post.category !== "churchAlbum",
         );
 
-        // 공지사항을 먼저 보여주기 위해 정렬
-        const sortedPosts = postsForNews.sort((a, b) => {
-          if (a.isNotice && !b.isNotice) return -1;
-          if (!a.isNotice && b.isNotice) return 1;
-          // 공지사항끼리는 번호 내림차순
-          if (a.isNotice && b.isNotice) {
-            return (b.postNumber || 0) - (a.postNumber || 0);
-          }
-          // 일반 게시글끼리는 번호 내림차순
-          return (b.postNumber || 0) - (a.postNumber || 0);
-        });
+        const noticePosts = postsForNews
+          .filter((post) => post.category === "notice" || post.isNotice)
+          .sort((a, b) => (b.postNumber || 0) - (a.postNumber || 0));
 
-        setPosts(sortedPosts);
+        const eventPosts = postsForNews
+          .filter((post) => post.category === "event")
+          .sort((a, b) => (b.postNumber || 0) - (a.postNumber || 0));
+
+        const otherPosts = postsForNews
+          .filter(
+            (post) =>
+              post.category !== "notice" &&
+              post.category !== "event" &&
+              !post.isNotice,
+          )
+          .sort((a, b) => (b.postNumber || 0) - (a.postNumber || 0));
+
+        setPosts([...noticePosts, ...eventPosts, ...otherPosts]);
       } catch (error) {
         console.error("게시글 목록을 불러오는 중 오류가 발생했습니다:", error);
       } finally {
@@ -94,6 +99,17 @@ const BoardList: React.FC = () => {
                 <th
                   className="text-xs font-medium text-gray-500 tracking-wider"
                   style={{
+                    width: "12%",
+                    padding: "12px 6px",
+                    textAlign: "center",
+                    backgroundColor: "#f8f9fa",
+                  }}
+                >
+                  분류
+                </th>
+                <th
+                  className="text-xs font-medium text-gray-500 tracking-wider"
+                  style={{
                     padding: "12px 6px",
                     textAlign: "center",
                     backgroundColor: "#f8f9fa",
@@ -136,29 +152,40 @@ const BoardList: React.FC = () => {
                     className="whitespace-nowrap text-sm text-gray-500"
                     style={{ padding: "12px 6px", textAlign: "center" }}
                   >
-                    {post.isNotice ? (
-                      <div
-                        style={{ display: "flex", justifyContent: "center" }}
+                    {post.isNotice || post.category === "notice" ? (
+                      <span
+                        style={{
+                          backgroundColor: "#EE8B7C",
+                          color: "white",
+                          padding: "6px 8px",
+                          borderRadius: "4px",
+                          fontSize: "12px",
+                          fontFamily: Fonts.Bold,
+                          display: "inline-block",
+                          textAlign: "center",
+                          letterSpacing: "-0.5px",
+                        }}
                       >
-                        <span
-                          style={{
-                            backgroundColor: "#EE8B7C",
-                            color: "white",
-                            padding: "6px 8px",
-                            borderRadius: "4px",
-                            fontSize: "18px",
-                            fontFamily: Fonts.Bold,
-                            display: "inline-block",
-                            width: "31px",
-                            textAlign: "center",
-                            letterSpacing: "-0.5px",
-                          }}
-                        >
-                          공지
-                        </span>
-                      </div>
+                        공지
+                      </span>
+                    ) : post.category === "event" ? (
+                      <span
+                        style={{
+                          backgroundColor: "#4F46E5",
+                          color: "white",
+                          padding: "6px 8px",
+                          borderRadius: "4px",
+                          fontSize: "12px",
+                          fontFamily: Fonts.Bold,
+                          display: "inline-block",
+                          textAlign: "center",
+                          letterSpacing: "-0.5px",
+                        }}
+                      >
+                        훈련 & 행사
+                      </span>
                     ) : (
-                      post.postNumber
+                      ""
                     )}
                   </td>
                   <td

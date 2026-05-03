@@ -42,6 +42,7 @@ interface RichTextEditorProps {
   postId?: string;
   isEditing?: boolean;
   initialIsNotice?: boolean;
+  initialCategory?: string;
 }
 
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
@@ -51,9 +52,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   postId,
   isEditing = false,
   initialIsNotice = false,
+  initialCategory = "notice",
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isNotice, setIsNotice] = useState(initialIsNotice);
+  const [category, setCategory] = useState(
+    initialCategory || (initialIsNotice ? "notice" : "notice"),
+  );
+  const isNotice = category === "notice";
   const navigate = useNavigate();
 
   const editor = useEditor({
@@ -156,7 +161,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         await updateDoc(docRef, {
           title,
           content,
-          isNotice,
+          category,
+          isNotice: category === "notice",
           updatedAt: new Date().toISOString(),
         });
         navigate(`/post/${postId}`);
@@ -175,11 +181,11 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           postNumber: lastPostNumber + 1,
           title,
           content,
-          category: "notice",
+          category,
           author: auth.currentUser.email || "익명",
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
-          isNotice,
+          isNotice: category === "notice",
         };
 
         // Firestore에 저장
@@ -231,17 +237,32 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         >
           이미지
         </button>
-        <div className="ml-auto flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="isNotice"
-            checked={isNotice}
-            onChange={(e) => setIsNotice(e.target.checked)}
-            className="form-checkbox h-4 w-4 text-blue-500"
-          />
-          <label htmlFor="isNotice" className="text-sm text-gray-700">
-            공지사항
-          </label>
+        <div className="ml-auto flex items-center gap-4">
+          <label className="text-sm text-gray-700">카테고리</label>
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-1 text-sm text-gray-700">
+              <input
+                type="radio"
+                name="postCategory"
+                value="notice"
+                checked={category === "notice"}
+                onChange={() => setCategory("notice")}
+                className="form-radio h-4 w-4 text-blue-500"
+              />
+              공지사항
+            </label>
+            <label className="flex items-center gap-1 text-sm text-gray-700">
+              <input
+                type="radio"
+                name="postCategory"
+                value="event"
+                checked={category === "event"}
+                onChange={() => setCategory("event")}
+                className="form-radio h-4 w-4 text-blue-500"
+              />
+              훈련 & 행사
+            </label>
+          </div>
         </div>
       </div>
       <EditorContent
