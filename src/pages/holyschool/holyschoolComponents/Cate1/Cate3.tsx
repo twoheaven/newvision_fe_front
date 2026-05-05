@@ -8,6 +8,7 @@ import Fonts from "@/styles/fonts"; // "@/styles/fonts"에서 Fonts를 가져옴
 import img1 from "../asset/3.요한계시록학교 (1).jpg"; // "../asset/1.성경맥잡기학교 (1).jpg" 이미지를 가져옴
 import img2 from "../asset/3.요한계시록학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (2).jpg" 이미지를 가져옴
 import img3 from "../asset/수업의 핵심 방향성.png";
+import HolySchoolQuoteCard from "./HolySchoolQuoteCard";
 
 const Cate3 = () => {
   const color3 = "#996633"; // color3 변수에 "#996633" 할당
@@ -66,76 +67,14 @@ const Cate3 = () => {
         <Text>종말론의 핵심은 &apos;깨어있는 것&apos;입니다.</Text>{" "}
         {/* 텍스트 */}
         <Spacer height={"30px"} /> {/* 30px 간격 */}
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "ButtonShadow",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-          <Flex justifyContent="center">
-            {" "}
-            {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-            <Flex gap={"18px"}>
-              {" "}
-              {/* 간격이 18px인 Flex 컨테이너 */}
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Flex flexDirection="column" alignItems="center">
-                  {" "}
-                  {/* 세로로 정렬된 Flex 컨테이너 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    이러므로 너희는 장차 올 이 모든 일을 능히 피하고
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    인자 앞에 서도록 항상 기도하며 깨어있으라 하시니라
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                </Flex>
-                <Text
-                  color={color3}
-                  font={Fonts.Regular}
-                  size={isMobile ? "14px" : "16px"}
-                >
-                  눅 21:36
-                </Text>{" "}
-                {/* 텍스트 */}
-              </Flex>
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-          </Flex>
-        </div>
+        <HolySchoolQuoteCard
+          color={color3}
+          lines={[
+            "이러므로 너희는 장차 올 이 모든 일을 능히 피하고",
+            "인자 앞에 서도록 항상 기도하며 깨어있으라 하시니라",
+          ]}
+          reference="눅 21:36"
+        />
         <Spacer height={"40px"} /> {/* 80px 간격 */}
         <Text
           style={{
@@ -144,7 +83,8 @@ const Cate3 = () => {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          시대는 점점 종말론을 열어가고 있고, 주님은 말세 징조와 표적을 통해 믿는 자들에게 영적 메세지를 주고 계십니다.
+          시대는 점점 종말론을 열어가고 있고, 주님은 말세 징조와 표적을 통해
+          믿는 자들에게 영적 메세지를 주고 계십니다.
         </Text>
         <Spacer height={"40px"} /> {/* 80px 간격 */}
         <Flex
@@ -177,9 +117,15 @@ const Cate3 = () => {
             {/* 세로 간격이 20px인 Flex 컨테이너 */}
             <Text
               size={"14px"}
-              style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+              style={{
+                width: isMobile ? "100%" : "auto",
+                whiteSpace: "normal",
+              }}
             >
-              단순히 말세 정보가 구원에 이르는 지혜를 주는 것이 아니라, '역사를 이끄시는 하나님을 알 때' 하나님 안에서 마지막 때를 향한 감추어진 만나가 우리 가운데 구원에 이르도록 자라가게 할 것입니다.
+              단순히 말세 정보가 구원에 이르는 지혜를 주는 것이 아니라,
+              &apos;역사를 이끄시는 하나님을 알 때&apos; 하나님 안에서 마지막
+              때를 향한 감추어진 만나가 우리 가운데 구원에 이르도록 자라가게 할
+              것입니다.
             </Text>{" "}
             {/* 텍스트 */}
           </Flex>
@@ -192,78 +138,20 @@ const Cate3 = () => {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          지금은 요한계시록이 열리는 시대입니다. 노아에게 물심판의 경고의 계시를 주셨던 것처럼 말세지말 주님은 당신의 사랑하는 자에게 자신의 뜻을 드러내고 계시할 것입니다. 무엇보다 end-time 비밀을 성경을 통해 성령 안에서 증거하며 이해하는 수업이 될 것입니다.
+          지금은 요한계시록이 열리는 시대입니다. 노아에게 물심판의 경고의 계시를
+          주셨던 것처럼 말세지말 주님은 당신의 사랑하는 자에게 자신의 뜻을
+          드러내고 계시할 것입니다. 무엇보다 end-time 비밀을 성경을 통해 성령
+          안에서 증거하며 이해하는 수업이 될 것입니다.
         </Text>
         <Spacer height={"50px"} />
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "ButtonShadow",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-          <Flex justifyContent="center">
-            {" "}
-            {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-            <Flex gap={"30px"}>
-              {" "}
-              {/* 간격이 18px인 Flex 컨테이너 */}
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Flex flexDirection="column" alignItems="center">
-                  {" "}
-                  {/* 세로로 정렬된 Flex 컨테이너 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    주 여호와께서는 자기의 비밀을 그 종 선자자들에게
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    보이지 아니하시고는 결코 행하심이 없으시리라
-                  </Text>{" "}
-                </Flex>
-                <Text
-                  color={color3}
-                  font={Fonts.Regular}
-                  size={isMobile ? "14px" : "16px"}
-                >
-                  암 3:7
-                </Text>{" "}
-                {/* 텍스트 */}
-              </Flex>
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Spacer height={"25px"} /> {/* 30px 간격 */}
-          </Flex>
-        </div>
+        <HolySchoolQuoteCard
+          color={color3}
+          lines={[
+            "주 여호와께서는 자기의 비밀을 그 종 선자자들에게",
+            "보이지 아니하시고는 결코 행하심이 없으시리라",
+          ]}
+          reference="암 3:7"
+        />
         <Spacer height={"50px"} />
         <Text>주를 세번 부인한 베드로와 같은 실패는 더이상 없다!</Text>
         <Text>다니엘과 같은 환난을 이기는 믿음으로 무장하라!</Text>

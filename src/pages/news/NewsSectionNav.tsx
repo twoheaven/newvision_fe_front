@@ -1,6 +1,10 @@
 import { Button, Divider, Flex, Spacer } from "@dohyun-ko/react-atoms";
 import { useLocation, useNavigate } from "react-router-dom";
-import Fonts from "@/styles/fonts";
+
+import {
+  categoryDividerStyle,
+  getCategoryButtonStyle,
+} from "@/styles/categoryButton";
 import Paths from "@/types/paths";
 
 const NewsSectionNav = () => {
@@ -12,19 +16,23 @@ const NewsSectionNav = () => {
 
   return (
     <>
-      <Flex justifyContent="center" gap={"8px"}>
+      <Flex
+        justifyContent="center"
+        gap={"8px"}
+        style={{ flexWrap: "wrap", rowGap: "8px" }}
+      >
         <Flex alignItems="center" gap={"8px"}>
           <Button
             onClick={() => navigate(Paths.NewsNotice)}
-            style={{ fontFamily: isNotice ? Fonts.Bold : Fonts.Regular }}
+            style={getCategoryButtonStyle(isNotice)}
           >
             공지
           </Button>
-          <span style={{ color: "#c7c7c7", fontFamily: Fonts.Regular }}>|</span>
+          <span style={categoryDividerStyle}>|</span>
         </Flex>
         <Button
           onClick={() => navigate(Paths.NewsAlbum)}
-          style={{ fontFamily: isAlbum ? Fonts.Bold : Fonts.Regular }}
+          style={getCategoryButtonStyle(isAlbum)}
         >
           교회 앨범
         </Button>

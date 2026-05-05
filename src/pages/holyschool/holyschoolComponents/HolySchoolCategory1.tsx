@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import useIsMobile from "@/hooks/useIsMobile";
+import { getCategoryButtonStyle } from "@/styles/categoryButton";
 
-import Fonts from "../../../styles/fonts";
 import Category1Component from "./Cate1/Cate1";
 import Category2Component from "./Cate1/Cate2";
 import Category3Component from "./Cate1/Cate3";
@@ -61,12 +61,9 @@ const HolySchoolCategory1 = () => {
                 <Button
                   key={index}
                   onClick={() => handleCategorySelect(index)}
-                  style={{
-                    fontFamily:
-                      selectedCategoryIndex === index
-                        ? Fonts.Bold
-                        : Fonts.Regular,
-                  }}
+                  style={getCategoryButtonStyle(
+                    selectedCategoryIndex === index,
+                  )}
                 >
                   {category.name}
                 </Button>

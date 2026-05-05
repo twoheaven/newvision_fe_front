@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import BookPageHeader from "@/components/pageHeader/BookPageHeader";
+import {
+  categoryDividerStyle,
+  getCategoryButtonStyle,
+} from "@/styles/categoryButton";
 
 import useIsMobile from "../../hooks/useIsMobile";
-import Fonts from "../../styles/fonts";
 import Category1Component from "./bookComponents/cate/Cate1";
 import Category2Component from "./bookComponents/cate/Cate2";
 import Category3Component from "./bookComponents/cate/Cate3";
@@ -40,24 +43,21 @@ const BookPage = () => {
 
         <Spacer height={"15px"} />
 
-        <Flex justifyContent="center" gap={"8px"}>
+        <Flex
+          justifyContent="center"
+          gap={"8px"}
+          style={{ flexWrap: "wrap", rowGap: "8px" }}
+        >
           {categories.map((category, index) => (
             <Flex key={index} alignItems="center" gap={"8px"}>
               <Button
                 onClick={() => handleCategorySelect(index)}
-                style={{
-                  fontFamily:
-                    selectedCategoryIndex === index
-                      ? Fonts.Bold
-                      : Fonts.Regular,
-                }}
+                style={getCategoryButtonStyle(selectedCategoryIndex === index)}
               >
                 {category.name}
               </Button>
               {index < categories.length - 1 && (
-                <span style={{ color: "#c7c7c7", fontFamily: Fonts.Regular }}>
-                  |
-                </span>
+                <span style={categoryDividerStyle}>|</span>
               )}
             </Flex>
           ))}

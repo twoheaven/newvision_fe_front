@@ -4,8 +4,11 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 import IntroducePageHeader from "@/components/pageHeader/IntroducePageHeader";
+import {
+  categoryDividerStyle,
+  getCategoryButtonStyle,
+} from "@/styles/categoryButton";
 
-import Fonts from "../../styles/fonts";
 import Category1Component from "./introComponents/IntroCategory1";
 import Category2Component from "./introComponents/IntroCategory2";
 import Category3Component from "./introComponents/IntroCategory3";
@@ -62,24 +65,21 @@ const IntroducePage = () => {
       <Area>
         <IntroducePageHeader />
         <Spacer height={"15px"} />
-        <Flex justifyContent="center" gap={"8px"}>
+        <Flex
+          justifyContent="center"
+          gap={"8px"}
+          style={{ flexWrap: "wrap", rowGap: "8px" }}
+        >
           {categories.map((category, index) => (
             <Flex key={index} alignItems="center" gap={"8px"}>
               <Button
                 onClick={() => handleCategorySelect(index)}
-                style={{
-                  fontFamily:
-                    selectedCategoryIndex === index
-                      ? Fonts.Bold
-                      : Fonts.Regular,
-                }}
+                style={getCategoryButtonStyle(selectedCategoryIndex === index)}
               >
                 {category.name}
               </Button>
               {index < categories.length - 1 && (
-                <span style={{ color: "#c7c7c7", fontFamily: Fonts.Regular }}>
-                  |
-                </span>
+                <span style={categoryDividerStyle}>|</span>
               )}
             </Flex>
           ))}

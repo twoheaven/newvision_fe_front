@@ -11,6 +11,7 @@ import img2 from "../asset/1.성경맥잡기학교 (2).jpg"; // "../asset/1.성�
 import img3 from "../asset/1.성경맥잡기학교 (3).jpg"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 import img4 from "../asset/1.성경맥잡기학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
 import imgplus from "../asset/뚜껑.png"; // "../asset/뚜껑.png" 이미지를 가져옴
+import HolySchoolQuoteCard from "./HolySchoolQuoteCard";
 
 const Cate1 = () => {
   const isMobile = useIsMobile();
@@ -147,13 +148,7 @@ const Cate1 = () => {
         >
           {" "}
           {/* 간격이 있는 Flex 컨테이너 */}
-          {[
-            "창세기",
-            "출애굽기",
-            "레위기",
-            "민수기",
-            "신명기",
-          ].map((title) => (
+          {["창세기", "출애굽기", "레위기", "민수기", "신명기"].map((title) => (
             <Text
               key={title}
               color={color2}
@@ -185,92 +180,16 @@ const Cate1 = () => {
         </Text>{" "}
         {/* 텍스트 */}
         <Spacer height={"30px"} /> {/* 30px 간격 */}
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "ButtonShadow",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-          <Flex justifyContent="center">
-            {" "}
-            {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-            <Flex gap={"18px"}>
-              {" "}
-              {/* 간격이 18px인 Flex 컨테이너 */}
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={"40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Flex flexDirection="column" alignItems="center">
-                  {" "}
-                  {/* 세로로 정렬된 Flex 컨테이너 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    모세를 믿었더라면 또 나를 믿었으리니
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    이는 그가 내게 대하여 기록하였음이라
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    그러나 그의 글(모세오경)도 믿지 아니하거든
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "14px" : "18px"}
-                  >
-                    어찌 내 말(계시된 진리)을 믿겠느냐 하시니라
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                </Flex>
-                <Text
-                  color={color3}
-                  font={Fonts.Regular}
-                  size={isMobile ? "14px" : "16px"}
-                >
-                  요 5:46-47
-                </Text>{" "}
-                {/* 텍스트 */}
-              </Flex>
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={"40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-          </Flex>
-        </div>
+        <HolySchoolQuoteCard
+          color={color3}
+          lines={[
+            "모세를 믿었더라면 또 나를 믿었으리니",
+            "이는 그가 내게 대하여 기록하였음이라",
+            "그러나 그의 글(모세오경)도 믿지 아니하거든",
+            "어찌 내 말(계시된 진리)을 믿겠느냐 하시니라",
+          ]}
+          reference="요 5:46-47"
+        />
         <Spacer height={"80px"} /> {/* 80px 간격 */}
         <Flex
           gap={"15px"}
@@ -320,8 +239,8 @@ const Cate1 = () => {
                   textAlign: isMobile ? "center" : "left",
                 }}
               >
-                또한 모세오경은 '신약의 문'을 여는 열쇠이며 실체이신 예수님을
-                온전하게 이해하는 모형이자 예표이고 그림자입니다.
+                또한 모세오경은 &apos;신약의 문&apos;을 여는 열쇠이며 실체이신
+                예수님을 온전하게 이해하는 모형이자 예표이고 그림자입니다.
               </Text>
             </Flex>
             <Flex flexDirection="column">
@@ -474,76 +393,15 @@ const Cate1 = () => {
           {/* 텍스트 */}
         </Flex>
         <Spacer height={"55px"} />
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "ButtonShadow",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-          <Flex justifyContent="center">
-            {" "}
-            {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-            <Flex gap={""}>
-              {" "}
-              {/* 간격이 18px인 Flex 컨테이너 */}
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "26px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Flex flexDirection="column" alignItems="center">
-                  {" "}
-                  {/* 세로로 정렬된 Flex 컨테이너 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "13px" : "18px"}
-                  >
-                    천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color3}
-                    font={Fonts.Medium}
-                    size={isMobile ? "13px" : "18px"}
-                  >
-                    숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을
-                    사느니라
-                  </Text>{" "}
-                </Flex>
-                <Text
-                  color={color3}
-                  font={Fonts.Regular}
-                  size={isMobile ? "14px" : "16px"}
-                >
-                  마 13:44
-                </Text>{" "}
-                {/* 텍스트 */}
-              </Flex>
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "26px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &rdquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-          </Flex>
-        </div>
+        <HolySchoolQuoteCard
+          color={color3}
+          mobileTextSize="13px"
+          lines={[
+            "천국은 마치 밭에 감추인 보화와 같으니 사람이 이를 발견한 후",
+            "숨겨 두고 기뻐하며 돌아가서 자기의 소유를 다 팔아 그 밭을 사느니라",
+          ]}
+          reference="마 13:44"
+        />
       </Flex>
       <Spacer height={"30px"} />
 

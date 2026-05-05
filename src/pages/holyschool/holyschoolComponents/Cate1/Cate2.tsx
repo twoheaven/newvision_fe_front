@@ -9,6 +9,7 @@ import img1 from "../asset/2.기름부음학교 (1).jpg"; // "../asset/1.성경�
 import img2 from "../asset/2.기름부음학교 (2).jpg"; // "../asset/1.성경맥잡기학교 (2).jpg" 이미지를 가져옴
 import img3 from "../asset/2.기름부음학교 (3).jpg"; // "../asset/1.성경맥잡기학교 (3).jpg" 이미지를 가져옴
 import img4 from "../asset/2.기름부음학교 (4).jpg"; // "../asset/1.성경맥잡기학교 (4).jpg" 이미지를 가져옴
+import HolySchoolQuoteCard from "./HolySchoolQuoteCard";
 
 const Cate2 = () => {
   const isMobile = useIsMobile();
@@ -70,9 +71,14 @@ const Cate2 = () => {
         <Flex
           gap={"3px"}
           flexDirection={isMobile ? "column" : "row"}
-          style={{ width: isMobile ? "100%" : "auto", textAlign: isMobile ? "center" : "left" }}
+          style={{
+            width: isMobile ? "100%" : "auto",
+            textAlign: isMobile ? "center" : "left",
+          }}
         >
-          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+          <Text
+            style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+          >
             마지막 참 교회는 요엘서 예언의 성취가 온전히 이루어짐으로
           </Text>
           <Text
@@ -86,9 +92,14 @@ const Cate2 = () => {
         <Flex
           gap={"3px"}
           flexDirection={isMobile ? "column" : "row"}
-          style={{ width: isMobile ? "100%" : "auto", textAlign: isMobile ? "center" : "left" }}
+          style={{
+            width: isMobile ? "100%" : "auto",
+            textAlign: isMobile ? "center" : "left",
+          }}
         >
-          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+          <Text
+            style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+          >
             성령의 기름부음 안에서 환상과 꿈과 예언을 통한
           </Text>
           <Text
@@ -98,89 +109,24 @@ const Cate2 = () => {
           >
             예언적인 체질의 교회
           </Text>
-          <Text style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}>
+          <Text
+            style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal" }}
+          >
             가 될 것입니다.
           </Text>{" "}
         </Flex>
         <Spacer height={"60px"} /> {/* 30px 간격 */}
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "ButtonShadow",
-            boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-          }}
-        >
-          {" "}
-          {/* 너비 100%, 배경색 및 그림자 속성이 있는 div */}
-          <Flex justifyContent="center">
-            {" "}
-            {/* 가로 중앙 정렬된 Flex 컨테이너 */}
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-            <Flex gap={"18px"}>
-              {" "}
-              {/* 간격이 18px인 Flex 컨테이너 */}
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &ldquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-              <Flex flexDirection="column" alignItems="center" gap={"20px"}>
-                {" "}
-                {/* 세로로 정렬된 Flex 컨테이너 */}
-                <Flex flexDirection="column" alignItems="center">
-                  {" "}
-                  {/* 세로로 정렬된 Flex 컨테이너 */}
-                  <Text
-                    color={color1}
-                    font={Fonts.Medium}
-                    size={isMobile ? "15px" : "18px"}
-                  >
-                    오직 성령이 너희에게 임하시면 너희가 권능을 받고
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color1}
-                    font={Fonts.Medium}
-                    size={isMobile ? "15px" : "18px"}
-                  >
-                    예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                  <Text
-                    color={color1}
-                    font={Fonts.Medium}
-                    size={isMobile ? "15px" : "18px"}
-                  >
-                    내 증인이 되리라 하시니라
-                  </Text>{" "}
-                  {/* 텍스트 */}
-                </Flex>
-                <Text
-                  color={color1}
-                  font={Fonts.Regular}
-                  size={isMobile ? "14px" : "16px"}
-                >
-                  행 1:8
-                </Text>{" "}
-                {/* 텍스트 */}
-              </Flex>
-              <Text
-                color={color3}
-                font={Fonts.Bold}
-                size={isMobile ? "30px" : "40px"}
-                style={{ transform: "translateY(-14px)" }}
-              >
-                &rdquo;
-              </Text>{" "}
-              {/* 텍스트 */}
-            </Flex>
-            <Spacer height={"30px"} /> {/* 30px 간격 */}
-          </Flex>
-        </div>
+        <HolySchoolQuoteCard
+          color={color1}
+          quoteColor={color3}
+          mobileTextSize="15px"
+          lines={[
+            "오직 성령이 너희에게 임하시면 너희가 권능을 받고",
+            "예루살렘과 온 유대와 사마리아와 땅 끝까지 이르러",
+            "내 증인이 되리라 하시니라",
+          ]}
+          reference="행 1:8"
+        />
         <Spacer height={"60px"} /> {/* 80px 간격 */}
         <img
           src={img2}
@@ -253,21 +199,36 @@ const Cate2 = () => {
         {/* 이미지 표시 */}
         <Text
           size={"14px"}
-          style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal", textAlign: isMobile ? "center" : "left" }}
+          style={{
+            width: isMobile ? "100%" : "auto",
+            whiteSpace: "normal",
+            textAlign: isMobile ? "center" : "left",
+          }}
         >
-          이 수업은 은사 자체보다 은사를 주신 하나님께 인도하는 주된 목적을 가지고 있습니다.
+          이 수업은 은사 자체보다 은사를 주신 하나님께 인도하는 주된 목적을
+          가지고 있습니다.
         </Text>{" "}
         <Spacer height={"30px"} />
         <Text
           size={"14px"}
-          style={{ width: isMobile ? "100%" : "auto", whiteSpace: "normal", textAlign: isMobile ? "center" : "left" }}
+          style={{
+            width: isMobile ? "100%" : "auto",
+            whiteSpace: "normal",
+            textAlign: isMobile ? "center" : "left",
+          }}
         >
-          교회에게 주신 도구[은사]를 어떻게 활용할 것인가에 대해 배워서 은사가 영혼을 죽이는 무기가 아니라 교회에 덕을 끼치며 하나님 나라 확장의 살리는 도구가 되도록 준비시키고 훈련시키는 장이 될 것입니다.
+          교회에게 주신 도구[은사]를 어떻게 활용할 것인가에 대해 배워서 은사가
+          영혼을 죽이는 무기가 아니라 교회에 덕을 끼치며 하나님 나라 확장의
+          살리는 도구가 되도록 준비시키고 훈련시키는 장이 될 것입니다.
         </Text>{" "}
         <Spacer height={"60px"} />
         <img
           src={img4}
-          style={{ width: isMobile ? "100%" : "60%", height: "auto", objectFit: "cover" }}
+          style={{
+            width: isMobile ? "100%" : "60%",
+            height: "auto",
+            objectFit: "cover",
+          }}
         />{" "}
         {/* 이미지 표시 */}
       </Flex>

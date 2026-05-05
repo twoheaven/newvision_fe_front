@@ -1,0 +1,63 @@
+.holyschool-quote-card {
+  position: relative;
+  width: 100%;
+  min-height: 168px;
+  padding: 48px 72px 42px;
+  box-sizing: border-box;
+  background-color: ButtonShadow;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.holyschool-quote-mark {
+  position: absolute;
+  top: 30px;
+  color: var(--holyschool-quote-mark-color, #996633);
+  font-family: "Pretendard-Bold";
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.holyschool-quote-mark-left {
+  left: 18px;
+}
+
+.holyschool-quote-mark-right {
+  right: 18px;
+}
+
+.holyschool-quote-content {
+  width: 100%;
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+}
+
+@media (max-width: 650px) {
+  .holyschool-quote-card {
+    min-height: 150px;
+    padding: 46px 42px 36px;
+  }
+
+  .holyschool-quote-mark {
+    top: 30px;
+    font-size: 30px;
+  }
+
+  .holyschool-quote-mark-left {
+    left: 16px;
+  }
+
+  .holyschool-quote-mark-right {
+    right: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .holyschool-quote-card {
+    padding-right: 34px;
+    padding-left: 34px;
+  }
+}

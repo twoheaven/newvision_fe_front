@@ -1,0 +1,148 @@
+.intro-welcome-title,
+.intro-welcome-subtitle,
+.intro-welcome-slogan,
+.intro-welcome-church,
+.intro-welcome-copy {
+  letter-spacing: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  line-break: strict;
+}
+
+.intro-welcome-title {
+  margin: 0;
+  font-family: "Pretendard-Bold";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.intro-welcome-subtitle {
+  margin: 0;
+  font-family: "Pretendard-Medium";
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.intro-welcome-slogan {
+  max-width: min(100%, 19em);
+  color: #3872c6;
+  font-family: "Pretendard-Medium";
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.32;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.intro-welcome-phrase {
+  display: inline-block;
+  margin: 0 0.08em;
+}
+
+.intro-welcome-slogan strong,
+.intro-welcome-church {
+  font-family: "Pretendard-Bold";
+  font-weight: 700;
+}
+
+.intro-welcome-church {
+  margin: 0;
+  color: #3872c6;
+  font-size: 34px;
+  line-height: 1.32;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.intro-welcome-pastor-image {
+  height: auto;
+  object-fit: cover;
+}
+
+.intro-welcome-copy {
+  max-width: 640px;
+  margin: 0;
+  color: #2f343a;
+  font-family: "Pretendard-Medium";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.9;
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+}
+
+.intro-welcome-copy p {
+  margin: 0;
+}
+
+.intro-welcome-copy p + p {
+  margin-top: 1.05em;
+}
+
+@supports (overflow-wrap: anywhere) {
+  .intro-welcome-title,
+  .intro-welcome-subtitle,
+  .intro-welcome-slogan,
+  .intro-welcome-church,
+  .intro-welcome-copy {
+    overflow-wrap: anywhere;
+  }
+}
+
+@supports (word-break: auto-phrase) {
+  .intro-welcome-title,
+  .intro-welcome-subtitle,
+  .intro-welcome-slogan,
+  .intro-welcome-church {
+    word-break: auto-phrase;
+  }
+}
+
+@media (max-width: 650px) {
+  .intro-welcome-title {
+    font-size: 24px;
+  }
+
+  .intro-welcome-subtitle {
+    max-width: min(30em, calc(100vw - 40px));
+  }
+
+  .intro-welcome-slogan,
+  .intro-welcome-church {
+    max-width: min(18em, calc(100vw - 32px));
+    font-size: clamp(24px, 7.35vw, 30px);
+    line-height: 1.38;
+  }
+
+  .intro-welcome-copy {
+    max-width: min(34em, calc(100vw - 40px));
+    font-size: clamp(15px, 3.9vw, 16px);
+    line-height: 1.86;
+    text-align: center;
+  }
+
+  .intro-welcome-pastor-image {
+    max-width: min(320px, 80vw);
+  }
+}
+
+@media (max-width: 360px) {
+  .intro-welcome-phrase {
+    display: inline;
+  }
+
+  .intro-welcome-copy {
+    max-width: calc(100vw - 32px);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}

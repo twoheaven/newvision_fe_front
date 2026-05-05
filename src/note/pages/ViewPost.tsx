@@ -235,7 +235,7 @@ const ViewPost: React.FC = () => {
 
           <div
             dangerouslySetInnerHTML={{ __html: post.content }}
-            className="prose"
+            className="post-content"
             style={{
               width: "108%",
               overflow: "hidden",
@@ -243,11 +243,37 @@ const ViewPost: React.FC = () => {
           />
           <style>
             {`
-            .prose img {
+            .post-content :where(p, h1, h2, h3, h4, h5, h6, blockquote, pre) {
+              box-sizing: border-box;
+              padding-inline: clamp(16px, 4vw, 28px);
+            }
+
+            .post-content :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+              line-height: 1.75;
+              overflow-wrap: anywhere;
+              word-break: keep-all;
+            }
+
+            .post-content :where(ul, ol) {
+              box-sizing: border-box;
+              padding-left: calc(clamp(16px, 4vw, 28px) + 1.25em);
+              padding-right: clamp(16px, 4vw, 28px);
+            }
+
+            .post-content img {
+              width: 100%;
               max-width: 100%;
               height: auto;
               display: block;
               margin: 1em 0;
+            }
+
+            .post-content p:has(> img:only-child) {
+              padding-inline: 0;
+            }
+
+            .post-content p:has(> img:only-child) img {
+              margin: 0;
             }
             `}
           </style>

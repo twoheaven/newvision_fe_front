@@ -41,11 +41,12 @@ const BannerContainer = styled(Flex)`
   position: relative;
   text-align: center;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 `;
 
 const HeaderContainer = styled(Flex)<{ isMobile: boolean }>`
   position: absolute;
+  z-index: 50;
   justify-content: center;
   width: ${({ isMobile }) => (isMobile ? "100%" : "80%")};
 `;
