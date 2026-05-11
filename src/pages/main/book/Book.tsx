@@ -1,5 +1,11 @@
 import { Content, Flex, Spacer, Text } from "@dohyun-ko/react-atoms";
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -13,12 +19,22 @@ const CarouselContainer = styled.div`
   width: 100%;
   overflow: hidden;
   position: relative;
+  touch-action: pan-y;
 `;
 
-const CarouselTrack = styled.div`
+const CarouselTrack = styled.div<{
+  $isDragging: boolean;
+  $isTransitioning: boolean;
+}>`
   display: flex;
   gap: 15px;
-  transition: transform 0.8s ease-in-out;
+  cursor: ${({ $isDragging }) => ($isDragging ? "grabbing" : "grab")};
+  transition: ${({ $isTransitioning }) =>
+    $isTransitioning
+      ? "transform 0.7s cubic-bezier(0.33, 1, 0.68, 1)"
+      : "none"};
+  user-select: none;
+  will-change: transform;
 `;
 
 const BookItemWrapper = styled.div`
@@ -38,75 +54,200 @@ const BookItemWrapper = styled.div`
 const Book = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [currentTranslate, setCurrentTranslate] = useState(() => {
-    // 초기값을 음수로 설정하여 첫 책이 중앙에 위치하도록 함
-    const itemWidth = isMobile
-      ? window.innerWidth / 3.5
-      : (window.innerWidth * 0.8) / 6;
-    const gapWidth = 15;
-    return -(itemWidth + gapWidth) * 3;
-  });
-  const [boxWidth, setBoxWidth] = useState(
-    isMobile ? window.innerWidth : window.innerWidth * 0.8,
+  const getBoxWidth = useCallback(
+    () => (isMobile ? window.innerWidth : window.innerWidth * 0.8),
+    [isMobile],
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setBoxWidth(isMobile ? window.innerWidth : window.innerWidth * 0.8);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobile]);
+  const [boxWidth, setBoxWidth] = useState(getBoxWidth);
 
   const itemWidth = isMobile ? boxWidth / 3.5 : boxWidth / 6;
   const gapWidth = 15;
   const moveDistance = itemWidth + gapWidth;
   const totalDistance = moveDistance * bookdatas.length;
 
-  // 책 배열 앞뒤에 3개씩 복제본 추가 (양쪽 끝에 공간 생성)
-  const displayBooks = [
-    ...bookdatas.slice(-3),
-    ...bookdatas,
-    ...bookdatas.slice(0, 3),
-  ];
+  const [currentTranslate, setCurrentTranslate] = useState(-totalDistance);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const translateRef = useRef(currentTranslate);
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragStartTranslateRef = useRef(currentTranslate);
+  const hasDraggedRef = useRef(false);
+  const shouldBlockClickRef = useRef(false);
 
-  // 위치를 정규화: 루프 처리
-  const normalizeTranslate = (translate: number): number => {
-    // 처음 3개 복제본(-moveDistance * 3)과 끝 3개 복제본 사이에서 순환
-    if (translate <= -moveDistance * 3 - totalDistance) {
-      return translate + totalDistance;
-    }
-    if (translate > -moveDistance * 3) {
-      return translate - totalDistance;
-    }
-    return translate;
-  };
-
-  // 자동 회전 effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTranslate((prev) => {
-        let newTranslate = prev - moveDistance;
-        return normalizeTranslate(newTranslate);
-      });
-    }, 4000); // 4초마다 다음 책으로 이동
+    const handleResize = () => {
+      setBoxWidth(getBoxWidth());
+    };
 
-    return () => clearInterval(interval);
-  }, [moveDistance]);
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-  // currentTranslate 변경시 DOM 업데이트
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [getBoxWidth]);
+
+  const displayBooks = useMemo(
+    () => [...bookdatas, ...bookdatas, ...bookdatas],
+    [],
+  );
+
+  const normalizeTranslate = useCallback(
+    (translate: number): number => {
+      if (!totalDistance) {
+        return translate;
+      }
+
+      let normalizedTranslate = translate;
+
+      while (normalizedTranslate <= -totalDistance * 2) {
+        normalizedTranslate += totalDistance;
+      }
+      while (normalizedTranslate > -totalDistance) {
+        normalizedTranslate -= totalDistance;
+      }
+
+      return normalizedTranslate;
+    },
+    [totalDistance],
+  );
+
   useEffect(() => {
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${currentTranslate}px)`;
-    }
+    translateRef.current = currentTranslate;
   }, [currentTranslate]);
 
+  useEffect(() => {
+    const nextTranslate = -totalDistance;
+
+    setIsTransitioning(false);
+    translateRef.current = nextTranslate;
+    setCurrentTranslate(nextTranslate);
+
+    const frameId = window.requestAnimationFrame(() => {
+      setIsTransitioning(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [totalDistance]);
+
+  useEffect(() => {
+    if (isDragging) {
+      return undefined;
+    }
+
+    const interval = window.setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentTranslate((prev) => {
+        const nextTranslate = prev - moveDistance;
+        translateRef.current = nextTranslate;
+        return nextTranslate;
+      });
+    }, 3600);
+
+    return () => window.clearInterval(interval);
+  }, [isDragging, moveDistance]);
+
+  const handleTransitionEnd = (
+    event: React.TransitionEvent<HTMLDivElement>,
+  ) => {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+
+    const normalizedTranslate = normalizeTranslate(translateRef.current);
+
+    if (Math.abs(normalizedTranslate - translateRef.current) <= 0.5) {
+      return;
+    }
+
+    setIsTransitioning(false);
+    translateRef.current = normalizedTranslate;
+    setCurrentTranslate(normalizedTranslate);
+
+    window.requestAnimationFrame(() => {
+      setIsTransitioning(true);
+    });
+  };
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) {
+      return;
+    }
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+    isDraggingRef.current = true;
+    dragStartXRef.current = event.clientX;
+    dragStartTranslateRef.current = translateRef.current;
+    hasDraggedRef.current = false;
+    setIsDragging(true);
+    setIsTransitioning(false);
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) {
+      return;
+    }
+
+    const dragDistance = event.clientX - dragStartXRef.current;
+    const nextTranslate = normalizeTranslate(
+      dragStartTranslateRef.current + dragDistance,
+    );
+
+    if (Math.abs(dragDistance) > 6) {
+      hasDraggedRef.current = true;
+    }
+
+    if (
+      Math.abs(nextTranslate - (dragStartTranslateRef.current + dragDistance)) >
+      0.5
+    ) {
+      dragStartTranslateRef.current = nextTranslate - dragDistance;
+    }
+
+    translateRef.current = nextTranslate;
+    setCurrentTranslate(nextTranslate);
+  };
+
+  const finishDragging = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) {
+      return;
+    }
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    isDraggingRef.current = false;
+    setIsDragging(false);
+
+    if (!moveDistance) {
+      return;
+    }
+
+    if (hasDraggedRef.current) {
+      shouldBlockClickRef.current = true;
+      window.setTimeout(() => {
+        shouldBlockClickRef.current = false;
+      }, 0);
+    }
+
+    const snappedTranslate =
+      Math.round(translateRef.current / moveDistance) * moveDistance;
+
+    setIsTransitioning(true);
+    translateRef.current = snappedTranslate;
+    setCurrentTranslate(snappedTranslate);
+  };
+
   const handleBookClick = () => {
+    if (shouldBlockClickRef.current) {
+      shouldBlockClickRef.current = false;
+      return;
+    }
+
     navigate(Paths.Book);
   };
 
@@ -133,8 +274,21 @@ const Book = () => {
               justifyContent="center"
               alignItems="center"
             >
-              <CarouselContainer style={{ flex: 1 }}>
-                <CarouselTrack ref={trackRef}>
+              <CarouselContainer
+                onPointerCancel={finishDragging}
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={finishDragging}
+                style={{ flex: 1 }}
+              >
+                <CarouselTrack
+                  $isDragging={isDragging}
+                  $isTransitioning={isTransitioning}
+                  onTransitionEnd={handleTransitionEnd}
+                  style={{
+                    transform: `translateX(${currentTranslate}px)`,
+                  }}
+                >
                   {displayBooks.map((book, index) => (
                     <BookItemWrapper
                       key={index}
@@ -154,6 +308,7 @@ const Book = () => {
                         }}
                       >
                         <img
+                          draggable={false}
                           style={{
                             width: "100%",
                             aspectRatio: "3 / 4",
