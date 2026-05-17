@@ -89,6 +89,12 @@ const StyledText = styled(Text)`
   color: white;
 `;
 
+const LogoImage = styled.img`
+  display: block;
+  width: 108px;
+  height: auto;
+`;
+
 const MobileHeader2 = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -98,7 +104,7 @@ const MobileHeader2 = () => {
       <StyledFlexContainer justifyContent="space-between" alignItems="center">
         <Flex>
           <WrapperLink to={Paths.Main}>
-            <img src={Logo} alt={"logo"} width={"75px"} />
+            <LogoImage src={Logo} alt={"logo"} />
           </WrapperLink>
         </Flex>
         <MenuButton

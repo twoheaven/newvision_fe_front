@@ -73,7 +73,14 @@ const Book = () => {
   const dragStartXRef = useRef(0);
   const dragStartTranslateRef = useRef(currentTranslate);
   const hasDraggedRef = useRef(false);
-  const shouldBlockClickRef = useRef(false);
+  const pressedBookLabelRef = useRef<string | null>(null);
+
+  const navigateToBookDetail = useCallback(
+    (label1: string) => {
+      navigate(`${Paths.Book}/${encodeURIComponent(label1)}`);
+    },
+    [navigate],
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -178,6 +185,12 @@ const Book = () => {
     }
 
     event.currentTarget.setPointerCapture(event.pointerId);
+    const pressedBookElement =
+      event.target instanceof Element
+        ? (event.target.closest("[data-book-label]") as HTMLElement | null)
+        : null;
+
+    pressedBookLabelRef.current = pressedBookElement?.dataset.bookLabel ?? null;
     isDraggingRef.current = true;
     dragStartXRef.current = event.clientX;
     dragStartTranslateRef.current = translateRef.current;
@@ -222,16 +235,12 @@ const Book = () => {
 
     isDraggingRef.current = false;
     setIsDragging(false);
+    const didDrag = hasDraggedRef.current;
+    const pressedBookLabel = pressedBookLabelRef.current;
+    pressedBookLabelRef.current = null;
 
     if (!moveDistance) {
       return;
-    }
-
-    if (hasDraggedRef.current) {
-      shouldBlockClickRef.current = true;
-      window.setTimeout(() => {
-        shouldBlockClickRef.current = false;
-      }, 0);
     }
 
     const snappedTranslate =
@@ -240,15 +249,22 @@ const Book = () => {
     setIsTransitioning(true);
     translateRef.current = snappedTranslate;
     setCurrentTranslate(snappedTranslate);
+
+    if (event.type === "pointerup" && !didDrag && pressedBookLabel) {
+      navigateToBookDetail(pressedBookLabel);
+    }
   };
 
-  const handleBookClick = () => {
-    if (shouldBlockClickRef.current) {
-      shouldBlockClickRef.current = false;
+  const handleBookKeyDown = (
+    event: React.KeyboardEvent<HTMLDivElement>,
+    label1: string,
+  ) => {
+    if (event.key !== "Enter" && event.key !== " ") {
       return;
     }
 
-    navigate(Paths.Book);
+    event.preventDefault();
+    navigateToBookDetail(label1);
   };
 
   return (
@@ -292,12 +308,17 @@ const Book = () => {
                   {displayBooks.map((book, index) => (
                     <BookItemWrapper
                       key={index}
-                      onClick={handleBookClick}
+                      data-book-label={book.label1}
+                      onKeyDown={(event) =>
+                        handleBookKeyDown(event, book.label1)
+                      }
+                      role="link"
                       style={{
                         width: isMobile
                           ? `${boxWidth / 3.5}px`
                           : `${boxWidth / 6}px`,
                       }}
+                      tabIndex={0}
                     >
                       <Flex
                         flexDirection="column"

@@ -10,8 +10,13 @@ import useIsMobile from "@/hooks/useIsMobile";
 import Header2Provider from "@/layout/Header2Provider";
 import { auth } from "@/note/firebase/config";
 
+import {
+  deleteMainBanner,
+  fetchMainBanners,
+  MainBannerItem,
+  uploadMainBanner,
+} from "./bannerService";
 import BannerSlider from "./BannerSlider";
-import { MainBannerItem, deleteMainBanner, fetchMainBanners, uploadMainBanner } from "./bannerService";
 
 const LoadingContainer = styled.div`
   width: 100%;
@@ -126,7 +131,10 @@ const NewBannerSection = () => {
       setSuccessMessage("메인 배너가 추가되었습니다.");
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "배너 업로드 중 오류가 발생했습니다.";
+      const message =
+        error instanceof Error
+          ? error.message
+          : "배너 업로드 중 오류가 발생했습니다.";
       setErrorMessage(message);
     } finally {
       setIsSaving(false);
@@ -149,7 +157,10 @@ const NewBannerSection = () => {
       setSuccessMessage("메인 배너가 삭제되었습니다.");
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "배너 삭제 중 오류가 발생했습니다.";
+      const message =
+        error instanceof Error
+          ? error.message
+          : "배너 삭제 중 오류가 발생했습니다.";
       setErrorMessage(message);
     } finally {
       setIsSaving(false);
@@ -186,12 +197,18 @@ const NewBannerSection = () => {
                 value={bannerTitle}
                 onChange={(event) => setBannerTitle(event.target.value)}
                 placeholder="배너 제목"
-                style={{ border: "1px solid #d1d5db", borderRadius: "6px", padding: "6px 8px" }}
+                style={{
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  padding: "6px 8px",
+                }}
               />
               <input
                 type="file"
                 accept="image/*"
-                onChange={(event) => setBannerFile(event.target.files?.[0] ?? null)}
+                onChange={(event) =>
+                  setBannerFile(event.target.files?.[0] ?? null)
+                }
               />
               <button
                 type="button"
@@ -216,7 +233,11 @@ const NewBannerSection = () => {
                 <Skeleton width="60%" height="20px" />
               </LoadingContainer>
             ) : (
-              <BannerSlider banners={banners} isAdmin={Boolean(user)} onDeleteBanner={onDeleteBanner} />
+              <BannerSlider
+                banners={banners}
+                isAdmin={Boolean(user)}
+                onDeleteBanner={onDeleteBanner}
+              />
             )}
           </div>
 
@@ -228,7 +249,12 @@ const NewBannerSection = () => {
       </Flex>
       {(errorMessage || successMessage) && (
         <Flex justifyContent="center" style={{ marginTop: "8px" }}>
-          <span style={{ color: errorMessage ? "#dc2626" : "#16a34a", fontSize: "14px" }}>
+          <span
+            style={{
+              color: errorMessage ? "#dc2626" : "#16a34a",
+              fontSize: "14px",
+            }}
+          >
             {errorMessage || successMessage}
           </span>
         </Flex>

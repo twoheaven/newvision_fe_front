@@ -10,6 +10,7 @@ import Fonts from "@/styles/fonts";
 
 import {
   ChurchAlbumItem,
+  deleteChurchAlbum,
   fetchAlbumsPage,
   uploadChurchAlbum,
 } from "./churchAlbumService";
@@ -32,6 +33,7 @@ const ChurchAlbumPage = () => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [deletingAlbumId, setDeletingAlbumId] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -88,6 +90,8 @@ const ChurchAlbumPage = () => {
     setCursorHistory([null]);
     setPage(1);
     loadPage(1);
+    // loadPage intentionally uses the cursorHistory from this render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authReady, user]);
 
   const onChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
@@ -161,6 +165,45 @@ const ChurchAlbumPage = () => {
       }
     } finally {
       setUploading(false);
+    }
+  };
+
+  const onDeleteAlbum = async (id: string) => {
+    if (!user) {
+      setErrorMessage("로그인한 사용자만 교회 앨범을 삭제할 수 있습니다.");
+      return;
+    }
+
+    const ok = window.confirm("선택한 교회 앨범을 삭제하시겠습니까?");
+    if (!ok) return;
+
+    try {
+      setDeletingAlbumId(id);
+      setErrorMessage("");
+      setSuccessMessage("");
+      await deleteChurchAlbum(id);
+      setCursorHistory([null]);
+      setPage(1);
+      await loadPage(1);
+      setSuccessMessage("교회 앨범이 삭제되었습니다.");
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    } catch (error) {
+      console.error(error);
+      const code = (error as { code?: string })?.code;
+      const message = error instanceof Error ? error.message : "";
+      if (code === "permission-denied") {
+        setErrorMessage(
+          "삭제 권한이 없습니다. Firebase Firestore 규칙을 확인해주세요.",
+        );
+      } else if (message) {
+        setErrorMessage(message);
+      } else {
+        setErrorMessage("삭제 중 오류가 발생했습니다.");
+      }
+    } finally {
+      setDeletingAlbumId(null);
     }
   };
 
@@ -258,7 +301,36 @@ const ChurchAlbumPage = () => {
               }}
             >
               {albums.map((album) => (
-                <div key={album.id} style={{ border: "1px solid #e5e7eb" }}>
+                <div
+                  key={album.id}
+                  style={{
+                    border: "1px solid #e5e7eb",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {user && (
+                    <button
+                      type="button"
+                      onClick={() => onDeleteAlbum(album.id)}
+                      disabled={deletingAlbumId !== null}
+                      aria-label={`${album.title} 삭제`}
+                      style={{
+                        position: "absolute",
+                        top: "8px",
+                        right: "8px",
+                        zIndex: 1,
+                        border: "none",
+                        borderRadius: "6px",
+                        padding: "6px 10px",
+                        backgroundColor: "rgba(17, 24, 39, 0.86)",
+                        color: "#fff",
+                        cursor: deletingAlbumId ? "default" : "pointer",
+                      }}
+                    >
+                      {deletingAlbumId === album.id ? "삭제 중..." : "삭제"}
+                    </button>
+                  )}
                   <img
                     src={album.imageUrl}
                     alt={album.title}

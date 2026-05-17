@@ -8,10 +8,10 @@ import OptimizedImage from "@/components/common/OptimizedImage";
 import { LAYOUT } from "@/constants/layout";
 import useIsMobile from "@/hooks/useIsMobile";
 
-import { MainBannerItem } from "./bannerService";
 import mainImg1 from "./assets/main1.jpg";
 import mainImg2 from "./assets/main2.jpg";
 import mainImg3 from "./assets/main3.jpg";
+import { MainBannerItem } from "./bannerService";
 
 const images = [mainImg1, mainImg2, mainImg3];
 

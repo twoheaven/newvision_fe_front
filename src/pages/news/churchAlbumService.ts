@@ -1,12 +1,14 @@
 import {
-  DocumentData,
-  QueryDocumentSnapshot,
   addDoc,
   collection,
+  deleteDoc,
+  doc,
+  DocumentData,
   getDocs,
   limit,
   orderBy,
   query,
+  QueryDocumentSnapshot,
   serverTimestamp,
   startAfter,
   where,
@@ -51,7 +53,7 @@ export const fetchAlbumsPage = async ({ cursor = null }: FetchAlbumsParams) => {
       ({
         id: docSnap.id,
         ...docSnap.data(),
-      }) as ChurchAlbumItem,
+      } as ChurchAlbumItem),
   );
 
   const lastDoc = snap.docs[snap.docs.length - 1] ?? null;
@@ -84,7 +86,9 @@ export const uploadChurchAlbum = async (title: string, file: File) => {
   }
 
   if (!IMGBB_API_KEY) {
-    throw new Error("ImgBB API 키가 없습니다. .env의 VITE_IMGBB_API_KEY를 확인해주세요.");
+    throw new Error(
+      "ImgBB API 키가 없습니다. .env의 VITE_IMGBB_API_KEY를 확인해주세요.",
+    );
   }
 
   const formData = new FormData();
@@ -123,4 +127,13 @@ export const uploadChurchAlbum = async (title: string, file: File) => {
     createdByUid: currentUser.uid,
     createdByEmail: currentUser.email ?? "",
   });
+};
+
+export const deleteChurchAlbum = async (id: string) => {
+  const currentUser = auth.currentUser;
+  if (!currentUser) {
+    throw new Error("로그인한 사용자만 교회 앨범을 삭제할 수 있습니다.");
+  }
+
+  await deleteDoc(doc(db, COLLECTION_NAME, id));
 };

@@ -15,7 +15,6 @@ import Category3Component from "./introComponents/IntroCategory3";
 import Category4Component from "./introComponents/IntroCategory4";
 import Category5Component from "./introComponents/IntroCategory5";
 import Category6Component from "./introComponents/IntroCategory6";
-import Category7Component from "./introComponents/IntroCategory7";
 
 const categories = [
   { name: "환영합니다", component: Category1Component },
@@ -24,7 +23,6 @@ const categories = [
   { name: "예배/모임", component: Category4Component },
   { name: "오시는길", component: Category5Component },
   { name: "새가족안내", component: Category6Component },
-  { name: "자주묻는질문", component: Category7Component },
 ];
 
 const IntroducePage = () => {
@@ -39,7 +37,7 @@ const IntroducePage = () => {
     if (category === "worship") return 3; // 예배/모임
     if (category === "offering") return 3; // 예배/모임의 헌금 정보
     if (category === "location") return 4; // 오시는 길
-    return visit1;
+    return typeof visit1 === "number" && categories[visit1] ? visit1 : 0;
   };
 
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(

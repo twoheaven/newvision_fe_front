@@ -1,12 +1,13 @@
+import { onAuthStateChanged, User } from "firebase/auth";
 import {
   createContext,
+  ReactNode,
   useContext,
   useEffect,
   useState,
-  ReactNode,
-} from 'react';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { auth } from '../firebase/config'; // Firebase 초기화 위치에 맞게 경로 수정
+} from "react";
+
+import { auth } from "../firebase/config"; // Firebase 초기화 위치에 맞게 경로 수정
 
 type AuthContextType = {
   user: User | null;

@@ -58,7 +58,6 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   const [category, setCategory] = useState(
     initialCategory || (initialIsNotice ? "notice" : "notice"),
   );
-  const isNotice = category === "notice";
   const navigate = useNavigate();
 
   const editor = useEditor({

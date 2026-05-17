@@ -50,7 +50,7 @@ export const fetchMainBanners = async () => {
       ({
         id: docSnap.id,
         ...docSnap.data(),
-      }) as MainBannerItem,
+      } as MainBannerItem),
   );
 
   return items.sort(
@@ -65,7 +65,9 @@ export const uploadMainBanner = async (title: string, file: File) => {
   }
 
   if (!IMGBB_API_KEY) {
-    throw new Error("ImgBB API 키가 없습니다. .env의 VITE_IMGBB_API_KEY를 확인해주세요.");
+    throw new Error(
+      "ImgBB API 키가 없습니다. .env의 VITE_IMGBB_API_KEY를 확인해주세요.",
+    );
   }
 
   const formData = new FormData();

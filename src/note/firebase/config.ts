@@ -17,7 +17,9 @@ import { getStorage } from "firebase/storage";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID;
 const storageBucketFromEnv = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET;
-const fallbackStorageBucket = projectId ? `${projectId}.appspot.com` : undefined;
+const fallbackStorageBucket = projectId
+  ? `${projectId}.appspot.com`
+  : undefined;
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
