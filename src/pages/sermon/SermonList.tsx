@@ -10,6 +10,43 @@ interface Sermon {
   preacher?: string;
 }
 
+type PaginationItem = number | "start-ellipsis" | "end-ellipsis";
+
+const getPaginationItems = (
+  currentPage: number,
+  totalPages: number,
+): PaginationItem[] => {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  if (currentPage <= 4) {
+    return [1, 2, 3, 4, 5, "end-ellipsis", totalPages];
+  }
+
+  if (currentPage >= totalPages - 3) {
+    return [
+      1,
+      "start-ellipsis",
+      totalPages - 4,
+      totalPages - 3,
+      totalPages - 2,
+      totalPages - 1,
+      totalPages,
+    ];
+  }
+
+  return [
+    1,
+    "start-ellipsis",
+    currentPage - 1,
+    currentPage,
+    currentPage + 1,
+    "end-ellipsis",
+    totalPages,
+  ];
+};
+
 function SermonList() {
   const [sermons, setSermons] = useState<Sermon[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -45,19 +82,15 @@ function SermonList() {
   }
 
   // 페이지네이션 로직
+  const totalPages = Math.max(1, Math.ceil(sermons.length / sermonPerPage));
   const indexOfLastSermon = currentPage * sermonPerPage;
   const indexOfFirstSermon = indexOfLastSermon - sermonPerPage;
   const currentSermons = sermons.slice(indexOfFirstSermon, indexOfLastSermon);
+  const paginationItems = getPaginationItems(currentPage, totalPages);
 
   const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+    setCurrentPage(Math.min(Math.max(pageNumber, 1), totalPages));
   };
-
-  // 페이지네이션 버튼 생성
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(sermons.length / sermonPerPage); i++) {
-    pageNumbers.push(i);
-  }
 
   return (
     <>
@@ -66,6 +99,75 @@ function SermonList() {
           @media (max-width: 768px) {
             .sermon-date, .sermon-preacher {
               display: none;
+            }
+          }
+
+          .sermon-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 28px;
+          }
+
+          .sermon-pagination__button,
+          .sermon-pagination__ellipsis {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1;
+          }
+
+          .sermon-pagination__button {
+            border: 1px solid #d7dfec;
+            background: #ffffff;
+            color: #3f4b5f;
+            cursor: pointer;
+            transition:
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+          }
+
+          .sermon-pagination__button:hover:not(:disabled) {
+            border-color: #1877f2;
+            background: #eef5ff;
+            color: #1877f2;
+          }
+
+          .sermon-pagination__button:disabled {
+            opacity: 0.38;
+            cursor: not-allowed;
+          }
+
+          .sermon-pagination__button--active {
+            border-color: #1877f2;
+            background: #1877f2;
+            color: #ffffff;
+            box-shadow: 0 6px 14px rgba(24, 119, 242, 0.18);
+          }
+
+          .sermon-pagination__ellipsis {
+            color: #8792a2;
+            user-select: none;
+          }
+
+          @media (max-width: 480px) {
+            .sermon-pagination {
+              gap: 4px;
+            }
+
+            .sermon-pagination__button,
+            .sermon-pagination__ellipsis {
+              width: 34px;
+              height: 34px;
+              font-size: 13px;
             }
           }
         `}
@@ -232,40 +334,56 @@ function SermonList() {
         </table>
 
         {/* 페이지네이션 */}
-        <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <nav className="sermon-pagination" aria-label="설교 페이지 이동">
           <button
+            type="button"
+            aria-label="이전 페이지"
+            title="이전 페이지"
+            className="sermon-pagination__button"
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            style={{ padding: "5px 10px", margin: "0 5px" }}
           >
-            이전
+            &lt;
           </button>
 
-          {/* 페이지 번호 버튼 추가 */}
-          {pageNumbers.map((number) => (
-            <button
-              key={number}
-              onClick={() => paginate(number)}
-              style={{
-                padding: "5px 10px",
-                margin: "0 5px",
-                backgroundColor: currentPage === number ? "#007bff" : "#f0f0f0",
-                color: currentPage === number ? "#fff" : "#000",
-                border: "1px solid #ccc",
-              }}
-            >
-              {number}
-            </button>
-          ))}
+          {paginationItems.map((item) =>
+            typeof item === "number" ? (
+              <button
+                key={item}
+                type="button"
+                className={`sermon-pagination__button${
+                  currentPage === item
+                    ? " sermon-pagination__button--active"
+                    : ""
+                }`}
+                aria-label={`${item} 페이지로 이동`}
+                aria-current={currentPage === item ? "page" : undefined}
+                onClick={() => paginate(item)}
+              >
+                {item}
+              </button>
+            ) : (
+              <span
+                key={item}
+                className="sermon-pagination__ellipsis"
+                aria-hidden="true"
+              >
+                ...
+              </span>
+            ),
+          )}
 
           <button
+            type="button"
+            aria-label="다음 페이지"
+            title="다음 페이지"
+            className="sermon-pagination__button"
             onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === pageNumbers.length}
-            style={{ padding: "5px 10px", margin: "0 5px" }}
+            disabled={currentPage === totalPages}
           >
-            다음
+            &gt;
           </button>
-        </div>
+        </nav>
       </div>
     </>
   );
